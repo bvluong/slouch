@@ -8,7 +8,7 @@
  - HomeNav
   + demo
   + login
-  + sign up
+  + signup
 
 **ChannelBrowseContainer**
   - ChannelBrowseIndex
@@ -63,7 +63,7 @@
 
 |Path   | Component   |
 |-------|-------------|
-| "/sign-up" | "AuthFormContainer" |
-| "/sign-in" | "AuthFormContainer" |
+| "/signup" | "AuthFormContainer" |
+| "/login" | "AuthFormContainer" |
 | "/home" | "HomeContainer" |
 | "/main" | "MainApp" |
