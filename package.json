@@ -7,8 +7,8 @@
     "test": "test"
   },
   "engines": {
-    "node": "6.2.1",
-    "npm": "3.9.3"
+    "node": "6.10.0",
+    "npm": "3.10.10"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
