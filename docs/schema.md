@@ -13,8 +13,8 @@ image_url       | string    | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-title       | string    | not null
 body        | text      | not null
+channel_id  | string    | not null
 user_id     | integer   | not null, foreign key
 
 ## channels
@@ -23,6 +23,7 @@ column name | data type | details
 id          | integer   | not null
 name        | string    | not null, indexed, unique
 description | string    | not null
+private     | boolean   | not null, default: false
 
 ## subscription
 column name | data type | details
