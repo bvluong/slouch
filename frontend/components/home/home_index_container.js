@@ -7,4 +7,4 @@ const mapDispatchToState = dispatch => ({
   signin: user => dispatch(signin(user))
 });
 
-export default (null,mapDispatchToState)(HomeIndex);
+export default connect(null,mapDispatchToState)(HomeIndex);
