@@ -24,9 +24,9 @@ class SessionForm extends React.Component {
     const { formType } = this.props;
     const header = (formType==="login") ? "Please Login" : "Create An Account";
     return (
-      <div className="account-form">
+      <div className="home-form">
         <h1>{header}</h1>
-        <form onSubmit={this.submitHandler}>
+        <form onSubmit={this.submitHandler} >
           <input type="text" placeholder="username" onChange={
               this.updateHandler("username")
             }/>
