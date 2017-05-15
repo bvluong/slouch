@@ -37,32 +37,30 @@ sufficient CSS styling:
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and Front End User Authentication (2 days)
+### Phase 1: Backend setup and Front End User Authentication (1 day)
 
 **Objective:** Functioning rails project with front-end Authentication
 
-### Phase 2:
+### Phase 2: Login and Sign Up Forms (1 day)
 
-**Objective:**
+**Objective:** Create forms that allow users to create new accounts and login.
 
-### Phase 3:
+### Phase 3: Channels backend and frontend (2 day)
 
-**Objective:**
+**Objective:** Channels will return a list of members and users can join channels. Create Main Navigation bar that displays the channels that user is subscribed to.
 
-### Phase 4:
+### Phase 4: Messages backend and frontend (3 days)
 
-**Objective:**
+**Objective:** Channels can request all the messages related to the channel. Create main chat block that renders all messages for specific channel. Implement websockets to allow for real-time chat.
 
-### Phase 5:
+### Phase 5: Direct Messaging and allow users to create channel(2 day)
 
-**Objective:**
+**Objective:** Split up the direct messages from the public channels. Allow users to create a private and public channel.
 
-### Phase 6: -
+### Phase 6: - Styling
 
-**Objective:**
+**Objective:** Add avatars, seed data, and clean up the html/css.
 
 ### Bonus Features (TBD)
 - [ ] Add in Emojis
-- [ ] Add a moving splash page
-- [ ]
-- [ ]
+- [ ] Add moving splash page
