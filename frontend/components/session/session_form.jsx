@@ -23,7 +23,7 @@ class SessionForm extends React.Component {
   render() {
     const { formType } = this.props;
     const { username, password } = this.state;
-    const header = (formType==="login") ? "Sign in to Slouch" : "Create a new account";
+    const header = (formType==="login") ? "Enter the Slouch" : "Create a Slouch";
     return (
       <div className="home-form">
         <h1>{header}</h1>
@@ -37,7 +37,7 @@ class SessionForm extends React.Component {
             onChange={this.updateHandler("password")}
             value={ password }
             />
-          <input id="submit-button" type="submit" value={"Submit"}/>
+          <input id="submit-button" className=".home-button" type="submit" value="Continue ->"/>
         </form>
       </div>
     );

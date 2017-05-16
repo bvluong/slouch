@@ -9,8 +9,8 @@ class HomeIndex extends React.Component {
     <div className="home-index" >
       <HomeHeader/>
       <div>
-        <video poster="http://i.imgur.com/eZuPUvG.pngs" id="bgvid" muted loop>
-          <source src="http://i.imgur.com/eZuPUvG.mp4" type="video/mp4"/>
+        <video poster="assets/neon_rain.png" id="bgvid" muted autoPlay loop>
+          <source src="assets/neon_rain2.mp4" type="video/mp4" autoPlay/>
         </video>
       </div>
     </div>

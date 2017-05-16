@@ -13,15 +13,15 @@ class HomeNav extends React.Component {
     console.log(this.props);
     return(
     <div className="home-nav" >
-      <button onClick={this.demoHandler.bind(this)}
+      <button className="home-button" onClick={this.demoHandler.bind(this)}
         type="button">Demo</button>
 
       <Link to="/login">
-        <button type="button">Login</button>
+        <button type="button" className="home-button">Login</button>
       </Link>
 
       <Link to="/signup">
-        <button type="button">Sign Up</button>
+        <button type="button" className="home-button">Sign Up</button>
       </Link>
 
     </div>

@@ -1,7 +1,8 @@
 .home-form {
-  position:absolute;
-  top: 25%;
-  left: 40%;
+  position:relative;
+  margin: 10% auto;
+  width: 30%;
+  // left: ;
   color: white;
 }
 
@@ -12,20 +13,31 @@
 }
 
 .home-form h1 {
+  font-size: 250%;
   text-align: center;
+  color: #228DFF;
+  text-shadow: 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff00de , 0 0 70px #ff00de , 0 0 80px #ff00de , 0 0 100px #ff00de ;
+
 }
 
 .home-form form input {
-  padding: 15px 50px;
-  font-size: 20px;
+  padding: 1.5%;
+  font-size: 100%;
   margin: 10px;
   border-radius: 20px;
   padding-left: 10px;
   color: black;
 }
 
-#submit-button {
-  padding: 15px 50px;
-  color: #f5f5dc;
-  background: #64909c;
+.home-form #submit-button {
+  background: transparent;
+  color: #228DFF;
+  font-size: 200%;
+  font-weight: bold;
+  text-shadow: 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff00de , 0 0 70px #ff00de , 0 0 80px #ff00de , 0 0 100px #ff00de ;
+}
+
+.home-form #submit-button:hover {
+  border: 2px solid rgba(255,255,255,1);
+  cursor: pointer;
 }
