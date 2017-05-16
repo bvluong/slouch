@@ -4,6 +4,10 @@
     currentUser: {
       id: 1,
       username: "bryantluong"
+      channels: [
+        { id:1, name: "pets"},
+        { id:2, private: false}
+      ]
     }
     errors: []
   },

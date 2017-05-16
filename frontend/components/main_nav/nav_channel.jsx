@@ -7,12 +7,13 @@ class NavChannel extends React.Component {
   }
 
   render() {
-    const { channels } = this.props;
-    const channel_names = channels.map(
+    const { channels, userChannels } = this.props;
+    const channel_names = userChannels.map(
       channel => <li key={channel.id}># {channel.name}</li>);
+    console.log(channel_names);
     return (
       <div className="nav-channels">
-        <h2> Channels </h2>
+        <h2> Channels({channels.length})</h2>
         <ul className="all-channels">
           {channel_names}
         </ul>

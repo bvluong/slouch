@@ -4,7 +4,8 @@ import { selectAllChannels } from '../../reducers/selector';
 import NavChannel from './nav_channel';
 
 const mapStateToProps = (state) => ({
-  channels: selectAllChannels(state)
+  channels: selectAllChannels(state),
+  userChannels: (state.session.currentUser.channels || [] )
 });
 
 const mapDispatchToProps = (dispatch) => ({
