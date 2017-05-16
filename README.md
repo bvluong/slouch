@@ -4,7 +4,7 @@
 
 [Trello link][trello]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://dry-brook-85621.herokuapp.com/#/
 [trello]: https://trello.com/b/RFTgmfpn/slouch
 
 ## Minimum Viable Product
