@@ -8,15 +8,15 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(@user)
-      render "api/users/show"
+      render :show
     else
       render json: @user.errors.full_messages, status: 422
     end
   end
 
   def show
-    @user = User.find_by(params[:id])
-    render json: @user
+    @user = User.includes(:channels).find(params[:id])
+    render :show
   end
 
   private
