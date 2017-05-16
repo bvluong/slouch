@@ -7,9 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
 
   //  testing
-  window.login = login;
-  window.signup = signup;
-  window.logout = logout;
+  window.fetchChannels = fetchChannels;
 
   let store;
   if (window.currentUser) {
@@ -25,4 +23,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //testing
-import { login, signup, logout } from './actions/session_actions';
+import { fetchChannels } from './actions/channel_actions';

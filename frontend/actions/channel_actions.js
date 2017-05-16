@@ -9,5 +9,5 @@ export const receiveChannels = channels => ({
 
 export const fetchChannels = () => dispatch => (
   ChannelAPIUtil.fetchChannels()
-  .then(channels => dispatch(fetchChannels(channels)))
+  .then(channels => dispatch(receiveChannels(channels)))
 );
