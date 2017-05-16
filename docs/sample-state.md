@@ -37,10 +37,6 @@
       name: "main channel",
       description: "talk about anything",
       private: true,
-      members: [
-        { id: 1, username: "bryantluong"},
-        { id: 2, username: "daviddobrynin"}
-      ]
     }
   }
 
