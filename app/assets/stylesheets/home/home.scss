@@ -15,6 +15,7 @@
   font-size: 30px;
   text-transform: uppercase;
   font-weight: bold;
+  color: #f5f5dc;
 }
 
 .home-header {
@@ -28,7 +29,8 @@
   padding: 12px 15px;
   margin: 5px;
   border-radius: 10px;
-  background: white;
+  text-transform: uppercase;
+  font-size: 16px;
 }
 
 .home-nav button:hover {
@@ -38,7 +40,7 @@
 
 video {
     position: fixed;
-    top: 9%;
+    top: 10%;
     left: 0%;
     min-width: 100%;
     min-height:75%;
