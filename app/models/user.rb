@@ -18,6 +18,9 @@ class User < ApplicationRecord
 
   attr_reader :password
 
+  has_many :subscriptions
+  has_many :channels, through: :subscriptions
+
   def self.generate_token
     SecureRandom.urlsafe_base64(16)
   end
