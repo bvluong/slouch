@@ -1,13 +1,16 @@
-html {
+html, body, main {
   height: 100%;
 }
 
 .main-nav {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-start;
   width: 20%;
   height: 100%;
   border: 1px solid black;
+  background: #4D394B;
+  color: #fff;
+
 }

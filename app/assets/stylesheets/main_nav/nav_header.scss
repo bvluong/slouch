@@ -1,0 +1,26 @@
+.nav-header {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.nav-header-logo{
+  display: flex;
+  align-items: center;
+}
+
+.main-logo {
+  width: 15%;
+  height: 15%;
+}
+
+.nav-header-logo span {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  font-family: Vampiro One;
+  padding-left: 10px;
+}
+
+.nav-header:hover {
+  background: #352734;
+}

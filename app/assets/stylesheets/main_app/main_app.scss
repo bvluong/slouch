@@ -1,5 +1,8 @@
 
 .main-app {
-  display: flex;
   height: 100%;
+}
+
+#root > div {
+  height: 100%
 }
