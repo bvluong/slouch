@@ -12,6 +12,7 @@ class NavChannel extends React.Component {
       channel => <li key={channel.id}>{channel.name}</li>);
     return (
       <div className="nav-channels">
+        <h2> Channels </h2>
         <ul className="all-channels">
           {channel_names}
         </ul>

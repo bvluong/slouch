@@ -1,11 +1,11 @@
 import React from 'react';
-import MainNavComponent from '../main_nav/main_nav_container';
+import MainNav from '../main_nav/main_nav';
 
 class MainApp extends React.Component {
   render() {
     return (
     <div className="main-app">
-      <MainNavComponent/>
+      <MainNav/>
     </div>
   );}
 }

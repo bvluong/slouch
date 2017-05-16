@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //  testing
   window.fetchChannels = fetchChannels;
+  window.logout = logout;
 
   let store;
   if (window.currentUser) {
@@ -19,8 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   window.store = store;
 
+
   ReactDOM.render(<Root store={store}/>, root);
 });
 
 //testing
 import { fetchChannels } from './actions/channel_actions';
+import { logout } from './actions/session_actions';
