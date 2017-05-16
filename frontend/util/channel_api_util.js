@@ -1,6 +1,6 @@
 export const fetchChannels = () => (
   $.ajax({
     method: "GET",
-    url: "spi/channels"
+    url: "api/channels"
   })
 );
