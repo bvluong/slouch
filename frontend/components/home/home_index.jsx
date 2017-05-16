@@ -10,7 +10,7 @@ class HomeIndex extends React.Component {
       <HomeHeader/>
       <div>
         <video poster="assets/neon_rain.png" id="bgvid" muted autoPlay loop>
-          <source src="assets/neon_rain2.mp4" type="video/mp4" autoPlay/>
+          <source src="assets/neon_rain.mp4" type="video/mp4" autoPlay/>
         </video>
       </div>
     </div>
