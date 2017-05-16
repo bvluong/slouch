@@ -28,6 +28,7 @@
 - `GET /api/channels/:id`
   -return list of members
 - `POST /api/channels`
+- `DELETE /api/channels/:id`
 
 ### Messages
 
