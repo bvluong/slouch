@@ -1,4 +1,5 @@
 import React from 'react';
+import HomeHeader from './home_header';
 
 class HomeIndex extends React.Component {
 
@@ -6,7 +7,8 @@ class HomeIndex extends React.Component {
 
     return(
     <div className="home-index" >
-      Home Index
+      <HomeHeader/>
+      
     </div>
   );}
 }
