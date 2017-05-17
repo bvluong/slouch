@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //  testing
   window.fetchChannels = fetchChannels;
+  window.fetchChannel = fetchChannel;
   window.logout = logout;
 
   let store;
@@ -25,5 +26,5 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //testing
-import { fetchChannels } from './actions/channel_actions';
+import { fetchChannels, fetchChannel } from './actions/channel_actions';
 import { logout } from './actions/session_actions';

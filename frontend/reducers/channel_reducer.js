@@ -1,11 +1,19 @@
-import { RECEIVE_CHANNELS } from '../actions/channel_actions';
+import { RECEIVE_CHANNEL } from '../actions/channel_actions';
 import { merge } from 'lodash';
 
-const channelReducer = (state = {}, action) => {
+const defaultState = {
+  name: "",
+  description: "",
+  private: false,
+  users: []
+};
+
+const channelReducer = (state = defaultState, action) => {
   Object.freeze(state);
+  console.log(action);
   switch (action.type) {
-    case RECEIVE_CHANNELS:
-      return action.channels;
+    case RECEIVE_CHANNEL:
+      return merge({}, state, action.channel );
     default:
       return state;
   }

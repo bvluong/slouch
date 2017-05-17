@@ -4,7 +4,8 @@ class Api::ChannelsController < ApplicationController
   end
 
   def show
-    @channel = Channel.find(params[:id])
+    @channel = Channel.includes(:users).find(params[:id])
+    render :show
   end
 
   def create

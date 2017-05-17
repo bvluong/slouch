@@ -4,3 +4,10 @@ export const fetchChannels = () => (
     url: "api/channels"
   })
 );
+
+export const fetchChannel = (id) => (
+  $.ajax({
+    method: "GET",
+    url: `api/channels/${id}`
+  })
+);
