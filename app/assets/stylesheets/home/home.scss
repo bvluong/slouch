@@ -1,3 +1,7 @@
+.home-index {
+  color: #252839;
+}
+
 .logo {
   width: 40px;
   height: 40px;
@@ -14,8 +18,8 @@
   font-size: 20px;
   text-transform: uppercase;
   font-weight: bold;
-  color: white;
   font-family: Iceland;
+  color: #fae596
 }
 
 .home-header {
@@ -23,6 +27,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background: rgba(255,255,255,0.1);
 }
 
 .home-nav button {
@@ -54,14 +59,13 @@ video {
 }
 
 .home-button, #submit-button {
-    background: #daad86;
+    background: #fae596;
     display: inline-block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 10px;
     border: none;
-    color: white;
     text-decoration: normal;
     text-align: center;
     text-overflow: clip;

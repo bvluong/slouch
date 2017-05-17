@@ -7,7 +7,7 @@ class HomeHeader extends React.Component {
     return (
     <div className='home-header'>
       <div className='left-header'>
-        <img className="logo" src="assets/messages.png"/>
+        <img className="logo" src="assets/Hashtag-50.png"/>
         <span>Slouch</span>
       </div>
       <div className='right-header'>
