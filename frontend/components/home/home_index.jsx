@@ -7,7 +7,7 @@ class HomeIndex extends React.Component {
     return(
     <div className="home-index" >
       <HomeHeader/>
-      <div>
+      <div className="shadow">
         <video id="bgvid" muted autoPlay>
           <source src="assets/laptop.mp4" type="video/mp4" autoPlay/>
         </video>
