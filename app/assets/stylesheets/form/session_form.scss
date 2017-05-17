@@ -45,7 +45,7 @@
   font-size: 70%;
   width: 30%;
   margin: 6px;
-  border-radius: 5px;
+  border-radius: 3.5px;
   padding-left: 10px;
   color: black;
 }
@@ -54,7 +54,7 @@
   background: #42c299;
   color: white;
   width: 30%;
-  font-size: 100%;
+  font-size: 70%;
   font-weight: bold;
 }
 
@@ -83,4 +83,9 @@
   font-size: 80%;
   font-weight: bold;
   font-weight: normal;
+  border-radius: 3.5px;
+}
+
+.home-form .errors {
+  color: red;
 }

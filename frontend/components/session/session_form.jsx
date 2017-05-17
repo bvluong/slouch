@@ -23,12 +23,15 @@ class SessionForm extends React.Component {
   render() {
     const { formType } = this.props;
     const { username, password } = this.state;
+    const { errors } = this.props;
+    const mapErrors = errors.map( (err,idx) => <h2 className="errors" key={idx}>{err}</h2>);
     const header = (formType==="login") ? "Login" : "Signup";
     return (
       <div className="home-form">
         <h1>Where work happens.</h1>
         <h2>Slouch is a real time web chatting clone of Slack.</h2>
-          <h3>{header}</h3>
+        {mapErrors}
+        <h3>{header}</h3>
         <form onSubmit={this.submitHandler} >
           <input type="text"
             placeholder="Username"

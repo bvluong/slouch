@@ -8,8 +8,8 @@ class HomeIndex extends React.Component {
     <div className="home-index" >
       <HomeHeader/>
       <div className="shadow">
-        <video id="bgvid" muted autoPlay>
-          <source src="assets/laptop.mp4" type="video/mp4" autoPlay/>
+        <video id="bgvid" muted autoPlay loop>
+          <source src="http://res.cloudinary.com/djrgebhxz/video/upload/v1495045935/laptop_wqw4yx.mp4" type="video/mp4" autoPlay />
         </video>
 
       </div>
