@@ -6,15 +6,21 @@
 
 .nav-channels h2 {
   margin-bottom: 0px;
-  font-size: 25px;
+  font-size: 10px;
+  font-weight: lighter;
   width: 100%;
   height: auto;
+  text-align: left;
+  font-weight: normal;
+  text-transform: uppercase;
 }
 
 .nav-channels ul {
   margin-top: 0px;
   list-style: none;
   padding-left: 10px;
+  font-size: 12px;
+  font-weight: lighter;
 }
 
 .nav-channels ul li:hover{

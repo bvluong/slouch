@@ -13,7 +13,7 @@ class NavChannel extends React.Component {
     console.log(channel_names);
     return (
       <div className="nav-channels">
-        <h2> Channels({channels.length})</h2>
+        <h2> Channels ({channels.length})</h2>
         <ul className="all-channels">
           {channel_names}
         </ul>

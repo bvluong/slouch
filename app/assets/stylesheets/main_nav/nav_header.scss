@@ -1,5 +1,6 @@
 .nav-header {
-  margin-bottom: 10px;
+  margin: 10px;
+  margin-top: 5px;
   width: 100%;
 }
 
@@ -16,11 +17,25 @@
 .nav-header-logo span {
   text-transform: uppercase;
   font-weight: bold;
-  color: #fff;
-  font-family: Vampiro One;
+  font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+  color: white;
+  font-style: italic;
+  font-weight: normal;
   padding-left: 10px;
 }
 
 .nav-header:hover {
   background: #352734;
+}
+
+.nav-current-user {
+  display: flex;
+  align-items: center;
+  font-size: 50%;
+}
+
+.green-circle {
+  width: 5%;
+  height: 5%;
+  padding: 5px;
 }

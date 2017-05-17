@@ -6,7 +6,10 @@ const NavHeader = ({ currentUser }) => (
       <img className="main-logo" src="http://res.cloudinary.com/djrgebhxz/image/upload/v1495046831/color_icon_2_xvruhn.png"/>
       <span>Slouch</span>
     </div>
-    <span>Hi, {currentUser.username}</span>
+    <div className="nav-current-user">
+      <img className="green-circle" src="http://www.iconsdb.com/icons/preview/color/38978D/circle-xxl.png"/>
+      <span>{currentUser.username}</span>
+    </div>
   </div>
 );
 

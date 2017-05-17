@@ -19,7 +19,8 @@
   text-transform: uppercase;
   font-weight: bold;
   font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
-  color: black;
+  color: #939393;
+  font-style: italic;
 }
 
 .home-header {
@@ -72,6 +73,7 @@ video {
 }
 
 .home-button, #submit-button {
+    color: #939393;
     background: transparent;
     display: inline-block;
     -webkit-box-sizing: border-box;
