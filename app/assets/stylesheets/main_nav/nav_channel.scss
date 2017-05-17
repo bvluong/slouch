@@ -6,7 +6,8 @@
 
 .nav-channels h2 {
   margin-bottom: 0px;
-  font-size: 10px;
+  font-size: 0.5rem;
+  line-height: 0.8rem;
   font-weight: lighter;
   width: 100%;
   height: auto;
@@ -18,11 +19,24 @@
 .nav-channels ul {
   margin-top: 0px;
   list-style: none;
-  padding-left: 10px;
-  font-size: 12px;
   font-weight: lighter;
+  padding-left: 0px;
+}
+
+.nav-channels ul li {
+  font-size: 0.6rem;
+  line-height: 0.8rem;
+  padding-left: 10px;
 }
 
 .nav-channels ul li:hover{
   background: #352734;
+}
+
+.channel-length {
+  color: #AB9BA9;
+}
+
+.channel-detail:hover{
+  cursor: pointer;
 }

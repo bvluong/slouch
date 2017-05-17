@@ -10,7 +10,6 @@ const defaultState = {
 
 const channelReducer = (state = defaultState, action) => {
   Object.freeze(state);
-  console.log(action);
   switch (action.type) {
     case RECEIVE_CHANNEL:
       return merge({}, state, action.channel );

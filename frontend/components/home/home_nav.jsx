@@ -5,9 +5,8 @@ class HomeNav extends React.Component {
 
   demoHandler(e) {
     e.preventDefault();
-    this.props.login({username: "demo", password:"password"})
+    this.props.login({username: "Marcus Aurelius", password:"password"})
     .then(this.props.history.replace("/main"));
-    console.log(this.props);
   }
 
   render() {

@@ -13,6 +13,7 @@
   text-transform: capitalize;
   text-shadow: none;
   font-size: 20px;
+  text-align: left;
 }
 
 .main-header-detail {
@@ -24,8 +25,8 @@
 }
 
 .user-count-avatar {
-  width: 3%;
-  height: 3%;
+  width: 9px;
+  height: 9px;
   margin-right: 2px;
 }
 
@@ -40,4 +41,8 @@
   color: white;
   border-radius: 3.5px;
   font-size: 60%;
+}
+
+.logout:hover {
+  cursor: pointer;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import NavChannelDetailContainer from './nav_channel_detail_container';
 
 class NavChannel extends React.Component {
 
@@ -8,19 +9,13 @@ class NavChannel extends React.Component {
 
   render() {
     const { channels, userChannels } = this.props;
-    const channel_names = userChannels.map(
-      channel => <li key={channel.id}># {channel.name}</li>);
-    console.log(channel_names);
     return (
       <div className="nav-channels">
-        <h2> Channels ({channels.length})</h2>
-        <ul className="all-channels">
-          {channel_names}
-        </ul>
+        <h2> Channels <span className="channel-length">({channels.length})</span></h2>
+        <NavChannelDetailContainer/>
       </div>
     );
   }
-
 }
 
 export default NavChannel;
