@@ -8,8 +8,8 @@ class HomeIndex extends React.Component {
     <div className="home-index" >
       <HomeHeader/>
       <div>
-        <video id="myVideo" poster="assets/neon_rain.png" id="bgvid" muted autoPlay>
-          <source src="assets/pink_smoke_6.mp4" type="video/mp4" autoPlay/>
+        <video id="myVideo" id="bgvid" muted autoPlay>
+          <source src="assets/laptop.mp4" type="video/mp4" autoPlay/>
         </video>
 
       </div>

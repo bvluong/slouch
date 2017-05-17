@@ -3,19 +3,20 @@
   margin: 10% auto;
   width: 60%;
   // left: ;
-  color: white;
+  color: #e8edf3;
 }
 
 .home-form form {
   display: flex;
   flex-direction: column;
   background: transparent;
+  align-items: center;
 }
 
 .home-form h1, h2, h3 {
-  text-align: left;
+  text-align: center;
   font-size: 350%;
-  color: #228DFF;
+  color: #e8edf3;
 }
 
 .home-form h2 {
@@ -26,8 +27,6 @@
 
 .home-form h3 {
   font-size: 100%;
-  width: 40%;
-  padding-left: 10px;
   text-align: center;
 }
 
@@ -36,14 +35,14 @@
   font-size: 100%;
   width: 40%;
   margin: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
   padding-left: 10px;
   color: black;
 }
 
 .home-form #submit-button {
-  background: transparent;
-  color: #228DFF;
+  background: #98dafc;
+  color: white;
   width: 30%;
   font-size: 100%;
   font-weight: bold;

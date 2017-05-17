@@ -1,6 +1,6 @@
 .logo {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
 }
 
 .left-header {
@@ -10,12 +10,12 @@
 }
 
 .left-header span {
-  padding: 0 20px;
+  padding: 0 10px;
   font-size: 20px;
   text-transform: uppercase;
   font-weight: bold;
-  color: #FF1177;
-  font-family: Vampiro One;
+  color: white;
+  font-family: Iceland;
 }
 
 .home-header {
@@ -26,16 +26,16 @@
 }
 
 .home-nav button {
-  padding: 9px 12px;
+  padding: 5px 8px;
   margin: 5px;
-  border-radius: 10px;
+  border-radius: 5px;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 video {
   position: fixed;
-  top: 35%;
+  top: 50%;
   left: 50%;
   min-width: 100%;
   min-height: 100%;
@@ -48,20 +48,20 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  transform: translateX(-30%) translateY(-35%);
+  transform: translateX(-50%) translateY(-50%);
   margin: 0;
   object-fit: contain;
 }
 
 .home-button, #submit-button {
-    background: transparent;
+    background: #daad86;
     display: inline-block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 10px;
     border: none;
-    color: #228DFF;
+    color: white;
     text-decoration: normal;
     text-align: center;
     text-overflow: clip;
