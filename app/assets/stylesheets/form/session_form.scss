@@ -2,8 +2,8 @@
   position:relative;
   margin: 10% auto;
   width: 60%;
-  color: #fae596;
-  margin-top: 20px;
+  color: white;
+  margin-top: 8%;
   // left: ;
 }
 
@@ -16,41 +16,71 @@
 
 .home-form h1, h2, h3 {
   text-align: center;
-  font-size: 350%;
-  color: #fae596;
+  font-size: 300%;
 }
 
+.home-form h1 {
+  font-family: "ModernTwoSxtnITCTTLight";
+  font-weight: normal;
+}
+
+
 .home-form h2 {
-  font-size: 125%;
+  color: rgba(255,255,255,.7);
+  font-size: 100%;
   text-shadow: 0;
+  font-weight: lighter;
+  margin-top: 10px;
 }
 
 
 .home-form h3 {
   font-size: 100%;
   text-align: center;
+  margin-top: 15px;
 }
 
 .home-form form input {
   padding: 1.5%;
-  font-size: 100%;
-  width: 40%;
-  margin: 10px;
-  border-radius: 10px;
+  font-size: 70%;
+  width: 30%;
+  margin: 6px;
+  border-radius: 5px;
   padding-left: 10px;
   color: black;
 }
 
 .home-form #submit-button {
-  background: #c2dde6;
+  background: #ec6952;
   color: white;
   width: 30%;
   font-size: 100%;
   font-weight: bold;
-  border: 1px solid #228DFF;
 }
 
 .home-form #submit-button:hover {
-  border: 3.5px solid rgba(255,255,255,1);
+  border: 2px solid rgba(255,255,255,1);
   cursor: pointer;
+}
+
+.home-welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.home-welcome a {
+  width: 30%;
+}
+
+.home-welcome #start-button {
+  margin-top: 20%;
+  background: #ec6952;
+  color: white;
+  width: 100%;
+  font-size: 80%;
+  font-weight: bold;
+  font-weight: normal;
 }

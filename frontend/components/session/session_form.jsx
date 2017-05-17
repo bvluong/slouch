@@ -23,12 +23,11 @@ class SessionForm extends React.Component {
   render() {
     const { formType } = this.props;
     const { username, password } = this.state;
-    const header = (formType==="login") ? "Sign In" : "Login";
+    const header = (formType==="login") ? "Login" : "Signup";
     return (
       <div className="home-form">
-        <h1>Where work starts.</h1>
-        <h2>Slouch lets you get brings everyone </h2>
-        <h2>together in one place.</h2>
+        <h1>Where work happens.</h1>
+        <h2>Slouch is a real time web chatting clone of Slack.</h2>
           <h3>{header}</h3>
         <form onSubmit={this.submitHandler} >
           <input type="text"
@@ -40,7 +39,7 @@ class SessionForm extends React.Component {
             onChange={this.updateHandler("password")}
             value={ password }
             />
-          <input id="submit-button" className=".home-button" type="submit" value="Continue ->"/>
+          <input id="submit-button" className="home-button" type="submit" value="Continue ->"/>
         </form>
       </div>
     );

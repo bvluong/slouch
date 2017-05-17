@@ -1,5 +1,5 @@
 .home-index {
-  color: #252839;
+  color: black;
 }
 
 .logo {
@@ -18,8 +18,8 @@
   font-size: 20px;
   text-transform: uppercase;
   font-weight: bold;
-  font-family: Iceland;
-  color: #fae596
+  font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+  color: #ec6952
 }
 
 .home-header {
@@ -27,12 +27,14 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255,255,255,0.1);
+  background: white;
 }
+
+// rgba(255,255,255,0.1) - backgground
 
 .home-nav button {
   padding: 5px 8px;
-  margin: 5px;
+  margin: 3px;
   border-radius: 5px;
   text-transform: uppercase;
   font-size: 12px;
@@ -53,13 +55,13 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-60%) translateY(-60%);
   margin: 0;
   object-fit: contain;
 }
 
 .home-button, #submit-button {
-    background: #fae596;
+    background: transparent;
     display: inline-block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
