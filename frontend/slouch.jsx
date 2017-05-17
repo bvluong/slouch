@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.fetchChannel = fetchChannel;
   window.logout = logout;
 
+
   let store;
   if (window.currentUser) {
     const preloadedState = { session: { currentUser: window.currentUser } };

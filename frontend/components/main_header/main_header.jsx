@@ -15,11 +15,14 @@ class MainHeader extends React.Component {
     const { name, description } = currentChannel;
     return (
     <div className="main-header">
-      <section className="MainHeaderDetail">
-        <h3>{name}</h3>
-        <span>{currentChannel.users.length}</span>
-        <span>{description}</span>
-      </section>
+      <div className="left-main-header">
+        <h3>#{name}</h3>
+        <section className="main-header-detail">
+          <img className="user-count-avatar" src="assets/avatar.png"/>
+          <span className="channel-user-count">{currentChannel.users.length} | </span>
+          <span>{description}</span>
+        </section>
+      </div>
 
       <button onClick={this.logoutHandler.bind(this)}
         className="logout"

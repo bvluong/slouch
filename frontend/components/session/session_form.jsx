@@ -23,10 +23,13 @@ class SessionForm extends React.Component {
   render() {
     const { formType } = this.props;
     const { username, password } = this.state;
-    const header = (formType==="login") ? "Enter the Slouch" : "Create a Slouch";
+    const header = (formType==="login") ? "Sign In" : "Login";
     return (
       <div className="home-form">
-        <h1>{header}</h1>
+        <h1>Where work starts.</h1>
+        <h2>Slouch lets you get brings everyone </h2>
+        <h2>together in one place.</h2>
+          <h3>{header}</h3>
         <form onSubmit={this.submitHandler} >
           <input type="text"
             placeholder="Username"

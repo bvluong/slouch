@@ -3,15 +3,18 @@ html, body, main {
 }
 
 .main-nav {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: 20%;
   height: 100%;
   border: 1px solid black;
   background: #4D394B;
   color: #fff;
   margin: 0;
   padding: 0;
+  max-width: 220px;
+  flex-basis: 200px;
+  z-index: 201;
 }

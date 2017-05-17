@@ -16,7 +16,6 @@
   font-weight: bold;
   color: #FF1177;
   font-family: Vampiro One;
-  text-shadow: 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff00de , 0 0 70px #ff00de , 0 0 80px #ff00de , 0 0 100px #ff00de ;
 }
 
 .home-header {
@@ -36,7 +35,7 @@
 
 video {
   position: fixed;
-  top: 50%;
+  top: 35%;
   left: 50%;
   min-width: 100%;
   min-height: 100%;
@@ -49,13 +48,13 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  transform: translateX(-50%) translateY(-75%);
+  transform: translateX(-30%) translateY(-35%);
   margin: 0;
   object-fit: contain;
 }
 
 .home-button, #submit-button {
-    background: #FF1177;
+    background: transparent;
     display: inline-block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -67,7 +66,6 @@ video {
     text-align: center;
     text-overflow: clip;
     white-space: pre;
-    text-shadow: 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff00de , 0 0 70px #ff00de , 0 0 80px #ff00de , 0 0 100px #ff00de ;
     -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
     -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
     transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);

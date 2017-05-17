@@ -15,8 +15,9 @@ user4 = User.create(username: "Horse",password: "password");
 
 Channel.destroy_all
 
-channel1 = Channel.create(name: "pets", description: "A place to complain about our owners")
-channel2 = Channel.create(name: "general", description: "No rules!")
+channel1 = Channel.create(name: "general", description: "No rules!")
+channel2 = Channel.create(name: "pets", description: "A place to complain about our owners")
+
 
 Subscription.destroy_all
 

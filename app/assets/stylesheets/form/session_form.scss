@@ -1,7 +1,7 @@
 .home-form {
   position:relative;
   margin: 10% auto;
-  width: 30%;
+  width: 60%;
   // left: ;
   color: white;
 }
@@ -12,17 +12,29 @@
   background: transparent;
 }
 
-.home-form h1 {
-  font-size: 250%;
-  text-align: center;
+.home-form h1, h2, h3 {
+  text-align: left;
+  font-size: 350%;
   color: #228DFF;
-  text-shadow: 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff00de , 0 0 70px #ff00de , 0 0 80px #ff00de , 0 0 100px #ff00de ;
+}
 
+.home-form h2 {
+  font-size: 125%;
+  text-shadow: 0;
+}
+
+
+.home-form h3 {
+  font-size: 100%;
+  width: 40%;
+  padding-left: 10px;
+  text-align: center;
 }
 
 .home-form form input {
   padding: 1.5%;
   font-size: 100%;
+  width: 40%;
   margin: 10px;
   border-radius: 20px;
   padding-left: 10px;
@@ -32,12 +44,13 @@
 .home-form #submit-button {
   background: transparent;
   color: #228DFF;
-  font-size: 200%;
+  width: 30%;
+  font-size: 100%;
   font-weight: bold;
-  text-shadow: 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff00de , 0 0 70px #ff00de , 0 0 80px #ff00de , 0 0 100px #ff00de ;
+  border: 1px solid #228DFF;
 }
 
 .home-form #submit-button:hover {
-  border: 2px solid rgba(255,255,255,1);
+  border: 3.5px solid rgba(255,255,255,1);
   cursor: pointer;
 }
