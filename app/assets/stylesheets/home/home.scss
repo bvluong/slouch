@@ -8,8 +8,8 @@
 }
 
 .logo {
-  width: 40px;
-  height: 40px;
+  width: 18px;
+  height: 18px;
 }
 
 .left-header {
@@ -19,12 +19,12 @@
 }
 
 .left-header span {
-  padding: 0 10px;
+  padding: 0;
   font-size: 20px;
   text-transform: lowercase;
-  font-weight: bold;
+  font-weight: normal;
   font-family: Baloo;
-  color: black;
+  color: white;
   font-style: italic;
 }
 
@@ -33,20 +33,23 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background: white;
+  background: #343434;
 }
 
 // rgba(255,255,255,0.1) - backgground
 
-.home-nav button {
-  padding: 0px 2px;
-  margin: 1px 5px;
-  border-radius: 5px;
-  font-family: 'Fjalla One', sans-serif;;
-  text-transform: capitalize;
-  font-size: 80%;
-}
+.home-nav {
+  display:flex;
+  flex-direction: row;
 
+}
+.home-nav button {
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    text-transform: capitalize;
+    font-size: 55%;
+  }
 
 video {
   position: absolute;
@@ -63,7 +66,7 @@ video {
 }
 
 .home-button, #submit-button, {
-    color: black;
+    color: white;
     background: transparent;
     padding: 10px;
     border: none;
@@ -74,27 +77,36 @@ video {
 }
 
 .home-button:hover {
+  color: #ccc;
+  cursor: pointer;
+}
+
+  #submit-button:hover {
   border: 2px solid white;
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   cursor: pointer;
 }
 
-#red:hover {
-  border: 2px solid red;
-  background: transparent;
+.logo-2 {
+  width: 65px;
+  height: 65px;
 }
 
-#blue:hover {
-  border: 2px solid blue;
-  background: transparent;
+.welcome-logo {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  span {
+  padding: 0;
+  margin: 0;
+  height: 68px;
+  line-height: 68px;
+  font-size: 65px;
+  text-transform: lowercase;
+  font-weight: normal;
+  font-family: Baloo;
+  color: white;
+  font-style: italic;
 }
-
-#green:hover {
-  border: 2px solid green;
-  background: transparent;
-}
-
-#orange:hover {
-  border: 2px solid orange;
-  background: transparent;
 }

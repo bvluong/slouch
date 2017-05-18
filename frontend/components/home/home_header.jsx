@@ -8,8 +8,9 @@ class HomeHeader extends React.Component {
     return (
     <div className='home-header'>
       <div className='left-header'>
-        <Link to="/"> <img className="logo" src="http://res.cloudinary.com/djrgebhxz/image/upload/v1495046831/color_icon_2_xvruhn.png"/></Link>
-        <Link to="/"> <span>Slouch</span> </Link>
+        <Link to="/">
+          <img className="logo" src="http://res.cloudinary.com/djrgebhxz/image/upload/v1495144056/imageedit_5_7068025358_agjtep.png"/></Link>
+        <Link to="/"> <span>louch</span> </Link>
       </div>
       <div className='right-header'>
         <HomeNavContainer/>

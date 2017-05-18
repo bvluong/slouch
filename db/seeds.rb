@@ -17,6 +17,13 @@ FactoryGirl.define do
     password "password"
     image_url { Faker::Avatar.image }
   end
+
+  factory :message do
+    user_id  { 1 + rand(8) }
+    channel_id { 1 + rand(7) }
+    body { Faker::ChuckNorris.fact }
+  end
+
 end
 
 
@@ -45,15 +52,7 @@ channel7 = Channel.create(name: "reactjs", description: "A community for learnin
 
 Message.destroy_all
 
-FactoryGirl.define do
-  factory :message do
-    user_id  { 1 + rand(8) }
-    channel_id { 1 + rand(6) }
-    body { Faker::ChuckNorris.fact }
-  end
-end
-
-20.times do
+40.times do
   FactoryGirl.create(:message)
 end
 
