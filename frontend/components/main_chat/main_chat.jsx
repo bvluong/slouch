@@ -1,4 +1,5 @@
 import React from 'react';
+import MessageIndexContainer from 'message_index_container';
 
 class MainChat extends React.Component {
   constructor(props) {
@@ -6,11 +7,10 @@ class MainChat extends React.Component {
   }
 
   render () {
-
+    const { currentChannel } = this.props;
     return (
       <div className="main-chat">
-        Placeholder for message boxes
-
+        <MessageIndexContainer currentChannel={currentChannel}/>
         placeholder
 
       </div>

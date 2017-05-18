@@ -9,7 +9,7 @@ class Api::ChannelsController < ApplicationController
   end
 
   def create
-    @channel = Channel.create(channel_params)
+    @channel = Channel.new(channel_params)
     if @channel.save
       render :show
     else

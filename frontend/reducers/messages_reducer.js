@@ -7,8 +7,7 @@ const messagesReducer = (state = {}, action) => {
     case RECEIVE_MESSAGES:
       return merge({}, action.messages);
     case RECEIVE_MESSAGE:
-      const id = action.id;
-      return merge({}, state, {id: action.message});
+      return merge({}, state, {[action.message.id]: action.message});
     default:
       return state;
   }

@@ -17,7 +17,6 @@ class Api::MessagesController < ApplicationController
     else
       render json: @message.errors.full_messages, status: 422
     end
-
   end
 
 

@@ -15,8 +15,8 @@ export const receiveMessage = message => ({
 });
 
 export const createMessage = (message) => dispatch => (
-  MessageAPIUtil.createMessage( message )
-  .then(channels => dispatch(receiveMessage(message)))
+  MessageAPIUtil.createMessage(message)
+  .then(res => dispatch(receiveMessage(res)))
 );
 
 export const fetchMessages = (id) => dispatch => (
