@@ -64,6 +64,13 @@ GEM
     debug_inspector (0.0.3)
     erubis (2.7.0)
     execjs (2.7.0)
+    factory_girl (4.8.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.8.0)
+      factory_girl (~> 4.8.0)
+      railties (>= 3.0.0)
+    faker (1.7.3)
+      i18n (~> 0.5)
     ffi (1.9.18)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
@@ -183,6 +190,8 @@ DEPENDENCIES
   binding_of_caller
   byebug
   coffee-rails (~> 4.2)
+  factory_girl_rails
+  faker
   font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails

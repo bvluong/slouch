@@ -19,14 +19,16 @@ class MessageIndex extends React.Component {
     console.log(this.props);
     const mapmessages = messages.map(message => <ul
       key={message.id}>
-      <img className="avatar" rc={message.avatar}/>
-      <li className="message-box">
-        <ul className="message-info">
-          <li> {message.username} </li>
-          <li className="time-stamp"> {message.time_stamp} </li>
-        </ul>
-      <p className="message-body"> {message.body} </p>
-      </li>
+      <div className="message-box">
+        <img className="avatar" src={message.avatar}/>
+        <li>
+          <ul className="message-info">
+            <li> {message.username} </li>
+            <li className="time-stamp"> {message.time_stamp} </li>
+          </ul>
+        <p className="message-body"> {message.body} </p>
+        </li>
+      </div>
     </ul>);
     return (
       <div className="message-index">

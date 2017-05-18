@@ -7,6 +7,12 @@ end
 group :production do
   gem 'rails_12factor'
 end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'faker'
+end
+
 gem 'font-awesome-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'
