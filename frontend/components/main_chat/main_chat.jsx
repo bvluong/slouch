@@ -1,5 +1,6 @@
 import React from 'react';
 import MessageIndexContainer from './message_index_container';
+import { merge } from 'lodash';
 
 class MainChat extends React.Component {
   constructor(props) {
@@ -18,7 +19,11 @@ class MainChat extends React.Component {
   }
 
   submitHandler(e) {
-
+    e.preventDefault();
+    const newmessage = merge(this.state,
+    { channel_id: this.props.currentChannel.id });
+    this.props.createMessage(newmessage)
+    .then(this.setState({ body: "" }));
   }
 
   render () {
@@ -27,11 +32,14 @@ class MainChat extends React.Component {
       <div className="main-chat">
         <MessageIndexContainer currentChannel={currentChannel}/>
         <div className="main-chat-submit">
-            <input className="message-submit"
-              placeholder={`message #${currentChannel.name}`}
-              onChange={this.updateHandler}
-              value={this.state.body}
+            <form onSubmit={this.submitHandler}>
+              <input className="message-submit"
+                placeholder={`message #${currentChannel.name}`}
+                onChange={this.updateHandler}
+                value={this.state.body}
               type="text"></input>
+            <input type="submit" value=""/>
+            </form>
          </div>
       </div>
     );
