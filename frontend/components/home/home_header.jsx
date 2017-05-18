@@ -1,5 +1,6 @@
 import React from 'react';
 import HomeNavContainer from './home_nav_container';
+import { Link } from 'react-router-dom';
 
 class HomeHeader extends React.Component {
 
@@ -7,8 +8,8 @@ class HomeHeader extends React.Component {
     return (
     <div className='home-header'>
       <div className='left-header'>
-        <img className="logo" src="http://res.cloudinary.com/djrgebhxz/image/upload/v1495046831/color_icon_2_xvruhn.png"/>
-        <span>Slouch</span>
+        <Link to="/"> <img className="logo" src="http://res.cloudinary.com/djrgebhxz/image/upload/v1495046831/color_icon_2_xvruhn.png"/></Link>
+        <Link to="/"> <span>Slouch</span> </Link>
       </div>
       <div className='right-header'>
         <HomeNavContainer/>

@@ -1,0 +1,68 @@
+.main-chat {
+  height: 90%;
+}
+
+.message-index {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  height: 85%;
+  width: 100%;
+  ul {
+    padding-left: 5px;
+    display: flex;
+    .message-box {
+      width: 100%;
+    }
+    .message-info {
+      font-family: Slack-Lato,appleLogo,sans-serif;
+      color: #2C2D30;
+      font-size: 10px;
+      line-height: 10px;
+      width: 100%;
+      display: flex;
+      align-items: baseline;
+      font-weight: 900;
+      color: #2C2D30!important;
+      line-height: 18px;
+      .time-stamp {
+        font-weight: 400;
+        color: #9e9ea6;
+        font-size: 8px;
+        white-space: nowrap;
+        margin: 0px 3px;
+      }
+    }
+    .message-body {
+      padding-left: 5px;
+      color: #2C2D30;
+      font-size: 10px;
+      line-height: 22px;
+      margin-top: -8px;
+    }
+  }
+}
+
+.main-chat-submit {
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .message-submit {
+    background: #fdf1c1;
+    border-radius: 3px;
+    font-size: 9px;
+    color: #717274;
+    width: 90%;
+    height: 20px;
+    border-radius: 5px;
+    text-indent: 5px;
+    font-style: italic;
+  }
+}
+
+.avatar {
+  padding-left: 5px;
+  width: 30px;
+  height: 30px;
+}

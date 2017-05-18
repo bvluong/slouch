@@ -33,3 +33,11 @@ a {
   -moz-animation: neon1 1.5s ease-in-out infinite alternate;
   animation: neon1 1.5s ease-in-out infinite alternate;
 }
+
+a:hover {
+  cursor: pointer;
+}
+
+ul, li{
+  list-style: none;
+}

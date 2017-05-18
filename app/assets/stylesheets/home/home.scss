@@ -42,8 +42,8 @@
   padding: 0px 2px;
   margin: 1px 5px;
   border-radius: 5px;
-  font-family: Baloo;
-  text-transform: uppercase;
+  font-family: 'Fjalla One', sans-serif;;
+  text-transform: capitalize;
   font-size: 80%;
 }
 
@@ -61,8 +61,6 @@ video {
   margin: 0;
   object-fit: contain;
 }
-
-
 
 .home-button, #submit-button, {
     color: black;

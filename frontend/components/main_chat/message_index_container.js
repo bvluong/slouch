@@ -4,7 +4,8 @@ import { fetchMessages } from '../../actions/message_actions';
 import MessageIndex from './message_index';
 
 const mapStateToProps = (state, { currentChannel }) => ({
-  messages: selectMessages(state)
+  messages: selectMessages(state),
+  currentChannel
 });
 
 const mapDispatchToProps = (dispatch) => ({
