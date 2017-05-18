@@ -65,3 +65,15 @@ subscription29 = Subscription.create(user_id: user6.id, channel_id: channel2.id)
 subscription30 = Subscription.create(user_id: user7.id, channel_id: channel2.id)
 subscription31 = Subscription.create(user_id: user8.id, channel_id: channel2.id)
 subscription32 = Subscription.create(user_id: user9.id, channel_id: channel2.id)
+
+Message.destroy_all
+message1 = Message.create(body: "Marcus Aurelius", channel_id: channel1.id, user_id: user1.id);
+message2 = Message.create(body: "Seneca", channel_id: channel1.id, user_id: user2.id);
+message3 = Message.create(body: "Cleanthes", channel_id: channel1.id, user_id: user3.id);
+message4 = Message.create(body: "Chrysippus", channel_id: channel1.id, user_id: user4.id);
+message5 = Message.create(body: "Sorcrates", channel_id: channel1.id, user_id: user1.id);
+message6 = Message.create(body: "Marcus Aurelius", channel_id: channel6.id, user_id: user1.id);
+message7 = Message.create(body: "Seneca", channel_id: channel2.id, user_id: user2.id);
+message8 = Message.create(body: "Cleanthes", channel_id: channel3.id, user_id: user3.id);
+message9 = Message.create(body: "Chrysippus", channel_id: channel4.id, user_id: user4.id);
+message10 = Message.create(body: "Sorcrates", channel_id: channel5.id, user_id: user1.id);
