@@ -9,20 +9,31 @@ class HomeNav extends React.Component {
     .then(this.props.history.replace("/main"));
   }
 
+  demoHandler2(e) {
+    e.preventDefault();
+    this.props.login({username: "Seneca", password:"password"})
+    .then(this.props.history.replace("/main"));
+  }
+
   render() {
     return(
-    <div className="home-nav" >
-      <button className="home-button" onClick={this.demoHandler.bind(this)}
-        type="button">Demo</button>
+    <div className="home-nav">
+        <button className="home-button" id="red"
+          onClick={this.demoHandler.bind(this)}
+          type="button">Demo</button>
 
-      <Link to="/login">
-        <button type="button" className="home-button">Login</button>
-      </Link>
+        <button className="home-button" id="blue"
+          onClick={this.demoHandler2.bind(this)}
+            type="button">Demo 2</button>
+        <Link to="/login">
+          <button type="button" id="green"
+            className="home-button">Login</button>
+        </Link>
 
-      <Link to="/signup">
-        <button type="button" className="home-button">Sign Up</button>
-      </Link>
-
+        <Link to="/signup">
+          <button type="button" id="orange"
+            className="home-button">Signup</button>
+        </Link>
     </div>
   );}
 }

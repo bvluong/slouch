@@ -1,3 +1,8 @@
+.home-whole {
+  width: 100%;
+  height: 100%;
+}
+
 .home-index {
   color: black;
 }
@@ -16,10 +21,10 @@
 .left-header span {
   padding: 0 10px;
   font-size: 20px;
-  text-transform: uppercase;
+  text-transform: lowercase;
   font-weight: bold;
-  font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
-  color: #939393;
+  font-family: Baloo;
+  color: black;
   font-style: italic;
 }
 
@@ -34,21 +39,17 @@
 // rgba(255,255,255,0.1) - backgground
 
 .home-nav button {
-  padding: 5px 8px;
-  margin: 3px;
+  padding: 0px 2px;
+  margin: 1px 5px;
   border-radius: 5px;
+  font-family: Baloo;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 80%;
 }
 
+
 video {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
+  position: absolute;
   z-index: -100;
   margin: 0;
   padding: 0;
@@ -56,24 +57,15 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  transform: translateX(-60%) translateY(-60%);
+  width: 100vw;
   margin: 0;
   object-fit: contain;
 }
 
-.shadow {
-    position: absolute;
-    margin-top:40px;
-    width: 100%;
-    height: 100%;
-    box-shadow:
-    inset 0px 1000px 0px 0px rgba(0,0,0,0.3);
-    top: 0;
-    left: 0;
-}
+
 
 .home-button, #submit-button, {
-    color: #939393;
+    color: black;
     background: transparent;
     padding: 10px;
     border: none;
@@ -84,7 +76,27 @@ video {
 }
 
 .home-button:hover {
-  border: 2px solid grey;
+  border: 2px solid white;
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   cursor: pointer;
+}
+
+#red:hover {
+  border: 2px solid red;
+  background: transparent;
+}
+
+#blue:hover {
+  border: 2px solid blue;
+  background: transparent;
+}
+
+#green:hover {
+  border: 2px solid green;
+  background: transparent;
+}
+
+#orange:hover {
+  border: 2px solid orange;
+  background: transparent;
 }

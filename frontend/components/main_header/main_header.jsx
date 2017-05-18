@@ -3,7 +3,7 @@ import React from 'react';
 class MainHeader extends React.Component {
 
   componentDidMount() {
-    this.props.fetchChannel(1);
+    this.props.fetchChannel(this.props.currentChannel.id);
   }
 
   logoutHandler() {

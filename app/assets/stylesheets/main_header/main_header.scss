@@ -21,7 +21,8 @@
   justify-content: flex-start;
   align-items: baseline;
   color: #717274;
-  font-size: 12px;
+  font-size: 10px;
+  font-weight: 300;
 }
 
 .user-count-avatar {
@@ -45,4 +46,5 @@
 
 .logout:hover {
   cursor: pointer;
+  border: 2px solid #42c299;
 }

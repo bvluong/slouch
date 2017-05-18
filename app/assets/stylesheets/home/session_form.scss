@@ -1,6 +1,8 @@
 .home-form {
-  position:relative;
+  position:absolute;
   margin: 10% auto;
+  top: 10%;
+  left: 20%;
   width: 60%;
   color: white;
   margin-top: 8%;
@@ -87,5 +89,6 @@
 }
 
 .home-form .errors {
-  color: red;
+  color: white;
+  font-weight: normal;
 }
