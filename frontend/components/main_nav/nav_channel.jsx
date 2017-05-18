@@ -11,8 +11,8 @@ class NavChannel extends React.Component {
     const { channels, userChannels } = this.props;
     return (
       <div className="nav-channels">
-        <h2> Channels <span className="channel-length">({channels.length})</span></h2>
-        <NavChannelDetailContainer/>
+          <h2> Channels <span className="channel-length">({channels.length})</span></h2>
+          <NavChannelDetailContainer/>
       </div>
     );
   }
