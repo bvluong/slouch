@@ -34,7 +34,7 @@ class MainChat extends React.Component {
         <div className="main-chat-submit">
             <form onSubmit={this.submitHandler}>
               <input className="message-submit"
-                placeholder={`message #${currentChannel.name}`}
+                placeholder={`Message #${currentChannel.name}`}
                 onChange={this.updateHandler}
                 value={this.state.body}
               type="text"></input>

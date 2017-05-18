@@ -16,6 +16,7 @@
   display: flex;
   align-items: center;
   flex-direction: row;
+  padding-left: 8px;
 }
 
 .left-header span {
@@ -29,11 +30,13 @@
 }
 
 .home-header {
+  position: absolute;
   display: flex;
+  width:100%;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background: #343434;
+  background: transparent;
 }
 
 // rgba(255,255,255,0.1) - backgground
@@ -48,7 +51,7 @@
     font-family: 'Open Sans', sans-serif;
     font-weight: lighter;
     text-transform: capitalize;
-    font-size: 55%;
+    font-size: 58%;
   }
 
 video {

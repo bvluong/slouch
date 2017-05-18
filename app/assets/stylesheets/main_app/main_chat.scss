@@ -1,5 +1,11 @@
+.main-middle .main-nav {
+  margin:0;
+  border:0;
+  padding:0;
+}
+
 .main-chat {
-  height: 90%;
+  height: 86.5%;
 }
 
 .message-index {
@@ -55,24 +61,25 @@
 }
 
 .main-chat-submit {
-  height: 10%;
+  height: 7.5%;
   display:flex;
   justify-content: center;
   form {
     width: 100%;
     display:flex;
     justify-content: center;
+
   }
   .message-submit {
-    background: #fdf1c1;
+    border: 2px solid #E0E0E0;
     border-radius: 3px;
     font-size: 9px;
-    color: #717274;
+    font-weight: 400;
+    color: #3D3C40;
     width: 90%;
     height: 20px;
     border-radius: 5px;
     text-indent: 5px;
-    font-style: italic;
   }
 }
 
