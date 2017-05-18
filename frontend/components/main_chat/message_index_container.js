@@ -3,9 +3,8 @@ import { selectMessages } from '../../reducers/selector';
 import { fetchMessages } from '../../actions/message_actions';
 import MessageIndex from './message_index';
 
-const mapStateToProps = (state, currentChannel) => ({
-  messages: selectMessages(state),
-  currentChannel
+const mapStateToProps = (state, { currentChannel }) => ({
+  messages: selectMessages(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

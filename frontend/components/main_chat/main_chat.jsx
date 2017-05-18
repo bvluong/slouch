@@ -1,5 +1,5 @@
 import React from 'react';
-import MessageIndexContainer from 'message_index_container';
+import MessageIndexContainer from './message_index_container';
 
 class MainChat extends React.Component {
   constructor(props) {
