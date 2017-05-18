@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   //  testing
   window.fetchChannels = fetchChannels;
   window.fetchChannel = fetchChannel;
+  window.fetchMessages = fetchMessages;
+  window.createMessage = createMessage;
   window.logout = logout;
 
 
@@ -27,5 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //testing
+import { fetchMessages, createMessage } from './actions/message_actions';
 import { fetchChannels, fetchChannel } from './actions/channel_actions';
 import { logout } from './actions/session_actions';

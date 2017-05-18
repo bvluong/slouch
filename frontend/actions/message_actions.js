@@ -16,10 +16,10 @@ export const receiveMessage = message => ({
 
 export const createMessage = (message) => dispatch => (
   MessageAPIUtil.createMessage( message )
-  .then(channels => dispatch(createMessage(message)))
+  .then(channels => dispatch(receiveMessage(message)))
 );
 
 export const fetchMessages = (id) => dispatch => (
   MessageAPIUtil.fetchMessages(id)
-  .then(channels => dispatch(fetchMessages(channels)))
+  .then(messages => dispatch(receiveMessages(messages)))
 );

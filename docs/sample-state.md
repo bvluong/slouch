@@ -29,8 +29,7 @@
   messages: {
     1: {
       id: 1
-      user_id: 1,
-      channel_id: 1,
+      username: "bryantluong",
       body: "is useful to plan",
       time_stamp: Sun, 14 May 2017 18:43:59 UTC +00:00
       }
