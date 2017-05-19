@@ -6,19 +6,41 @@ class MessageIndex extends React.Component {
     super(props);
     this.state = { id: 0 };
     this.scrollToBottom = this.scrollToBottom.bind(this);
+    this.updateMessages = this.updateMessages.bind(this);
   }
 
   componentDidMount() {
-    this.scrollToBottom();
+    this.props.fetchMessages(this.props.currentChannel.id)
+    .then(this.scrollToBottom());
+    this.setupSubscription();
   }
 
-  componentDidUpdate() {
-    if (this.props.currentChannel.id !== this.state.id) {
-      this.props.fetchMessages(this.props.currentChannel.id)
-      .then(this.setState({id:this.props.currentChannel.id}));
+  updateMessages(data) {
+    this.props.receiveMessage(data);
+  }
+
+  setupSubscription() {
+    App.messages = App.cable.subscriptions.create('MessagesChannel', {
+      channel_id: this.props.currentChannel.id,
+      connected: function () {
+        console.log(this.channel_id);
+        this.perform("follow",
+        { channel_id: this.channel_id });
+      },
+      received: function(data) {
+        this.updateMessages(data);
+      },
+      updateMessages: this.updateMessages
+    });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.currentChannel.id !== nextProps.currentChannel.id) {
+      App.messages.perform("follow",
+      { channel_id: nextProps.currentChannel.id});
+      this.props.fetchMessages(nextProps.currentChannel.id);
     }
-    this.scrollToBottom();
-}
+  }
 
   scrollToBottom () {
     const node = ReactDOM.findDOMNode(this.messagesEnd);

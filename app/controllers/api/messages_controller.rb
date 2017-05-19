@@ -1,8 +1,7 @@
 class Api::MessagesController < ApplicationController
 
   def index
-    @channel = Channel.find(params[:channel_id])
-    @messages = @channel.messages
+    @messages = Message.includes(:user).where(channel_id: params[:channel_id])
   end
 
   def show
@@ -13,7 +12,7 @@ class Api::MessagesController < ApplicationController
   def create
     @message = current_user.messages.new(message_params)
     if @message.save
-      ActionCable.server.broadcast 'messages',
+      ActionCable.server.broadcast "channels:#{@message.channel_id}:messages",
         id: @message.id,
         body: @message.body,
         username: @message.user.username,
