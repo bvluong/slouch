@@ -26,6 +26,7 @@ class MainChat extends React.Component {
     .then(this.setState({ body: "" }));
   }
 
+
   render () {
     const { currentChannel } = this.props;
     return (
