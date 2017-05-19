@@ -1,15 +1,20 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 
 class NavChannelDetail extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { classname: "channel-detail", channel_id: 1 };
     this.updateChannel = this.updateChannel.bind(this);
   }
 
   updateChannel(e) {
     e.preventDefault(e);
     this.props.fetchChannel(e.target.value);
+    this.setState(
+      { classname: "channel-detail active",
+        channel_id: e.target.value });
   }
 
 
@@ -19,10 +24,13 @@ class NavChannelDetail extends React.Component {
       channel =>
       <li
         onClick={this.updateChannel}
-        className="channel-detail"
+        className={(this.state.channel_id===channel.id) ?
+          this.state.classname : "channel-detail"}
         key={channel.id} value={channel.id}>
         # {channel.name}
-      </li>);
+      </li>
+  );
+
     return (
       <ul className="all-channels">
         {channel_names}

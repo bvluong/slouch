@@ -55,6 +55,7 @@ class MessageIndex extends React.Component {
 
   render() {
     const { messages } = this.props;
+    console.log(messages);
     const mapmessages = messages.map(message => <ul
       key={message.id}>
       <div className="message-box">
@@ -62,7 +63,10 @@ class MessageIndex extends React.Component {
         <li>
           <ul className="message-info">
             <li> <span>{message.username}</span>  </li>
-            <li className="time-stamp"> {message.time_stamp} </li>
+            <li className="time-stamp"> {
+            new Date(message.time_stamp)
+            .toLocaleTimeString()
+            .replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3")} </li>
           </ul>
         <p className="message-body"> {message.body} </p>
         </li>
