@@ -19,8 +19,6 @@ FactoryGirl.define do
   end
 
   factory :message do
-    user_id  { 1 + rand(8) }
-    channel_id { 1 + rand(7) }
     body { Faker::ChuckNorris.fact }
   end
 
@@ -29,83 +27,108 @@ end
 
 User.destroy_all
 
-user1 = User.create(username:"Marcus Aurelius", password: "password")
-user2 = User.create(username:"Seneca", password: "password")
-(3..10).step do
-  FactoryGirl.create(:user, username: (Faker::Ancient.unique.primordial) )
+users = []
+
+users << User.create(username:"Marcus Aurelius", password: "password")
+users << User.create(username:"Seneca", password: "password")
+
+5.times do
+  users << FactoryGirl.create(:user, username: Faker::HarryPotter.unique.character)
 end
 
-(10..15).step do
-  FactoryGirl.create(:user)
+5.times do
+  users << FactoryGirl.create(:user, username: Faker::TwinPeaks.unique.character)
 end
+
+5.times do
+  users << FactoryGirl.create(:user, username: Faker::StarWars.unique.character)
+end
+
+15.times do
+  users << FactoryGirl.create(:user, username: Faker::Ancient.unique.primordial)
+end
+
+user1 = FactoryGirl.create(:user, username: "dobyrynin")
+user2 = FactoryGirl.create(:user, username: "debsfong")
+user3 = FactoryGirl.create(:user, username: "monte47")
+user4 = FactoryGirl.create(:user, username: "ericwindmill")
+user5 = FactoryGirl.create(:user, username: "aaron.wayne")
+
+
 
 Channel.destroy_all
 
-channel1 = Channel.create(name: "general", description: "This channel is for team-wide communication and announcements.")
-channel2 = Channel.create(name: "stoicism", description: "Learning about Stoic principles and techniques.")
-channel3 = Channel.create(name: "Harry Potter", description: "I solemnly swear I am up to no good.")
-channel4 = Channel.create(name: "funny", description: "You may only post if you are funny")
-channel5 = Channel.create(name: "eli5", description: "Explain it like I'm five")
-channel6 = Channel.create(name: "mindfulness", description: "Moment-by-moment awareness. Living in the now")
-channel7 = Channel.create(name: "reactjs", description: "A community for learning and developing web applications using React")
+channels = [
+Channel.create(name: "general", description: "This channel is for team-wide communication and announcements."),
+Channel.create(name: "Harry Potter", description: "I solemnly swear I am up to no good."),
+Channel.create(name: "TwinPeaks", description: "When you see me again, it won't be me."),
+Channel.create(name: "Star Wars", description: "A long time ago, in a galaxy far far away"),
+Channel.create(name: "Stoicism", description: "Learning about Stoic principles and techniques."),
+Channel.create(name: "mindfulness", description: "Moment-by-moment awareness. Living in the now"),
+Channel.create(name: "reactjs", description: "A community for learning and developing web applications using React")]
 
+channel1 = Channel.create(name: "dobyrynin", description: "", private: true)
+channel2 = Channel.create(name: "debsfong", description: "", private: true)
+channel3 = Channel.create(name: "monte47", description: "", private: true)
+channel4 = Channel.create(name: "ericwindmill", description: "", private: true)
+channel5 = Channel.create(name: "aaron.wayne", description: "", private: true)
 
 Message.destroy_all
 
-40.times do
-  FactoryGirl.create(:message)
+messages = []
+
+80.times do
+  messages << FactoryGirl.create(:message, user_id: users.sample.id, channel_id: (channels[4..-1].sample.id))
+end
+
+15.times do
+  messages << FactoryGirl.create(:message, user_id: users.sample.id, body: Faker::ChuckNorris.fact , channel_id: channels[0].id)
 end
 
 12.times do
-  FactoryGirl.create(:message, body: Faker::ChuckNorris.fact , channel_id: 1)
+  messages << FactoryGirl.create(:message, user_id: users[3..7].sample.id, body: Faker::HarryPotter.quote, channel_id: channels[1].id)
 end
 
 12.times do
-  FactoryGirl.create(:message, user_id: (10 + rand(5)), body: Faker::HarryPotter.quote, channel_id: 3)
+  messages << FactoryGirl.create(:message, user_id: users[8..12].sample.id, body: Faker::TwinPeaks.quote, channel_id: channels[2].id)
 end
 
-
-
-
+12.times do
+  messages << FactoryGirl.create(:message, user_id: users[13..17].sample.id, body: Faker::StarWars.quote, channel_id: channels[3].id)
+end
 
 Subscription.destroy_all
 
-subscription1 = Subscription.create(user_id: 1, channel_id: channel1.id)
-subscription2 = Subscription.create(user_id: 1, channel_id: channel2.id)
-subscription3 = Subscription.create(user_id: 1, channel_id: channel3.id)
-subscription4 = Subscription.create(user_id: 1, channel_id: channel4.id)
-subscription5 = Subscription.create(user_id: 1, channel_id: channel5.id)
-subscription6 = Subscription.create(user_id: 1, channel_id: channel6.id)
-subscription7 = Subscription.create(user_id: 1, channel_id: channel7.id)
-subscription8 = Subscription.create(user_id: 2, channel_id: channel1.id)
-subscription9 = Subscription.create(user_id: 2, channel_id: channel2.id)
-subscription10 = Subscription.create(user_id: 2, channel_id: channel3.id)
-subscription11 = Subscription.create(user_id: 2, channel_id: channel4.id)
-subscription12 = Subscription.create(user_id: 2, channel_id: channel5.id)
-subscription13 = Subscription.create(user_id: 2, channel_id: channel6.id)
-subscription14 = Subscription.create(user_id: 2, channel_id: channel7.id)
-subscription15 = Subscription.create(user_id: 3, channel_id: channel1.id)
-subscription16 = Subscription.create(user_id: 3, channel_id: channel2.id)
-subscription17 = Subscription.create(user_id: 3, channel_id: channel3.id)
-subscription18 = Subscription.create(user_id: 3, channel_id: channel4.id)
-subscription19 = Subscription.create(user_id: 3, channel_id: channel5.id)
-subscription20 = Subscription.create(user_id: 3, channel_id: channel6.id)
-subscription21 = Subscription.create(user_id: 4, channel_id: channel1.id)
-subscription22 = Subscription.create(user_id: 5, channel_id: channel1.id)
-subscription23 = Subscription.create(user_id: 6, channel_id: channel1.id)
-subscription24 = Subscription.create(user_id: 7, channel_id: channel1.id)
-subscription25 = Subscription.create(user_id: 8, channel_id: channel1.id)
-subscription26 = Subscription.create(user_id: 9, channel_id: channel1.id)
+user_subscriptions = Hash.new { Set.new }
 
-subscription27 = Subscription.create(user_id: 4, channel_id: channel2.id)
-subscription28 = Subscription.create(user_id: 5, channel_id: channel2.id)
-subscription29 = Subscription.create(user_id: 6, channel_id: channel2.id)
-subscription30 = Subscription.create(user_id: 7, channel_id: channel2.id)
-subscription31 = Subscription.create(user_id: 8, channel_id: channel2.id)
-subscription32 = Subscription.create(user_id: 9, channel_id: channel2.id)
-subscription32 = Subscription.create(user_id: 10, channel_id: channel3.id)
-subscription32 = Subscription.create(user_id: 11, channel_id: channel3.id)
-subscription32 = Subscription.create(user_id: 12, channel_id: channel3.id)
-subscription32 = Subscription.create(user_id: 13, channel_id: channel3.id)
-subscription32 = Subscription.create(user_id: 14, channel_id: channel3.id)
-subscription32 = Subscription.create(user_id: 15, channel_id: channel3.id)
+(1..31).step do |user_id|
+  user_subscriptions[user_id] = (user_subscriptions[user_id] << 1)
+end
+
+(1..12).step do |channel_id|
+  user_subscriptions[1] = (user_subscriptions[1] << channel_id)
+end
+
+Subscription.create(user_id: user1.id,channel_id: channel1.id)
+Subscription.create(user_id: user2.id,channel_id: channel2.id)
+Subscription.create(user_id: user3.id,channel_id: channel3.id)
+Subscription.create(user_id: user4.id,channel_id: channel4.id)
+Subscription.create(user_id: user5.id,channel_id: channel5.id)
+
+
+(1..7).step do |channel_id|
+  user_subscriptions[1] = (user_subscriptions[1] << channel_id)
+  user_subscriptions[2] = (user_subscriptions[2] << channel_id)
+end
+
+messages.each do |message|
+  user_id = message.user_id
+  channel_id = message.channel_id
+  user_subscriptions[user_id] = (user_subscriptions[user_id] << channel_id)
+end
+
+user_subscriptions.each do |user_id, channel_arr|
+  channel_arr.each do |channel_id|
+    Subscription.create(user_id: user_id,channel_id: channel_id)
+  end
+end

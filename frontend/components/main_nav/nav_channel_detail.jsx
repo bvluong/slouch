@@ -20,7 +20,10 @@ class NavChannelDetail extends React.Component {
 
   render () {
     const { userChannels } = this.props;
-    const channel_names = userChannels.map(
+    const public_channels = userChannels.filter( channel => !channel.private );
+    const private_channels = userChannels.filter( channel => channel.private );
+
+    const channel_names = public_channels.map(
       channel =>
       <li
         onClick={this.updateChannel}
@@ -30,11 +33,27 @@ class NavChannelDetail extends React.Component {
         # {channel.name}
       </li>
   );
-    console.log(this.state);
+  const direct_messages = private_channels.map(
+    channel =>
+    <li
+      onClick={this.updateChannel}
+      className={(this.state.channel_id===channel.id) ?
+        this.state.classname : "channel-detail"}
+      key={channel.id} value={channel.id}>
+      @ {channel.name}
+    </li>
+);
+
     return (
-      <ul className="all-channels">
-        {channel_names}
-      </ul>
+      <div>
+        <ul className="all-channels">
+          {channel_names}
+        </ul>
+        <h2> direct messages </h2>
+        <ul className="all-channels">
+          {direct_messages}
+        </ul>
+      </div>
     );
   }
 }
