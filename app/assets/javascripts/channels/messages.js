@@ -5,6 +5,6 @@ App.messages = App.cable.subscriptions.create('MessagesChannel', {
       type: RECEIVE_MESSAGE,
       message
     });
-    return window.store.dispatch(receiveMessage(data));
+    return store.dispatch(receiveMessage(data));
   },
 });

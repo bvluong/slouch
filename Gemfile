@@ -8,10 +8,10 @@ group :production do
   gem 'rails_12factor'
 end
 
-group :test do
-  gem 'factory_girl_rails'
-  gem 'faker'
-end
+gem 'factory_girl_rails'
+gem 'factory_girl'
+gem 'faker'
+
 
 gem 'font-awesome-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -191,6 +191,7 @@ DEPENDENCIES
   binding_of_caller
   byebug
   coffee-rails (~> 4.2)
+  factory_girl
   factory_girl_rails
   faker
   font-awesome-sass
