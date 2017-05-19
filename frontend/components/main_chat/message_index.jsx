@@ -14,6 +14,10 @@ class MessageIndex extends React.Component {
     this.setupSubscription();
   }
 
+  componentWillUnmount() {
+    App.messages.perform("unsubscribed");
+  }
+
   updateMessages(data) {
     this.props.receiveMessage(data);
   }
@@ -22,7 +26,6 @@ class MessageIndex extends React.Component {
     App.messages = App.cable.subscriptions.create('MessagesChannel', {
       channel_id: this.props.currentChannel.id,
       connected: function () {
-        console.log(this.channel_id);
         this.perform("follow",
         { channel_id: this.channel_id });
       },
