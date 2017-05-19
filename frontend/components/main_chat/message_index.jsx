@@ -10,8 +10,7 @@ class MessageIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchMessages(this.props.currentChannel.id)
-    .then(this.scrollToBottom());
+    this.props.fetchMessages(this.props.currentChannel.id);
     this.setupSubscription();
   }
 
@@ -40,6 +39,10 @@ class MessageIndex extends React.Component {
       { channel_id: nextProps.currentChannel.id});
       this.props.fetchMessages(nextProps.currentChannel.id);
     }
+  }
+
+  componentDidUpdate() {
+    this.scrollToBottom();
   }
 
   scrollToBottom () {
