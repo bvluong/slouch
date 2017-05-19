@@ -23,7 +23,6 @@ class NavChannelDetail extends React.Component {
         key={channel.id} value={channel.id}>
         # {channel.name}
       </li>);
-      console.log(channel_names);
     return (
       <ul className="all-channels">
         {channel_names}

@@ -27,7 +27,6 @@ class MessageIndex extends React.Component {
 
   render() {
     const { messages } = this.props;
-    console.log(this.props);
     const mapmessages = messages.map(message => <ul
       key={message.id}>
       <div className="message-box">
