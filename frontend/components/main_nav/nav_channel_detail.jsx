@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 class NavChannelDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { classname: "channel-detail", channel_id: 1 };
+    this.state = { classname: "channel-detail active", channel_id: 1 };
     this.updateChannel = this.updateChannel.bind(this);
   }
 
@@ -30,7 +30,7 @@ class NavChannelDetail extends React.Component {
         # {channel.name}
       </li>
   );
-
+    console.log(this.state);
     return (
       <ul className="all-channels">
         {channel_names}

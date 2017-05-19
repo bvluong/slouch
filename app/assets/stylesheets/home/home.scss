@@ -70,8 +70,9 @@ video {
   font: inherit;
   vertical-align: baseline;
   width: 100vw;
+  height: 100vh;
   margin: 0;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .home-button, #submit-button, {
@@ -83,6 +84,10 @@ video {
     text-align: center;
     text-overflow: clip;
 
+}
+
+.home-button:focus {
+    outline: grey auto 3px;
 }
 
 .home-button:hover {
