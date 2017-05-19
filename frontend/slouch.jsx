@@ -24,6 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   window.store = store;
 
+  App.messages = App.cable.subscriptions.create('MessagesChannel', {
+    received: function(data) {
+      console.log(data);
+      return store.dispatch({type: "RECEIVE_MESSAGE", message: data})
+    },
+  });
+
   ReactDOM.render(<Root store={store}/>, root);
 });
 
