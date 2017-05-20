@@ -1,0 +1,31 @@
+.channel-form-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.channel-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 700px
+}
+
+.channel-submit {
+
+}
+
+.user-names {
+  display: flex;
+  .user-names-details {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.user-icon {
+  height: 30px;
+  width: 30px;
+}
