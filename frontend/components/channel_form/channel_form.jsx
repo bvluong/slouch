@@ -29,7 +29,7 @@ class ChannelForm extends React.Component {
     console.log( users );
     const mapusers = users.map(user =>
       <li key={user.id}>
-        <img className="avatar" src={user.avatar}/>
+        <img className="user-icon" src={user.avatar}/>
         <span>{user.username}</span>
       </li>);
     return (
@@ -37,7 +37,7 @@ class ChannelForm extends React.Component {
         <div className="channel-form">
           <div className="channel-submit">
             <form className ="channel-submit-form" onSubmit={this.submitHandler}>
-              <input type="text"
+              <input className="input-channel" type="text"
                 placeholder="Username"
                 onChange={this.updateHandler("channel_name")}
                 value={this.state.channel_name} />
