@@ -13,7 +13,7 @@
   flex-direction: column;
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 85%;
+  height: 89%;
   width: 100%;
   bottom: 0;
   padding-bottom: 10px;
@@ -48,9 +48,9 @@
     }
     .message-body {
       padding: 0px;
-      padding-left: 5px;
       color: #2C2D30;
-      font-size: 7.5px;
+      font-size: 8.5px;
+      padding-left: 2px;
       line-height: 10px;
       margin: 0px;
       margin-top: -4px;
@@ -71,13 +71,13 @@
 
   }
   .message-submit {
-    border: 2px solid #E0E0E0;
+    border: 1px solid #c9c9c9;
     border-radius: 3px;
     font-size: 9px;
     font-weight: 400;
     color: #3D3C40;
     width: 90%;
-    height: 20px;
+    height: 23px;
     border-radius: 5px;
     text-indent: 5px;
   }
@@ -89,6 +89,9 @@
 
 
 .avatar {
-  width: 30px;
-  height: 30px;
+  border-radius: 2px;
+  width: 25px;
+  height: 25px;
+  margin: 3px;
+  border: 1px solid grey;
 }

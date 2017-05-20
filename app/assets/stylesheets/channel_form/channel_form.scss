@@ -11,13 +11,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 100%;
+  max-width: 700px;
   margin: 0 auto;
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 50px;
   height: 100%;
-  width: 70%;
+  width: 400px;
 }
 
 .channel-submit {
@@ -32,7 +32,7 @@
 
 .input-channel {
   width: 90%;
-  border: 1px solid grey;
+  border: 1px solid #E8E8E8;
   height: 30px;
   border-radius: 5px;
   text-indent: 7px;
@@ -63,7 +63,7 @@
   overflow-y: scroll;
 
   li {
-    border-top: 1px solid grey;
+    border-top: 1px solid #E8E8E8;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -76,10 +76,50 @@
   }
 }
 
+.user-button {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background: transparent;
+}
 
 .user-icon {
   height: 25px;
   width: 25px;
   margin: 3px;
+  border-radius: 2px;
   border: 1px solid grey;
+}
+
+.red {
+  background: #FF7F50;
+}
+
+.yellow {
+  background: #ADFF2F;
+}
+
+.blue {
+  background: #1E90FF;
+}
+
+.green {
+  background: #ADFF2F;
+}
+
+.orange {
+  background: #FF6347;
+}
+
+.pink {
+  background: #FF69B4;
+}
+
+.teal {
+  background: #40E0D0;
+}
+
+.grey {
+  background: #C0C0C0;
 }

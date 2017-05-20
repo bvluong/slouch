@@ -29,8 +29,8 @@ User.destroy_all
 
 users = []
 
-users << User.create(username:"Marcus Aurelius", password: "password")
-users << User.create(username:"Seneca", password: "password")
+users << User.create(username:"Marcus Aurelius", password: "password", image_url: "http://res.cloudinary.com/djrgebhxz/image/upload/v1495319947/bust_of_marcus_aurelius__13-8-142D07083142A8FB126_qwv2wx.png")
+users << User.create(username:"Seneca", password: "password", image_url: "http://res.cloudinary.com/djrgebhxz/image/upload/v1495320345/seneca_royy52.png")
 
 5.times do
   users << FactoryGirl.create(:user, username: Faker::HarryPotter.unique.character)
@@ -44,8 +44,12 @@ end
   users << FactoryGirl.create(:user, username: Faker::StarWars.unique.character)
 end
 
-15.times do
+10.times do
   users << FactoryGirl.create(:user, username: Faker::Ancient.unique.primordial)
+end
+
+5.times do
+  users << FactoryGirl.create(:user, username: Faker::Ancient.unique.primordial, image_url: Faker::LoremPixel.image )
 end
 
 user1 = FactoryGirl.create(:user, username: "dobyrynin")

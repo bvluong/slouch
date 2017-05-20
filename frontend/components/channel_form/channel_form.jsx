@@ -3,7 +3,9 @@ import React from 'react';
 class ChannelForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { channel_name: ""};
+    this.state = { channel_name: "",
+      searchusers: [],
+      newchannel: []};
     this.updateHandler = this.updateHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
   }
@@ -12,10 +14,39 @@ class ChannelForm extends React.Component {
     this.props.fetchUsers();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.users.length !== nextProps.users.length) {
+      const searchusers = nextProps.users.map(user =>
+        <li key={user.id}>
+          <button className="user-button" type="button">
+          <img className={`user-icon ${
+              ["red", "blue", "orange", "green", "yellow", "pink", "teal", "grey"]
+              [Math.floor(Math.random() * 8)]}`}
+             src={user.avatar}/>
+          <span>{user.username}</span>
+          </button>
+        </li>);
+      this.setState({ searchusers } );
+    }
+  }
+
+
   updateHandler(field) {
-    return (e) => (
-      this.setState({ [field]: e.target.value })
-    );
+    return (e) => {
+      this.setState({ [field]: e.target.value });
+      const filter_users = this.props.users.filter(user => user.username.toLowerCase().includes(e.target.value) );
+      const searchusers = filter_users.map(user =>
+        <li key={user.id}>
+          <button className="user-button" type="button">
+          <img className={`user-icon ${
+              ["red", "blue", "orange", "green", "yellow", "pink", "teal", "grey"]
+              [Math.floor(Math.random() * 8)]}`}
+              src={user.avatar}/>
+          <span>{user.username}</span>
+          </button>
+        </li>);
+      this.setState({ searchusers } );
+    };
   }
 
   submitHandler(e) {
@@ -26,15 +57,10 @@ class ChannelForm extends React.Component {
 
   render() {
     const { users } = this.props;
-    console.log( users );
-    const mapusers = users.map(user =>
-      <li key={user.id}>
-        <img className="user-icon" src={user.avatar}/>
-        <span>{user.username}</span>
-      </li>);
     return (
       <div className="channel-form-page">
         <div className="channel-form">
+
           <div className="channel-submit">
             <form className ="channel-submit-form" onSubmit={this.submitHandler}>
               <input className="input-channel" type="text"
@@ -44,11 +70,13 @@ class ChannelForm extends React.Component {
               <input className="channel-button" type="submit" value="Go"/>
             </form>
           </div>
+
           <div className="user-names">
             <ul className="user-names-details">
-              {mapusers}
+              { this.state.searchusers }
             </ul>
           </div>
+
         </div>
       </div>
     );

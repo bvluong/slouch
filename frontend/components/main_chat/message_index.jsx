@@ -58,7 +58,9 @@ class MessageIndex extends React.Component {
     const mapmessages = messages.map(message => <ul
       key={message.id}>
       <div className="message-box">
-        <img className="avatar" src={message.avatar}/>
+        <img className={`user-icon ${
+            ["red", "blue", "orange", "green", "yellow", "pink", "teal", "grey"]
+            [Math.floor(Math.random() * 8)]}`} src={message.avatar}/>
         <li>
           <ul className="message-info">
             <li> <span>{message.username}</span>  </li>
