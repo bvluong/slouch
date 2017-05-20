@@ -17,7 +17,7 @@
   padding-right: 30px;
   padding-top: 50px;
   height: 100%;
-  width: 60%;
+  width: 70%;
 }
 
 .channel-submit {
@@ -33,23 +33,24 @@
 .input-channel {
   width: 90%;
   border: 1px solid grey;
+  height: 30px;
+  border-radius: 5px;
+  text-indent: 7px;
 }
 
 .channel-button {
   background: #2ab27b;
   color: #fff;
   border-radius: .25rem;
-  margin-left: 5px;
-  padding: 12px;
+  margin-left: 10px;
+  padding: 9px 10px;
 }
 
 
 .user-names {
   display: flex;
-
   height: 100%;
   width: 100%;
-
   margin-top: 15px;
 }
 

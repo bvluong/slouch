@@ -38,7 +38,7 @@ class ChannelForm extends React.Component {
           <div className="channel-submit">
             <form className ="channel-submit-form" onSubmit={this.submitHandler}>
               <input className="input-channel" type="text"
-                placeholder="Username"
+                placeholder="Find or start a conversation"
                 onChange={this.updateHandler("channel_name")}
                 value={this.state.channel_name} />
               <input className="channel-button" type="submit" value="Go"/>
