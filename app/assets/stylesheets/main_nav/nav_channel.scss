@@ -25,9 +25,13 @@
 }
 
 .nav-channels ul li {
-  font-size: 0.87rem;
-  line-height: 1.33rem;
+  width: 160px;
+  font-size: .95rem;
+  line-height: 1.35rem;
   padding-left: 18px;
+  white-space: nowrap;
+  overflow:hidden !important;
+  text-overflow: ellipsis;
 }
 
 .nav-channels ul li:hover{
@@ -90,6 +94,7 @@
   width: 80%;
   display: flex;
   justify-content: space-around;
+  margin-bottom: 5px;
 }
 
 #fa-icons {

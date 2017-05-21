@@ -108,24 +108,33 @@ class ChannelForm extends React.Component {
         <div className="channel-form">
 
           <div className="channel-submit">
-            <form className ="channel-submit-form" onSubmit={this.submitHandler}>
-              <input className="input-channel" type="text"
-                placeholder="Find or start a conversation"
-                onChange={this.updateHandler("channel_name")}
-                value={this.state.channel_name} />
-              <input className="channel-button" type="submit" value="Go"/>
+            <div className="channel-form-top">
+            <h3>Direct Messages</h3>
+              <form className ="channel-submit-form" onSubmit={this.submitHandler}>
+                <div className='input-bar'>
+
+                  <ul className="new-channel">
+                  { this.state.selected_users.map(user => <li className="input-icon" key={user.username} onClick={this.removeHandler(user).bind(this)}>
+                      <img className={`user-icon ${
+                          ["red", "blue", "orange", "green", "yellow", "pink", "teal", "grey"]
+                          [Math.floor(Math.random() * 8)]}`}
+                         src={user.avatar}/>
+                      <span>{user.username}</span>
+                    </li> )}
+                  </ul>
+
+                  <input className="input-channel" type="text"
+                    placeholder="Find a user"
+                    onChange={this.updateHandler("channel_name")}
+                    value={this.state.channel_name} />
+
+                </div>
+                <input className="channel-button" type="submit" value="Go"/>
             </form>
+            </div>
           </div>
 
-          <ul className="new-channel">
-          { this.state.selected_users.map(user => <li key={user.username} onClick={this.removeHandler(user).bind(this)}>
-              <img className={`user-icon ${
-                  ["red", "blue", "orange", "green", "yellow", "pink", "teal", "grey"]
-                  [Math.floor(Math.random() * 8)]}`}
-                 src={user.avatar}/>
-              <span>{user.username}</span>
-            </li> )}
-          </ul>
+
 
           <div className="user-names">
             <ul className="user-names-details">

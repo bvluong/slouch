@@ -12,8 +12,11 @@
 .main-header h3 {
   text-transform: capitalize;
   text-shadow: none;
-  font-size: 40px;
+  font-size: 30px;
   text-align: left;
+  white-space: nowrap;
+  overflow:hidden !important;
+  text-overflow: ellipsis;
 }
 
 .main-header-detail {
