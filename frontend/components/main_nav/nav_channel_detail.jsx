@@ -13,6 +13,7 @@ const customStyles = {
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
     height                : '80%',
+    width                 : '50%',
     overflow              : 'none'
   }
 };
@@ -92,14 +93,17 @@ class NavChannelDetail extends React.Component {
             >
             <div className="modal-form-close">
               <button className="close-button"
-                onClick={this.closeModal}><i className="fa fa-times-circle" aria-hidden="true"></i></button>
+                onClick={this.closeModal}>
+                <i className="fa fa-times-circle fa-2x" aria-hidden="true" id="fa-icons"></i>
+
+            </button>
             </div>
             <ChannelFormContainer closeModal={this.closeModal.bind(this)}/>
           </Modal>
         <div className="direct-message-header">
           <button className="modal-button" onClick={this.openModal}>
             <h2> direct messages </h2>
-            <i className="fa fa-plus-circle" aria-hidden="true"></i>
+            <i className="fa fa-plus-circle fa-lg" id="fa-icons" aria-hidden="true"></i>
           </button>
         </div>
 

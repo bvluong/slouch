@@ -1,5 +1,5 @@
 .main-header {
-  height: 13%;
+  height: 10%;
   padding-left: 2%;
   width: 98%;
   border-bottom: 1px solid #717274;
@@ -12,7 +12,7 @@
 .main-header h3 {
   text-transform: capitalize;
   text-shadow: none;
-  font-size: 20px;
+  font-size: 40px;
   text-align: left;
 }
 
@@ -21,27 +21,27 @@
   justify-content: flex-start;
   align-items: baseline;
   color: #717274;
-  font-size: 8px;
+  font-size: 16px;
   font-weight: 310;
 }
 
 .user-count-avatar {
-  width: 9px;
-  height: 9px;
-  margin-right: 2px;
+  width: 16px;
+  height: 16px;
+  margin-right: 3.5px;
 }
 
 .channel-user-count {
-  margin-right: 2px;
+  margin-right: 3.5px;
 }
 
 .logout {
-  margin-right: 20px;
-  padding: 3px;
+  margin-right: 35px;
+  padding: 8px;
   background: #42c299;
   color: white;
   border-radius: 3.5px;
-  font-size: 60%;
+  font-size: 90%;
 }
 
 .logout:hover {

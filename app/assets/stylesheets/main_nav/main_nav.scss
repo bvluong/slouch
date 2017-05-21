@@ -14,21 +14,21 @@ html, body, main {
   font-family: Lato,sans-serif;
   margin: 0;
   padding: 0;
-  width: 140px;
+  width: 250px;
   z-index: 201;
   height: 100%;
 }
 
 .nav-top {
-  height: calc(100% - 16px);
+  height: calc(100% - 102px);
 }
 
 .nav-header {
-  height: 40px;
+  height: 70px;
 }
 
 .nav-channels {
-  height: calc(100% - 60px);
+  height: calc(100% - 102px);
 }
 
 .nav-all-channels {

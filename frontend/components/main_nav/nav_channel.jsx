@@ -72,7 +72,7 @@ class NavChannel extends React.Component {
         <div className="direct-message-header">
           <button className="modal-button" onClick={this.openModal}>
             <h2> Channels <span className="channel-length">({channels.length})</span></h2>
-            <i className="fa fa-plus-circle" aria-hidden="true"></i>
+            <i className="fa fa-plus-circle"  id="fa-icons" aria-hidden="true"></i>
           </button>
         </div>
         <NavChannelDetailContainer/>
