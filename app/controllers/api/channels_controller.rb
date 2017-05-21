@@ -9,12 +9,18 @@ class Api::ChannelsController < ApplicationController
   end
 
   def create
-    @channel = Channel.new(channel_params)
-    if @channel.save
-      render :show
-    else
-      render json: @channel.errors.full_messages, status: 422
-    end
+      @channel = Channel.new(channel_params)
+      debugger
+      if @channel.save
+        if params[:channel][:user_id].length > 0
+          params[:channel][:user_id].each do |user_id|
+            Subscription.create(channel_id: @channel.id, user_id: user_id)
+          end
+        end
+        render :show
+      else
+        render json: @channel.errors.full_messages, status: 422
+      end
   end
 
   def destroy
@@ -26,7 +32,7 @@ class Api::ChannelsController < ApplicationController
   private
 
   def channel_params
-    params.require(:channel).permit(:name, :description)
+    params.require(:channel).permit(:name, :description, :private, :user_id)
   end
 
 end

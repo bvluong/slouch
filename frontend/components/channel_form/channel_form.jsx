@@ -88,8 +88,12 @@ class ChannelForm extends React.Component {
 
   submitHandler(e) {
     e.preventDefault();
-    this.props.processForm(this.state)
-      .then(this.setState({channel_name: ""}));
+    const name = this.state.selected_users.map(user => user.username).join(" ");
+    this.props.createChannel({private: true,
+      user_id: this.state.selected_userid,
+      description: "",
+      name
+    });
   }
 
   render() {
