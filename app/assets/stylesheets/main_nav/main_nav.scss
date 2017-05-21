@@ -16,4 +16,21 @@ html, body, main {
   padding: 0;
   width: 140px;
   z-index: 201;
+  height: 100%;
+}
+
+.nav-top {
+  height: calc(100% - 16px);
+}
+
+.nav-header {
+  height: 40px;
+}
+
+.nav-channels {
+  height: calc(100% - 60px);
+}
+
+.nav-all-channels {
+  height: 100%;
 }

@@ -26,7 +26,6 @@ class NavChannelDetail extends React.Component {
     this.updateChannel = this.updateChannel.bind(this);
 
     this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     const appElement = document.getElementById('root');
     Modal.setAppElement(appElement);
@@ -36,8 +35,6 @@ class NavChannelDetail extends React.Component {
     this.setState({modalIsOpen: true});
   }
 
-  afterOpenModal() {
-  }
 
   closeModal() {
     this.setState({modalIsOpen: false});
@@ -79,7 +76,7 @@ class NavChannelDetail extends React.Component {
 );
 
     return (
-      <div>
+      <div className="nav-all-channels">
         <ul className="all-channels">
           {channel_names}
         </ul>
