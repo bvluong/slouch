@@ -36,11 +36,6 @@ class NavChannelDetail extends React.Component {
     this.setState({modalIsOpen: true});
   }
 
-  afterOpenModal() {
-  // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#f00';
-  }
-
   closeModal() {
     this.setState({modalIsOpen: false});
   }
