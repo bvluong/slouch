@@ -55,6 +55,7 @@ class NavChannelDetail extends React.Component {
 
 
   render () {
+    console.log(this.props);
     const { userChannels } = this.props;
     const public_channels = userChannels.filter( channel => !channel.private );
     const private_channels = userChannels.filter( channel => channel.private );
