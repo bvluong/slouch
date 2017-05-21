@@ -36,6 +36,9 @@ class NavChannelDetail extends React.Component {
     this.setState({modalIsOpen: true});
   }
 
+  afterOpenModal() {
+  }
+
   closeModal() {
     this.setState({modalIsOpen: false});
   }
@@ -50,7 +53,6 @@ class NavChannelDetail extends React.Component {
 
 
   render () {
-    console.log(this.props);
     const { userChannels } = this.props;
     const public_channels = userChannels.filter( channel => !channel.private );
     const private_channels = userChannels.filter( channel => channel.private );
@@ -105,7 +107,7 @@ class NavChannelDetail extends React.Component {
         </div>
 
       </div>
-        <ul className="all-channels">
+        <ul className="direct-messages-channels">
           {direct_messages}
         </ul>
       </div>
