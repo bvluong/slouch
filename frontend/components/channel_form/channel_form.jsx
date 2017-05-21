@@ -50,7 +50,15 @@ class ChannelForm extends React.Component {
     return e => {
       const userid_index = this.state.selected_userid.indexOf(user.id);
       const user_index = this.state.selected_users.indexOf(user);
-      
+      const selected_userid = this.state.selected_userid;
+      selected_userid.splice(userid_index,1);
+      const selected_users = this.state.selected_users;
+      selected_users.splice(user_index, 1);
+      this.setState({
+        selected_userid,
+        selected_users,
+        render: true
+      });
     };
   }
 
