@@ -76,12 +76,46 @@
   }
 }
 
+.new-channel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    background: #2D9EE0;
+    border-radius: 4px;
+    margin: 2px;
+    padding: 5px;
+    .user-icon {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}
+
+.new-channel li:hover {
+  cursor: pointer;
+}
+
 .user-button {
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   background: transparent;
+  border: 1px solid white;
+}
+
+.user-button:hover {
+  cursor: pointer;
+  background: #edf7fd;
+  border: 1px solid #d3ecfa;
+  border-radius: 6px;
 }
 
 .user-icon {
