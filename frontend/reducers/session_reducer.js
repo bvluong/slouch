@@ -13,12 +13,12 @@ const _nullUser = {
 
 const sessionReducer = (state = _nullUser, action) => {
   Object.freeze(state);
-  console.log(action);
   switch (action.type) {
     case RECEIVE_CHANNEL:
       let newState = merge({}, state);
-      let channels = values(newState.channels);
-      channels.push(action.channel);
+      let channels = values(newState.currentUser.channels);
+      if (channels.every(channel => !(channel.id === action.channel.id)) ) {
+      channels.push(action.channel); }
       return merge( {}, state, {currentUser: {channels}});
     case RECEIVE_CURRENT_USER:
       return merge( {}, _nullUser, { currentUser: action.currentUser });
