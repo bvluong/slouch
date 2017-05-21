@@ -10,7 +10,6 @@ class Api::ChannelsController < ApplicationController
 
   def create
       @channel = Channel.new(channel_params)
-      debugger
       if @channel.save
         if params[:channel][:user_id].length > 0
           params[:channel][:user_id].each do |user_id|

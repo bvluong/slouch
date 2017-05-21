@@ -9,7 +9,7 @@
   font-size: 0.5rem;
   line-height: 0.8rem;
   font-weight: lighter;
-  width: 100%;
+  width: 80%;
   height: auto;
   text-align: left;
   font-weight: normal;
@@ -49,6 +49,37 @@
 
 .channel-detail:hover{
   cursor: pointer;
+}
+
+.modal-button{
+  width: 100%;
+  background: transparent;
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-button:hover{
+  cursor: pointer;
+  color: white;
+}
+
+.modal-form-close {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.close-button{
+  background: transparent;
+}
+
+.close-button:hover{
+  cursor: pointer;
+}
+
+.direct-message-header {
+  display: flex;
+  flex-direction: row;
 }
 
 .nav-footer {

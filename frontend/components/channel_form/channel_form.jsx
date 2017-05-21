@@ -16,10 +16,15 @@ class ChannelForm extends React.Component {
 
   componentDidMount() {
     this.props.fetchUsers();
+    const searchusers = this.mapUsers(this.props.users);
+    this.setState({ searchusers } );
+    this.setState({ selected_userid: [this.props.currentUser.id],
+      selected_users: [this.props.currentUser]
+    } );
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.users.length !== nextProps.users.length) {
+    if (this.props.users.length !== nextProps.users.length ) {
       const searchusers = this.mapUsers(nextProps.users);
       this.setState({ searchusers } );
     }
@@ -93,12 +98,12 @@ class ChannelForm extends React.Component {
       user_id: this.state.selected_userid,
       description: "",
       name
-    });
+    }).then(this.props.fetchChannel(this.props.currentUser.id)).then(this.props.closeModal());
   }
 
   render() {
+    console.log(this.props);
     const { users } = this.props;
-    console.log(this.state);
     return (
       <div className="channel-form-page">
         <div className="channel-form">
