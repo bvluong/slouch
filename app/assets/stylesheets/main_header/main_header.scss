@@ -9,7 +9,11 @@
   align-items: center;
 }
 
-.main-header h3 {
+.left-main-header {
+  overflow: hidden !important;
+}
+
+.channel-name {
   text-transform: capitalize;
   text-shadow: none;
   font-size: 30px;

@@ -16,7 +16,7 @@ class MainHeader extends React.Component {
     return (
     <div className="main-header">
       <div className="left-main-header">
-        <h3>#{name}</h3>
+        <div className="channel-name">#{name}</div>
         <section className="main-header-detail">
           <img className="user-count-avatar"
             src="http://res.cloudinary.com/djrgebhxz/image/upload/v1495046454/avatar_thnwbt.png"/>
