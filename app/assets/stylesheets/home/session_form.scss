@@ -29,7 +29,7 @@
 
 
 .home-form h2 {
-  color: rgba(255,255,255,.8);
+  color: rgba(255,255,255,.9);
   font-size: 150%;
   text-shadow: 0;
   font-weight: 300;
@@ -85,13 +85,16 @@
     border: 0;
     border-bottom: 2px solid white;
     color: white;
-    font-size: 36px;
     letter-spacing: -1px;
     outline: 0;
     padding: 5px 20px;
     text-align: center;
     transition: all 0.3s;
     width: 200px;
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+
     &:focus {
       max-width: 100%;
       width: 400px;
@@ -102,6 +105,14 @@
     &:valid + .label-text {
       font-size: 13px
       +transform(translateY(-74px));
+    }
+    &::placeholder {
+      color: rgba(255,255,255,.7);
+      font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+      font-weight: 300;
+      font-size: 25px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
     }
   }
 
