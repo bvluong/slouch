@@ -18,7 +18,8 @@ const sessionReducer = (state = _nullUser, action) => {
     case RECEIVE_CHANNEL:
       let newState = merge({}, state);
       let channels = values(newState.currentUser.channels);
-      if (channels.every(channel => !(channel.id === action.channel.id)) ) {
+      if (channels.every(channel => !(channel.id === action.channel.id))
+    && values(action.channel.users).some( user => user.id === state.currentUser.id )) {
       channels.push(action.channel); }
       return merge( {}, state, {currentUser: {channels}});
     case RECEIVE_CURRENT_USER:

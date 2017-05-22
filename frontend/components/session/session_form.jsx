@@ -29,7 +29,7 @@ class SessionForm extends React.Component {
     const { username, password } = this.state;
     const { errors } = this.props;
     const mapErrors = errors.map( (err,idx) => <h2 className="errors" key={idx}>{err}</h2>);
-    const header = (formType==="login") ? "Login" : "Signup";
+    const header = (formType==="login") ? "Login" : "Sign up";
     return (
       <div className="home-form">
           <div className="welcome-logo"><img className="logo-2" src="http://res.cloudinary.com/djrgebhxz/image/upload/v1495145507/imageedit_11_5457561712_jy5jds.png"/>
@@ -39,18 +39,24 @@ class SessionForm extends React.Component {
         {mapErrors}
         <h3>{header}</h3>
         <form onSubmit={this.submitHandler} >
-          <input type="text"
+          <label className="label">
+            <input type="text" required
+              className="form-input"
+              id="label-text"
+              onChange={this.updateHandler("username")}
+              value={ username }/>
+            <div className="label-text">Username</div>
+          </label>
+          <label className="label">
+          <input type="password" required
             id="label-text"
-            placeholder="Username"
-            onChange={this.updateHandler("username")}
-            value={ username } />
-          <input type="password"
-            id="label-text"
-            placeholder="Password"
+            className="form-input"
             onChange={this.updateHandler("password")}
             value={ password }
             />
-          <input id="submit-button" className="home-button" type="submit" value="Continue ->"/>
+          <div className="label-text">Password</div>
+          </label>
+          <input id="submit-button" className="home-button" type="submit" value={header}/>
         </form>
       </div>
     );
