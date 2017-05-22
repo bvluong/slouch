@@ -67,7 +67,8 @@ class ChannelForm extends React.Component {
   }
 
   mapUsers(users) {
-    const filter_users = users.filter(user => !this.state.selected_userid.includes(user.id) );
+    const filter_users = users.filter(user =>
+      (!this.state.selected_userid.includes(user.id) && user.id !== this.props.currentUser.id));
     return filter_users.map(user =>
       <li key={user.id}>
         <button className="user-button" type="button" onClick={this.userHandler(user)}>
@@ -102,7 +103,6 @@ class ChannelForm extends React.Component {
 
   render() {
     const { users } = this.props;
-    console.log(this.state);
     return (
       <div className="channel-form-page">
         <div className="channel-form">
