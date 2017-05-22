@@ -2,7 +2,7 @@ import React from 'react';
 import NavChannelDetailContainer from './nav_channel_detail_container';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
-import ChannelFormContainer from '../channel_form/channel_form_container.js';
+import FindChannelContainer from '../channel_form/find_channel_container';
 
 const customStyles = {
   content : {
@@ -28,7 +28,6 @@ class NavChannel extends React.Component {
     };
 
     this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     const appElement = document.getElementById('root');
     Modal.setAppElement(appElement);
@@ -38,10 +37,6 @@ class NavChannel extends React.Component {
    this.setState({modalIsOpen: true});
  }
 
- afterOpenModal() {
-   // references are now sync'd and can be accessed.
-   this.subtitle.style.color = '#f00';
- }
 
  closeModal() {
    this.setState({modalIsOpen: false});
@@ -67,9 +62,14 @@ class NavChannel extends React.Component {
             style={customStyles}
             contentLabel="Example Modal"
             >
+            <div className="modal-form-close">
+              <button className="close-button"
+                onClick={this.closeModal}>
+                <i className="fa fa-times-circle fa-2x" aria-hidden="true" id="fa-icons"></i>
 
-            <button onClick={this.closeModal}>close</button>
-            Place holder for new Channel form
+              </button>
+            </div>
+            <FindChannelContainer/>
           </Modal>
 
         </div>

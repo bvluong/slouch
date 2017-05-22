@@ -112,6 +112,10 @@
   }
 }
 
+.new-channel-submit-form {
+  height: 40px;
+}
+
 .new-channel {
   display: flex;
   flex-direction: row;
@@ -164,6 +168,34 @@
   border: 1px solid grey;
 }
 
+.find-channel-button {
+  width: 100%;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background: transparent;
+  border: 1px solid white;
+}
+
+.find-channel-button span:hover {
+  cursor: pointer;
+  border: 1px solid #d3ecfa;
+  background: #d3ecfa;
+}
+
+
+.user-names-details li button span {
+  width: 100%;
+  height: 35px;
+  margin: 0px;
+  font-size: 20px;
+  color: #555459;
+  font-weight: normal;
+  padding: 3px 0;
+  text-align: left;
+}
+
 .red {
   background: #FF7F50;
 }
@@ -194,4 +226,12 @@
 
 .grey {
   background: #C0C0C0;
+}
+
+.color1 {
+  background: #dcdfe3;
+}
+
+.color2 {
+  background: white;
 }
