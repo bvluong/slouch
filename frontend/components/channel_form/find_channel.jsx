@@ -25,14 +25,16 @@ class FindChannel extends React.Component {
 
 
   mapChannels(channels) {
-    const filter_channels = channels.filter(channel => !channel.private);
+    const user_channel_id = this.props.currentUser.channels.map(channel => channel.id);
+    const filter_channels = channels.filter(channel =>
+      (!channel.private && !user_channel_id.includes(channel.id) ));
     return filter_channels.map( (channel,idx) =>
       <li key={channel.id}>
         <button className="find-channel-button" type="button" onClick={this.submitHandler(channel)}>
          <span
            className={`channel-icon ${
          ["color1", "color2"]
-         [ channel.id % 2]}`}># {channel.name}</span>
+         [ idx % 2]}`}># {channel.name}</span>
         </button>
       </li>);
   }
@@ -55,7 +57,6 @@ class FindChannel extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const { channels } = this.props;
     return (
       <div className="channel-form-page">

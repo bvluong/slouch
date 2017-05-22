@@ -93,7 +93,8 @@ class ChannelForm extends React.Component {
 
   submitHandler(e) {
     e.preventDefault();
-    const name = this.state.selected_users.map(user => user.username).join(",");
+    let name = this.state.selected_users.map(user => user.username).join(",");
+    name = `${this.props.currentUser.username},${name}`;
     this.props.createChannel({private: true,
       user_id: this.state.selected_userid,
       description: "",
