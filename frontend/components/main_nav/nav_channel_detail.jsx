@@ -59,8 +59,9 @@ class NavChannelDetail extends React.Component {
       channel =>
       <li
         onClick={this.updateChannel}
-        className={(this.state.channel_id===channel.id) ?
-          this.state.classname : "channel-detail"}
+        className={
+          (this.state.channel_id===channel.id) ? this.state.classname : "channel-detail"
+        }
         key={channel.id} value={channel.id}>
         # {channel.name}
       </li>
@@ -69,10 +70,13 @@ class NavChannelDetail extends React.Component {
     channel =>
     <li
       onClick={this.updateChannel}
-      className={(this.state.channel_id===channel.id) ?
-        this.state.classname : "channel-detail"}
+      className={
+        (this.state.channel_id===channel.id) ? this.state.classname : "channel-detail"
+      }
       key={channel.id} value={channel.id}>
-      @ {channel.name.replace(`${this.props.currentUser.username},`,"")}
+      @ {channel.name.replace(`${this.props.currentUser.username},`,"")
+        .replace(`,${this.props.currentUser.username}`,"")
+        .replace(this.props.currentUser.username,"")}
     </li>
 );
 
@@ -89,21 +93,23 @@ class NavChannelDetail extends React.Component {
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
             style={customStyles}
-            contentLabel="Example Modal"
-            >
-            <div className="modal-form-close">
-              <button className="close-button"
-                onClick={this.closeModal}>
-                <i className="fa fa-times-circle fa-2x" aria-hidden="true" id="fa-icons"></i>
+            contentLabel="Example Modal">
 
-            </button>
+            <div className="modal-form-close">
+              <button className="close-button" onClick={this.closeModal}>
+                <i className="fa fa-times-circle fa-2x"
+                  aria-hidden="true"
+                  id="fa-icons"/>
+              </button>
             </div>
+
             <ChannelFormContainer closeModal={this.closeModal.bind(this)}/>
+
           </Modal>
         <div className="direct-message-header">
           <button className="modal-button" onClick={this.openModal}>
             <h2> direct messages </h2>
-            <i className="fa fa-plus-circle fa-lg" id="fa-icons" aria-hidden="true"></i>
+            <i className="fa fa-plus-circle fa-lg" id="fa-icons" aria-hidden="true"/>
           </button>
         </div>
 

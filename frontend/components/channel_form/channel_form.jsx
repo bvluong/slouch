@@ -67,13 +67,17 @@ class ChannelForm extends React.Component {
   }
 
   mapUsers(users) {
-    const filter_users = users.filter(user =>
-      (!this.state.selected_userid.includes(user.id) && user.id !== this.props.currentUser.id));
+    const filter_users = users
+    .filter(user => (!this.state.selected_userid.includes(user.id) &&
+      user.id !== this.props.currentUser.id));
     return filter_users.map(user =>
       <li key={user.id}>
-        <button className="user-button" type="button" onClick={this.userHandler(user)}>
+        <button className="user-button"
+          type="button"
+          onClick={this.userHandler(user)}>
         <img className={`user-icon ${
-            ["red", "blue", "orange", "green", "yellow", "pink", "teal", "grey"]
+            ["red", "blue", "orange", "green",
+             "yellow", "pink", "teal", "grey"]
             [Math.floor(Math.random() * 8)]}`}
            src={user.avatar}/>
         <span>{user.username}</span>
@@ -85,7 +89,8 @@ class ChannelForm extends React.Component {
   updateHandler(field) {
     return (e) => {
       this.setState({ [field]: e.target.value });
-      const filter_users = this.props.users.filter(user => user.username.toLowerCase().includes(e.target.value) );
+      const filter_users = this.props.users.filter(user =>
+        user.username.toLowerCase().includes(e.target.value) );
       const searchusers = this.mapUsers(filter_users);
       this.setState({ searchusers } );
     };
@@ -93,8 +98,10 @@ class ChannelForm extends React.Component {
 
   submitHandler(e) {
     e.preventDefault();
-    let name = this.state.selected_users.map(user => user.username).join(",");
-    name = `${this.props.currentUser.username},${name}`;
+    let name = this.state.selected_users.concat(this.props.currentUser);
+
+    name = name.map(user => user.username).sort().join(",");
+        console.log(name);
     this.props.createChannel({private: true,
       user_id: this.state.selected_userid,
       description: "",
@@ -111,31 +118,39 @@ class ChannelForm extends React.Component {
           <div className="channel-submit">
             <div className="channel-form-top">
             <h3>Direct Messages</h3>
-              <form className ="channel-submit-form" onSubmit={this.submitHandler}>
+              <form className ="channel-submit-form"
+                    onSubmit={this.submitHandler}>
                 <div className='input-bar'>
 
                   <ul className="new-channel">
-                  { this.state.selected_users.map(user => <li className="input-icon" key={user.username} onClick={this.removeHandler(user).bind(this)}>
+                  { this.state.selected_users
+                    .map(user => <li
+                      className="input-icon"
+                      key={user.username}
+                      onClick={this.removeHandler(user).bind(this)}>
                       <img className={`user-icon ${
-                          ["red", "blue", "orange", "green", "yellow", "pink", "teal", "grey"]
+                          ["red", "blue", "orange", "green",
+                           "yellow", "pink", "teal", "grey"]
                           [Math.floor(Math.random() * 8)]}`}
                          src={user.avatar}/>
                       <span>{user.username}</span>
                     </li> )}
                   </ul>
 
-                  <input className="input-channel" type="text"
+                  <input
+                    className="input-channel"
+                    type="text"
                     placeholder="Find a user"
                     onChange={this.updateHandler("channel_name")}
                     value={this.state.channel_name} />
 
                 </div>
-                <input className="channel-button" type="submit" value="Go"/>
-            </form>
+                <input className="channel-button"
+                       type="submit"
+                       value="Go"/>
+              </form>
             </div>
           </div>
-
-
 
           <div className="user-names">
             <ul className="user-names-details">
