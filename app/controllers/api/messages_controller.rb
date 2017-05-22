@@ -12,13 +12,7 @@ class Api::MessagesController < ApplicationController
   def create
     @message = current_user.messages.new(message_params)
     if @message.save
-      ActionCable.server.broadcast "channels:#{@message.channel_id}:messages",
-        id: @message.id,
-        body: @message.body,
-        username: @message.user.username,
-        avatar: @message.user.image_url,
-        time_stamp: @message.updated_at
-      head :ok
+      render :show
     end
   end
 

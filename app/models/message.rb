@@ -12,6 +12,7 @@
 
 class Message < ApplicationRecord
   validates :body, :user, :channel, presence: true
+  after_commit { MessageRelayJob.perform_later(self)}
 
   belongs_to :user
   belongs_to :channel

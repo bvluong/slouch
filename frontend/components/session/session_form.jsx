@@ -14,6 +14,10 @@ class SessionForm extends React.Component {
     );
   }
 
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
   submitHandler(e) {
     e.preventDefault();
     this.props.processForm(this.state)
@@ -36,10 +40,12 @@ class SessionForm extends React.Component {
         <h3>{header}</h3>
         <form onSubmit={this.submitHandler} >
           <input type="text"
+            id="label-text"
             placeholder="Username"
             onChange={this.updateHandler("username")}
             value={ username } />
           <input type="password"
+            id="label-text"
             placeholder="Password"
             onChange={this.updateHandler("password")}
             value={ password }

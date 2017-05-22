@@ -29,10 +29,10 @@
 
 
 .home-form h2 {
-  color: rgba(255,255,255,.7);
+  color: rgba(255,255,255,.8);
   font-size: 150%;
   text-shadow: 0;
-  font-weight: lighter;
+  font-weight: 300;
   margin-top: 10px;
 }
 
@@ -53,19 +53,6 @@
   color: black;
 }
 
-.home-form #submit-button {
-  background: #42c299;
-  color: white;
-  width: 300px;
-  font-size: 100%;
-  font-weight: bold;
-}
-
-.home-form #submit-button:hover {
-  border: 2px solid rgba(255,255,255,1);
-  cursor: pointer;
-}
-
 .home-welcome {
   display: flex;
   flex-direction: column;
@@ -75,18 +62,80 @@
 }
 
 
-.home-welcome #start-button {
+
+
+.home-form .errors {
+  color: white;
+  font-weight: normal;
+}
+
+
+#label-text {
+  color: white;
+  cursor: text;
+  font-size: 20px;
+  line-height: 20px;
+  text-transform: uppercase
+  +transform(translateY(-34px));
+  transition: all 0.3s;
+}
+
+  #label-text {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid white;
+    color: white;
+    font-size: 36px;
+    letter-spacing: -1px;
+    outline: 0;
+    padding: 5px 20px;
+    text-align: center;
+    transition: all 0.3s;
+    width: 200px;
+    &:focus {
+      max-width: 100%;
+      width: 400px;
+      color:  #F0F0F0;
+      font-size: 13px
+      +transform(translateY(-74px));
+    }
+    &:valid + .label-text {
+      font-size: 13px
+      +transform(translateY(-74px));
+    }
+  }
+
+.home-button {
+  &:hover, &:focus {
+    background-color: white;
+    color: #333333;
+    outline: 0;
+  }
+}
+
+ #submit-button, #start-button {
+  background-color: #702b45;
+  border-radius: 27px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 15px 30px;
+  width: 250px;
+  text-transform: uppercase;
+  transition: all 200ms;
+  &:hover, &:focus {
+    background-color: white;
+    color: #333333;
+    outline: 0;
+  }
+}
+
+#start-button {
   margin-top: 20%;
-  background: #42c299;
   color: white;
   width: 300px;
   font-size: 110%;
   font-weight: bold;
-  font-weight: normal;
-  border-radius: 3.5px;
-}
-
-.home-form .errors {
-  color: white;
   font-weight: normal;
 }

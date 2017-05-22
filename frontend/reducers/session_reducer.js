@@ -1,6 +1,7 @@
 import {
   RECEIVE_CURRENT_USER,
-  RECEIVE_ERRORS } from '../actions/session_actions';
+  RECEIVE_ERRORS,
+  CLEAR_ERRORS } from '../actions/session_actions';
 
 import { RECEIVE_CHANNEL } from '../actions/channel_actions';
 
@@ -24,6 +25,8 @@ const sessionReducer = (state = _nullUser, action) => {
       return merge( {}, _nullUser, { currentUser: action.currentUser });
     case RECEIVE_ERRORS:
       return merge( {}, _nullUser, { errors: action.errors } );
+    case CLEAR_ERRORS:
+      return merge({}, _nullUser);
     default:
       return state;
   }
