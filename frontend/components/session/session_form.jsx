@@ -32,7 +32,7 @@ class SessionForm extends React.Component {
     const header = (formType==="login") ? "Login" : "Sign up";
     return (
       <div className="home-form">
-          <div className="welcome-logo"><img className="logo-2" src="http://res.cloudinary.com/djrgebhxz/image/upload/v1495145507/imageedit_11_5457561712_jy5jds.png"/>
+          <div className="welcome-logo"><img className="logo-2" src="http://res.cloudinary.com/djrgebhxz/image/upload/v1495496494/s-logo-5_yz28wf.png"/>
             <span>louch</span>
           </div>
         <h2>Slouch is a real time web chatting clone of Slack.</h2>
