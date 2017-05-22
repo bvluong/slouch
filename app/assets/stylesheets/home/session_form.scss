@@ -97,14 +97,9 @@
 
     &:focus {
       max-width: 100%;
-      width: 400px;
+      width: 350px;
       color:  #F0F0F0;
-      font-size: 13px
-      +transform(translateY(-74px));
-    }
-    &:valid + .label-text {
-      font-size: 13px
-      +transform(translateY(-74px));
+      font-size: 13px;
     }
     &::placeholder {
       color: rgba(255,255,255,.7);
