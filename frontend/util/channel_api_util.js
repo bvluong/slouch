@@ -19,3 +19,11 @@ export const createChannel = channel => (
     data: {channel}
   })
 );
+
+
+export const updateSubscription = channel_id => (
+  $.ajax({
+    method: "PATCH",
+    url: `api/channels/${channel_id}`
+  })
+);

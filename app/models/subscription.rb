@@ -10,9 +10,11 @@
 #
 
 class Subscription < ApplicationRecord
-  validates :user_id, :channel_id, presence: true
+  validates :user, :channel, presence: true
+  validates_uniqueness_of :channel_id, scope: :user_id
 
   belongs_to :user
   belongs_to :channel
+
 
 end

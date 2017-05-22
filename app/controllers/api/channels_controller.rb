@@ -22,6 +22,16 @@ class Api::ChannelsController < ApplicationController
       end
   end
 
+  def update
+    @channel = Channel.find(params[:id])
+    @subscription = Subscription.new(channel_id: params[:id], user_id: current_user.id)
+    if @subscription.save
+      render :show
+    else
+      render json: @subscription.errors.full_messages, status: 422
+    end
+  end
+
   def destroy
     @channel = Channel.find(params[:id])
     @channel.destroy

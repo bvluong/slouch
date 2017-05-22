@@ -50,7 +50,7 @@ class FindChannel extends React.Component {
   submitHandler(channel) {
     return e => {
     e.preventDefault();
-
+    this.props.subscribeChannel(channel.id).then(this.props.closeModal());
   };
   }
 

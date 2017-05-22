@@ -64,12 +64,19 @@ Channel.destroy_all
 
 channels = [
 Channel.create(name: "general", description: "This channel is for team-wide communication and announcements."),
-Channel.create(name: "Harry Potter", description: "I solemnly swear I am up to no good."),
-Channel.create(name: "TwinPeaks", description: "When you see me again, it won't be me."),
-Channel.create(name: "Star Wars", description: "A long time ago, in a galaxy far far away"),
-Channel.create(name: "Stoicism", description: "Learning about Stoic principles and techniques."),
+Channel.create(name: "harry-potter", description: "I solemnly swear I am up to no good."),
+Channel.create(name: "twin-peaks", description: "When you see me again, it won't be me."),
+Channel.create(name: "star-wars", description: "A long time ago, in a galaxy far far away"),
+Channel.create(name: "stoicism", description: "Learning about Stoic principles and techniques."),
 Channel.create(name: "mindfulness", description: "Moment-by-moment awareness. Living in the now"),
-Channel.create(name: "reactjs", description: "A community for learning and developing web applications using React")]
+Channel.create(name: "reactjs", description: "A community for learning and developing web applications using React"),
+Channel.create(name: "funny", description: "You may only post if you are funny."),
+Channel.create(name: "worldnews", description: "worldnews is for major news from around the world."),
+Channel.create(name: "aww", description: "Things that make you go AWW! -- like puppies"),
+Channel.create(name: "indieheads", description: "The latest indie music from your favorite artists."),
+Channel.create(name: "shower-thoughts", description: "thoughts you might have while carrying out a routine task like showering, "),
+Channel.create(name: "eli5", description: "Explain it like I'm five")
+]
 
 channel1 = Channel.create(name: "dobyrynin", description: "", private: true)
 channel2 = Channel.create(name: "debsfong", description: "", private: true)

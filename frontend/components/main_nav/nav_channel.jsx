@@ -69,7 +69,7 @@ class NavChannel extends React.Component {
 
               </button>
             </div>
-            <FindChannelContainer/>
+            <FindChannelContainer closeModal={this.closeModal.bind(this)}/>
           </Modal>
 
         </div>

@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchChannels: () => dispatch(fetchChannels()),
-  subscribeChannel: (subscription) => dispatch(subscribeChannel(subscription))
+  subscribeChannel: (channel_id) => dispatch(subscribeChannel(channel_id))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(FindChannel);

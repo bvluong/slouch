@@ -6,7 +6,7 @@ export const receiveChannel = channel => ({
   channel
 });
 
-export const subscribeChannel = (channel) => dispatch => (
-  ChannelAPIUtil.createChannel(channel)
-  .then(chan => dispatch(receiveChannel(chan)))
+export const subscribeChannel = (channel_id) => dispatch => (
+  ChannelAPIUtil.updateSubscription(channel_id)
+  .then(channel => dispatch(receiveChannel(channel)))
 );
