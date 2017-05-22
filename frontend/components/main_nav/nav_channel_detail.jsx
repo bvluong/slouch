@@ -51,7 +51,7 @@ class NavChannelDetail extends React.Component {
 
 
   render () {
-    const { userChannels } = this.props;
+    const userChannels = (this.props.currentUser.channels || []);
     const public_channels = userChannels.filter( channel => !channel.private );
     const private_channels = userChannels.filter( channel => channel.private );
 
@@ -72,7 +72,7 @@ class NavChannelDetail extends React.Component {
       className={(this.state.channel_id===channel.id) ?
         this.state.classname : "channel-detail"}
       key={channel.id} value={channel.id}>
-      @ {channel.name}
+      @ {channel.name.replace(`${this.props.currentUser.username},`,"")}
     </li>
 );
 
