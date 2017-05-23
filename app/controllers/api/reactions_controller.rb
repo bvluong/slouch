@@ -3,8 +3,7 @@ class Api::ReactionsController < ApplicationController
     @reaction = current_user.reactions.new(reaction_params)
     if @reaction.save
       @message = @reaction.message
-      debugger
-      render "api/messages/#{@message.id}"
+      render "api/messages/show"
     else
       render json: @reaction.errors.full_messages, status: 422
     end

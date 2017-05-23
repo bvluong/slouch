@@ -11,8 +11,8 @@ const MessageBody = ({ message }) => (
       .replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3")} </li>
     </ul>
     <p className="message-body"> {ReactEmoji.emojify(message.body)} </p>
-    <ul>
-      { message.reactions ? message.reactions.map(reaction => <li key={reaction.id}>reaction.emoji</li>) : []}
+    <ul className="emoji-body">
+      { message.reactions ? message.reactions.map(reaction => <li key={reaction.id}>{reaction.emoji}</li>) : []}
     </ul>
   </li>
 );

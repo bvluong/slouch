@@ -17,7 +17,7 @@
   width: 100%;
   bottom: 0;
   padding-bottom: 15px;
-  ul {
+  > ul {
     display: block;
     padding-left: 0;
     width: 100%;
@@ -43,6 +43,7 @@
       font-weight: 900;
       color: #2C2D30!important;
       line-height: 32px;
+      padding-left: 3px;
       .time-stamp {
         font-weight: 400;
         color: #9e9ea6;
@@ -180,4 +181,16 @@
   border: 1px solid grey;
   border-radius: 5px;
   overflow-y: scroll;
+}
+
+.emoji-body {
+  padding-left: 0px;
+  display: flex;
+  flex-direction: row;
+  li {
+    padding: 0 7px 0 4px ;
+    margin: 0 3px;
+    border: 0.5px solid grey;
+    border-radius: 5px;
+  }
 }
