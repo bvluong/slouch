@@ -15,6 +15,7 @@ class MessageIndex extends React.Component {
     this.updateMessages = this.updateMessages.bind(this);
     this.addEmoji = this.addEmoji.bind(this);
     this.showEmojis = this.showEmojis.bind(this);
+    this.hideEmojis = this.hideEmojis.bind(this);
   }
 
   componentDidMount() {
@@ -74,21 +75,21 @@ class MessageIndex extends React.Component {
     return e => {
       e.preventDefault();
       this.setState({showEmojis: !this.state.showEmojis,
-          content: {position: 'absolute', top: e.clientY-186, right: 5},
-        message_id });
+          content: {position: 'absolute', top: e.clientY-166, right: 13},
+        message_id }, ()=> this.refs.emojilist.focus() );
+
     };
   }
 
-  hideEmojis() {
-    return e => {
+  hideEmojis(e) {
       e.preventDefault();
       this.setState({showEmojis: false});
-    };
   }
 
   emojiChoices() {
     return (
-      <ul className="emoji-box" style={this.state.content}> <h4>Choose an emoji</h4>
+      <ul className="emoji-box" tabIndex="0" ref="emojilist"
+        onBlur={this.hideEmojis} style={this.state.content}> <h4>Choose an emoji</h4>
       {emojis.slice(1634,2000)
       .map( (emo,idx) => <li key={idx}
         onClick={this.addEmoji(emo)}>{emo}</li>)}
@@ -106,14 +107,15 @@ class MessageIndex extends React.Component {
           <MessageBody message={message}/>
         </div>
         <div className="message-emoji-button">
-          <button type="button" className="emoji-button" onClick={this.showEmojis(message.id)}>
+          <button type="button" className="emoji-button"
+            onClick={this.showEmojis(message.id)}>
               <i className="fa fa-smile-o" id="emoji-icon" aria-hidden="true"></i>
           </button>
         </div>
       </div>
     </ul>);
     return (
-      <div className="message-index" onFocus={this.hideEmojis()}>
+      <div className="message-index">
         {mapmessages}
         { this.state.showEmojis ? this.emojiChoices() : ""}
         <div ref={(el) => { this.messagesEnd = el; }}>
