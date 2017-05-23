@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactEmoji from 'react-emoji';
+import emojis from 'emojis-list';
 
 
 class MessageIndex extends React.Component {
@@ -9,6 +10,7 @@ class MessageIndex extends React.Component {
     this.state = { id: 0 };
     this.scrollToBottom = this.scrollToBottom.bind(this);
     this.updateMessages = this.updateMessages.bind(this);
+    this.addEmoji = this.addEmoji.bind(this);
   }
 
   componentDidMount() {
@@ -53,7 +55,24 @@ class MessageIndex extends React.Component {
   scrollToBottom () {
     const node = ReactDOM.findDOMNode(this.messagesEnd);
     node.scrollIntoView({behavior: "smooth"});
-}
+  }
+
+  addEmoji(emo,message_id) {
+    return e => {
+    e.preventDefault();
+    this.createReaction({emoji: emo, message_id});
+  };
+  }
+
+  emojiChoices(message_id) {
+    return (
+    <ul className="emoji-box"> <h4>Choose an emoji</h4>
+    {emojis.slice(1634,2000)
+    .map( (emo,idx) => <li key={idx}
+      onClick={this.addEmoji(emo,message_id)}>{emo}</li>)}
+    </ul>
+  );
+  }
 
   render() {
     const { messages } = this.props;
@@ -72,6 +91,11 @@ class MessageIndex extends React.Component {
             .replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3")} </li>
           </ul>
         <p className="message-body"> {ReactEmoji.emojify(message.body)} </p>
+        <div>{this.emojiChoices(message.id)}</div>
+        <ul>
+          {message.reactions.map(reaction => <li key={reaction.id}>reaction.emoji</li>)}
+        </ul>
+
         </li>
       </div>
     </ul>);

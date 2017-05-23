@@ -10,7 +10,8 @@ const mapStateToProps = (state, { currentChannel }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchMessages: (id) => dispatch(fetchMessages(id)),
-  receiveMessage: (id) => dispatch(receiveMessage(id))
+  receiveMessage: (id) => dispatch(receiveMessage(id)),
+  createReaction: (reaction) => dispatch(createReaction(reaction))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(MessageIndex);

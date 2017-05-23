@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'reactions/create'
-
-  get 'reactions/destroy'
-
   mount ActionCable.server => '/cable'
 
   namespace :api, defaults: { format: :json } do
+    resources :reactions, only: [:create, :destroy]
     resources :users, only: [:create, :index, :show]
     resource :session, only: [:create, :destroy]
     resources :messages, only: [:create, :destroy, :update, :show]
