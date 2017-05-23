@@ -181,10 +181,12 @@
   border: 1px solid grey;
   border-radius: 5px;
   overflow-y: scroll;
+  background: white;
 }
 
 .emoji-body {
   padding-left: 0px;
+  padding-top: 3px;
   display: flex;
   flex-direction: row;
   li {

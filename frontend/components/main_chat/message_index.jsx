@@ -6,10 +6,11 @@ import MessageBody from './message_body';
 import MessageAvatar from './message_avatar';
 
 
+
 class MessageIndex extends React.Component {
   constructor(props){
     super(props);
-    this.state = { id: 0, showEmojis: false, message_id: "" };
+    this.state = { id: 0, showEmojis: false, message_id: "", content: {} };
     this.scrollToBottom = this.scrollToBottom.bind(this);
     this.updateMessages = this.updateMessages.bind(this);
     this.addEmoji = this.addEmoji.bind(this);
@@ -64,6 +65,7 @@ class MessageIndex extends React.Component {
     return e => {
     e.preventDefault();
     const { message_id } = this.state;
+    this.setState({showEmojis: false});
     this.props.createReaction({emoji: emo, message_id});
   };
   }
@@ -71,14 +73,22 @@ class MessageIndex extends React.Component {
   showEmojis(message_id) {
     return e => {
       e.preventDefault();
-      this.setState({showEmojis: !this.state.showEmojis, message_id});
+      this.setState({showEmojis: !this.state.showEmojis,
+          content: {position: 'absolute', top: e.clientY-186, right: 5},
+        message_id });
     };
+  }
 
+  hideEmojis() {
+    return e => {
+      e.preventDefault();
+      this.setState({showEmojis: false});
+    };
   }
 
   emojiChoices() {
     return (
-      <ul className="emoji-box"> <h4>Choose an emoji</h4>
+      <ul className="emoji-box" style={this.state.content}> <h4>Choose an emoji</h4>
       {emojis.slice(1634,2000)
       .map( (emo,idx) => <li key={idx}
         onClick={this.addEmoji(emo)}>{emo}</li>)}
@@ -103,7 +113,7 @@ class MessageIndex extends React.Component {
       </div>
     </ul>);
     return (
-      <div className="message-index">
+      <div className="message-index" onFocus={this.hideEmojis()}>
         {mapmessages}
         { this.state.showEmojis ? this.emojiChoices() : ""}
         <div ref={(el) => { this.messagesEnd = el; }}>
