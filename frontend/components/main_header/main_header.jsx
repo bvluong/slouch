@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactEmoji from 'react-emoji';
 
 class MainHeader extends React.Component {
 
@@ -21,7 +22,7 @@ class MainHeader extends React.Component {
           <img className="user-count-avatar"
             src="http://res.cloudinary.com/djrgebhxz/image/upload/v1495046454/avatar_thnwbt.png"/>
           <span className="channel-user-count">{currentChannel.users.length} | </span>
-          <span>{description}</span>
+          <span>{description} {ReactEmoji.emojify(':100:')} </span>
         </section>
       </div>
 

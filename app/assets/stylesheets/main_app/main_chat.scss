@@ -65,7 +65,7 @@
   display:flex;
   justify-content: center;
   form {
-    width: 100%;
+    width: 90%;
     display:flex;
     justify-content: center;
 
@@ -76,7 +76,8 @@
     font-size: 16px;
     font-weight: 400;
     color: #3D3C40;
-    width: 95%;
+    width: 100%;
+    padding-right: 0px;
     height: 36px;
     border-radius: 5px;
     text-indent: 8px;
@@ -94,4 +95,42 @@
   height: 35px;
   margin: 3.5px;
   border: 1px solid grey;
+}
+
+.emoji-button {
+  position: relative;
+  padding: 0px;
+  margin: 0px;
+  height: 38px;
+  right: 35px;
+  background: transparent;
+}
+
+#emoji-icon {
+  color: grey;
+  font-size: 2.5em;
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+
+.emoji-box {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  bottom: 70px;
+  padding: 0px;
+  margin: 0px;
+  right: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid grey;
+  border-radius: 5px;
+  li {
+    padding: 2px;
+  }
 }

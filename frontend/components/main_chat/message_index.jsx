@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ReactEmoji from 'react-emoji';
+
 
 class MessageIndex extends React.Component {
   constructor(props){
@@ -69,7 +71,7 @@ class MessageIndex extends React.Component {
             .toLocaleTimeString()
             .replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3")} </li>
           </ul>
-        <p className="message-body"> {message.body} </p>
+        <p className="message-body"> {ReactEmoji.emojify(message.body)} </p>
         </li>
       </div>
     </ul>);
