@@ -22,11 +22,16 @@
     padding-left: 0;
     width: 100%;
     height: auto;
-    margin: 0px 3.5px;;
+    margin: 0px 3.5px;
     .message-box {
       margin: 0;
       padding: 8px;
       display: flex;
+      justify-content: space-between;
+      .message-box-info {
+        display: flex;
+        flex-direction: row;
+      }
     }
     .message-info {
       font-family: Slack-Lato,appleLogo,sans-serif;
@@ -147,4 +152,32 @@
       border-radius: 5px;
     }
   }
+}
+
+.message-emoji-button {
+  position: relative;
+  right:5px;
+  top:0;
+  .emoji-button {
+    top:0;
+    padding: 5px;
+    height: 38px;
+    border: 1px solid grey;
+    border-radius: 4px;
+  }
+}
+
+.message-index .emoji-box {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  bottom: 0px;
+  padding: 0px;
+  margin: 0px;
+  right: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid grey;
+  border-radius: 5px;
+  overflow-y: scroll;
 }

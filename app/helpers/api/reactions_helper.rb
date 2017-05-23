@@ -1,2 +1,2 @@
-module ReactionsHelper
+module Api::ReactionsHelper
 end

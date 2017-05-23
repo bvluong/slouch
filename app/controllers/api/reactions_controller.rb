@@ -1,8 +1,9 @@
-class ReactionsController < ApplicationController
+class Api::ReactionsController < ApplicationController
   def create
-    @reaction = current_user.reactions.new(reactions_params)
+    @reaction = current_user.reactions.new(reaction_params)
     if @reaction.save
       @message = @reaction.message
+      debugger
       render "api/messages/#{@message.id}"
     else
       render json: @reaction.errors.full_messages, status: 422

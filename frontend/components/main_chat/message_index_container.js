@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { selectMessages } from '../../reducers/selector';
 import { fetchMessages, receiveMessage } from '../../actions/message_actions';
+import { createReaction } from '../../actions/reaction_actions';
 import MessageIndex from './message_index';
 
 const mapStateToProps = (state, { currentChannel }) => ({

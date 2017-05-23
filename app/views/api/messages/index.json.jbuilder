@@ -5,5 +5,6 @@
     json.avatar message.user.image_url
     json.body message.body
     json.time_stamp message.updated_at
+    json.reactions message.reactions
   end
 end

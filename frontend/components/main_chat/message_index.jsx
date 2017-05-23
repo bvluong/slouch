@@ -2,15 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactEmoji from 'react-emoji';
 import emojis from 'emojis-list';
+import MessageBody from './message_body';
+import MessageAvatar from './message_avatar';
 
 
 class MessageIndex extends React.Component {
   constructor(props){
     super(props);
-    this.state = { id: 0 };
+    this.state = { id: 0, showEmojis: false, message_id: "" };
     this.scrollToBottom = this.scrollToBottom.bind(this);
     this.updateMessages = this.updateMessages.bind(this);
     this.addEmoji = this.addEmoji.bind(this);
+    this.showEmojis = this.showEmojis.bind(this);
   }
 
   componentDidMount() {
@@ -57,21 +60,30 @@ class MessageIndex extends React.Component {
     node.scrollIntoView({behavior: "smooth"});
   }
 
-  addEmoji(emo,message_id) {
+  addEmoji(emo) {
     return e => {
     e.preventDefault();
-    this.createReaction({emoji: emo, message_id});
+    const { message_id } = this.state;
+    this.props.createReaction({emoji: emo, message_id});
   };
   }
 
-  emojiChoices(message_id) {
+  showEmojis(message_id) {
+    return e => {
+      e.preventDefault();
+      this.setState({showEmojis: !this.state.showEmojis, message_id});
+    };
+
+  }
+
+  emojiChoices() {
     return (
-    <ul className="emoji-box"> <h4>Choose an emoji</h4>
-    {emojis.slice(1634,2000)
-    .map( (emo,idx) => <li key={idx}
-      onClick={this.addEmoji(emo,message_id)}>{emo}</li>)}
-    </ul>
-  );
+      <ul className="emoji-box"> <h4>Choose an emoji</h4>
+      {emojis.slice(1634,2000)
+      .map( (emo,idx) => <li key={idx}
+        onClick={this.addEmoji(emo)}>{emo}</li>)}
+      </ul>
+    );
   }
 
   render() {
@@ -79,29 +91,21 @@ class MessageIndex extends React.Component {
     const mapmessages = messages.map(message => <ul
       key={message.id}>
       <div className="message-box">
-        <img className={`user-icon ${
-            ["red", "blue", "orange", "green", "yellow", "pink", "teal", "grey"]
-            [Math.floor(Math.random() * 8)]}`} src={message.avatar}/>
-        <li>
-          <ul className="message-info">
-            <li> <span>{message.username}</span>  </li>
-            <li className="time-stamp"> {
-            new Date(message.time_stamp)
-            .toLocaleTimeString()
-            .replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3")} </li>
-          </ul>
-        <p className="message-body"> {ReactEmoji.emojify(message.body)} </p>
-        <div>{this.emojiChoices(message.id)}</div>
-        <ul>
-          {message.reactions.map(reaction => <li key={reaction.id}>reaction.emoji</li>)}
-        </ul>
-
-        </li>
+        <div className="message-box-info">
+          <MessageAvatar message={message}/>
+          <MessageBody message={message}/>
+        </div>
+        <div className="message-emoji-button">
+          <button type="button" className="emoji-button" onClick={this.showEmojis(message.id)}>
+              <i className="fa fa-smile-o" id="emoji-icon" aria-hidden="true"></i>
+          </button>
+        </div>
       </div>
     </ul>);
     return (
       <div className="message-index">
         {mapmessages}
+        { this.state.showEmojis ? this.emojiChoices() : ""}
         <div ref={(el) => { this.messagesEnd = el; }}>
         </div>
       </div>
