@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'reactions/create'
+
+  get 'reactions/destroy'
+
   mount ActionCable.server => '/cable'
 
   namespace :api, defaults: { format: :json } do

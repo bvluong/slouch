@@ -22,6 +22,7 @@ class User < ApplicationRecord
   has_many :subscriptions, dependent: :destroy
   has_many :channels, through: :subscriptions
   has_many :messages
+  has_many :reactions, dependent: :destroy
 
   def self.generate_token
     SecureRandom.urlsafe_base64(16)
