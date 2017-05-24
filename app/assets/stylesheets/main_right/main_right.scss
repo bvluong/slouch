@@ -7,6 +7,15 @@
   border-left: .0625rem solid #E8E8E8;
 }
 
+@media (max-width: 1000px) {
+  .main-right {
+    display: none;
+  }
+  .main-chat {
+    width: 100%;
+  }
+}
+
 .member-list {
   height: calc(100% - 190px);
   .member-details {

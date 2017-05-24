@@ -124,16 +124,19 @@
   }
 }
 
+.emoji-button-relative {
+  position: relative;
+}
 
 .emoji-box {
   position: absolute;
   background: white;
+  right: 2px;
+  bottom: 65px;
   width: 200px;
   height: 200px;
-  bottom: 66px;
   padding: 0px;
   margin: 0px;
-  right: 310px;
   display: flex;
   flex-wrap: wrap;
   border: 1px solid grey;

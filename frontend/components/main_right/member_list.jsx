@@ -8,7 +8,7 @@ const MemberList = ({users}) => (
       {users.map(user => <li key={user.id}>
         <img className={`member-icon ${
             ["red", "blue", "orange", "green", "yellow", "pink", "teal", "grey"]
-            [Math.floor(Math.random() * 8)]}`} src={user.avatar}/>
+            [user.id % 8]}`} src={user.avatar}/>
         <span>{user.name}</span>
       </li>)}
     </ul>

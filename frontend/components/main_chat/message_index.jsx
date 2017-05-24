@@ -91,7 +91,7 @@ class MessageIndex extends React.Component {
     return (
       <ul className="emoji-box" tabIndex="0" ref="emojilist"
         onBlur={this.hideEmojis} style={this.state.content}> <h4>Choose an emoji</h4>
-      {emojis.slice(1634,2000)
+      {emojis.slice(1634,2134)
       .map( (emo,idx) => <li key={idx}
         onClick={this.addEmoji(emo)}>{emo}</li>)}
       </ul>

@@ -75,11 +75,13 @@ class ChannelForm extends React.Component {
         <button className="user-button"
           type="button"
           onClick={this.userHandler(user)}>
+
         <img className={`user-icon ${
             ["red", "blue", "orange", "green",
              "yellow", "pink", "teal", "grey"]
-            [Math.floor(Math.random() * 8)]}`}
+            [user.id % 8]}`}
            src={user.avatar}/>
+
         <span>{user.username}</span>
         </button>
       </li>);
@@ -129,7 +131,7 @@ class ChannelForm extends React.Component {
                       <img className={`user-icon ${
                           ["red", "blue", "orange", "green",
                            "yellow", "pink", "teal", "grey"]
-                          [Math.floor(Math.random() * 8)]}`}
+                          [user.id % 8]}`}
                          src={user.avatar}/>
                       <span>{user.username}</span>
                     </li> )}

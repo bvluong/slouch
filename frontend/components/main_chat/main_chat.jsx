@@ -48,7 +48,7 @@ class MainChat extends React.Component {
     return (
     <ul className="emoji-box" tabIndex="0" ref="emojilist"
       onBlur={this.hideEmojis}> <h4>Choose an emoji</h4>
-    {emojis.slice(1634,2000)
+    {emojis.slice(1634,2134)
     .map( (emo,idx) => <li key={idx}
       onClick={this.addEmoji(emo)}>{emo}</li>)}
     </ul>
@@ -75,10 +75,14 @@ class MainChat extends React.Component {
               type="text"></input>
             <input type="submit" value=""/>
             </form>
+
+            <div className="emoji-button-relative">
             <button type="button" className="emoji-button" onClick={this.showEmojis}>
                 <i className="fa fa-smile-o" id="emoji-icon" aria-hidden="true"></i>
               </button>
               {emojilist}
+            </div>
+
          </div>
       </div>
     );
