@@ -1,13 +1,14 @@
 .main-chat {
-  width: 84%;
+  width: 72%;
 }
 
 .main-right {
-  width: 26%;
+  width: 28%;
+  border-left: .0625rem solid #E8E8E8;
 }
 
 .member-list {
-  height: calc(100% - 200px);
+  height: calc(100% - 190px);
   .member-details {
     overflow-y: scroll;
     height: 90%;
@@ -52,7 +53,7 @@
 }
 
 .main-right-header {
-  height: 200px;
+  height: 190px;
   h3 {
     text-align: left;
     font-size: 22px;
