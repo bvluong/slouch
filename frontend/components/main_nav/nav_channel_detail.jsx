@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import ChannelFormContainer from '../channel_form/channel_form_container.js';
+import NavDirectMessage from './nav_direct_message';
 
 
 const customStyles = {
@@ -42,7 +43,7 @@ class NavChannelDetail extends React.Component {
   }
 
   updateChannel(e) {
-    e.preventDefault(e);
+    e.preventDefault();
     this.props.fetchChannel(e.target.value);
     this.setState(
       { classname: "channel-detail active",
@@ -115,7 +116,13 @@ class NavChannelDetail extends React.Component {
 
       </div>
         <ul className="direct-messages-channels">
-          {direct_messages}
+          {private_channels.map(channel => <NavDirectMessage
+            key={channel.id}
+            channel={channel}
+            updateChannel={this.updateChannel}
+            state={this.state}
+            currentUser={this.props.currentUser}/>)
+        }
         </ul>
       </div>
     );
