@@ -1,5 +1,5 @@
 .main-header {
-  height: 10%;
+  height: 75px;
   padding-left: 2%;
   width: 98%;
   border-bottom: 1px solid #717274;
@@ -16,7 +16,7 @@
 .channel-name {
   text-transform: capitalize;
   text-shadow: none;
-  font-size: 30px;
+  font-size: 28px;
   text-align: left;
   white-space: nowrap;
   overflow:hidden !important;
@@ -30,6 +30,8 @@
   color: #717274;
   font-size: 16px;
   font-weight: 310;
+  padding-bottom: 5px;
+  white-space: nowrap;
 }
 
 .user-count-avatar {

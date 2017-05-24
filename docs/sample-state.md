@@ -30,13 +30,16 @@
     1: {
       id: 1
       username: "bryantluong",
+      avatar: "www.png.com",
       body: "is useful to plan",
+      reactions: [:smile:, :dog:],
       time_stamp: Sun, 14 May 2017 18:43:59 UTC +00:00
       }
     }
   },
   channels: {
     1: {
+      id: 1,
       name: "main channel",
       description: "talk about anything",
       private: true,

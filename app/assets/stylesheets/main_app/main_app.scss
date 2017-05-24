@@ -13,3 +13,9 @@
   overflow: hidden !important;
   text-overflow: ellipsis;
 }
+
+.main-middle-right{
+  height: calc(100% - 85px);
+  display: flex;
+  flex-direction: row;
+}
