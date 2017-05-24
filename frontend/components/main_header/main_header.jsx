@@ -12,12 +12,17 @@ class MainHeader extends React.Component {
   }
 
   render () {
-    const { currentChannel } = this.props;
+    const { currentChannel, currentUser } = this.props;
     const { name, description } = currentChannel;
     return (
     <div className="main-header">
       <div className="left-main-header">
-        <div className="channel-name">#{name}</div>
+        <div className="channel-name">
+          { currentChannel.private ? "@" : "#" }
+          {name.replace(`${currentUser.username},`,"")
+              .replace(`,${currentUser.username}`,"")
+              .replace(currentUser.username,"")
+        }</div>
         <section className="main-header-detail">
           <img className="user-count-avatar"
             src="http://res.cloudinary.com/djrgebhxz/image/upload/v1495046454/avatar_thnwbt.png"/>

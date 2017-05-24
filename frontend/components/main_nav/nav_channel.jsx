@@ -75,7 +75,8 @@ class NavChannel extends React.Component {
         </div>
         <div className="direct-message-header">
           <button className="modal-button" onClick={this.openModal}>
-            <h2> Channels <span className="channel-length">({channels.length})</span></h2>
+            <h2> Channels <span className="channel-length">
+              ({channels.filter(channel=> !channel.private).length})</span></h2>
             <i className="fa fa-search"  id="fa-icons" aria-hidden="true"></i>
           </button>
         </div>

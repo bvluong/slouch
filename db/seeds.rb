@@ -133,7 +133,7 @@ Subscription.destroy_all
 
 user_subscriptions = Hash.new { Set.new }
 
-(1..31).step do |user_id|
+(1..37).step do |user_id|
   user_subscriptions[user_id] = (user_subscriptions[user_id] << 1)
 end
 

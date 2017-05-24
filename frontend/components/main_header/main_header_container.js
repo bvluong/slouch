@@ -4,7 +4,8 @@ import { logout } from '../../actions/session_actions';
 import MainHeader from './main_header';
 
 const mapStateToProps = (state) => ({
-  currentChannel: state.currentChannel
+  currentChannel: state.currentChannel,
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch) => ({
