@@ -5,3 +5,42 @@
 .main-right {
   width: 23%;
 }
+
+.member-list {
+  height: calc(100% - 150px);
+  .member-details {
+    overflow-y: scroll;
+    height: 90%;
+    padding: 0;
+    margin: 0;
+    li {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+  h4 {
+    padding: 0 10px;
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    .fa-user-o {
+      color: green;
+      height: 13px;
+      width: 13px;
+      margin: 5px;
+    }
+  }
+}
+
+
+.member-icon {
+  height: 30px;
+  width: 30px;
+  margin: 4px 8px;
+  border-radius: 2px;
+  border: 1px solid grey;
+}
