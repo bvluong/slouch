@@ -12,6 +12,7 @@ class MainChat extends React.Component {
     this.submitHandler = this.submitHandler.bind(this);
     this.showEmojis = this.showEmojis.bind(this);
     this.addEmoji = this.addEmoji.bind(this);
+    this.hideEmojis = this.hideEmojis.bind(this);
   }
 
   componentDidMount() {
@@ -31,19 +32,22 @@ class MainChat extends React.Component {
   }
 
   showEmojis() {
-    this.setState({showEmojis: !this.state.showEmojis});
+    this.setState({showEmojis: !this.state.showEmojis},
+      ()=> this.refs.emojilist.focus());
   }
 
   addEmoji(emo) {
     return e => {
     e.preventDefault();
     this.setState({body: (this.state.body+emo) });
+    this.setState({showEmojis: false});
   };
   }
 
   emojiChoices() {
     return (
-    <ul className="emoji-box"> <h4>Choose an emoji</h4>
+    <ul className="emoji-box" tabIndex="0" ref="emojilist"
+      onBlur={this.hideEmojis}> <h4>Choose an emoji</h4>
     {emojis.slice(1634,2000)
     .map( (emo,idx) => <li key={idx}
       onClick={this.addEmoji(emo)}>{emo}</li>)}
@@ -51,6 +55,10 @@ class MainChat extends React.Component {
   );
   }
 
+  hideEmojis(e) {
+      e.preventDefault();
+      this.setState({showEmojis: false});
+  }
 
   render () {
     const { currentChannel } = this.props;

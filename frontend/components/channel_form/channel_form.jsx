@@ -102,7 +102,7 @@ class ChannelForm extends React.Component {
     name = name.map(user => user.username).sort().join(",");
     this.props.createChannel({private: true,
       user_id: this.state.selected_userid,
-      description: "",
+      description: "Direct Message",
       name
     }).then(this.props.closeModal());
   }

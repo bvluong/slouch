@@ -52,11 +52,11 @@ end
   users << FactoryGirl.create(:user, username: Faker::Ancient.unique.primordial, image_url: Faker::LoremPixel.image )
 end
 
-user1 = FactoryGirl.create(:user, username: "dobyrynin")
-user2 = FactoryGirl.create(:user, username: "debsfong")
+user1 = FactoryGirl.create(:user, username: "Dobyrynin")
+user2 = FactoryGirl.create(:user, username: "Debsfong")
 user3 = FactoryGirl.create(:user, username: "monte47")
-user4 = FactoryGirl.create(:user, username: "ericwindmill")
-user5 = FactoryGirl.create(:user, username: "aaron.wayne")
+user4 = FactoryGirl.create(:user, username: "Ericwindmill")
+user5 = FactoryGirl.create(:user, username: "Aaron.wayne")
 
 
 
@@ -72,25 +72,41 @@ Channel.create(name: "mindfulness", description: "Moment-by-moment awareness. Li
 Channel.create(name: "reactjs", description: "A community for learning and developing web applications using React")
 ]
 
-channel1 = Channel.create(name: "dobyrynin", description: "", private: true)
-channel2 = Channel.create(name: "debsfong", description: "", private: true)
-channel3 = Channel.create(name: "monte47", description: "", private: true)
-channel4 = Channel.create(name: "ericwindmill", description: "", private: true)
-channel5 = Channel.create(name: "aaron.wayne", description: "", private: true)
+channel1 = Channel.create(name: "Dobyrynin,Marcus Aurelius", description: "Direct Message", private: true)
+channel2 = Channel.create(name: "Debsfong,Marcus Aurelius", description: "Direct Message", private: true)
+channel3 = Channel.create(name: "Marcus Aurelius,monte47", description: "Direct Message", private: true)
+channel4 = Channel.create(name: "Ericwindmill,Marcus Aurelius", description: "Direct Message", private: true)
+channel5 = Channel.create(name: "Aaron.wayne,Marcus Aurelius", description: "Direct Message", private: true)
 
-Channel.create(name: "funny", description: "You may only post if you are funny.")
-Channel.create(name: "worldnews", description: "worldnews is for major news from around the world.")
-Channel.create(name: "aww", description: "Things that make you go AWW! -- like puppies")
-Channel.create(name: "indieheads", description: "The latest indie music from your favorite artists.")
-Channel.create(name: "shower-thoughts", description: "thoughts you might have while carrying out a routine task like showering, ")
-Channel.create(name: "eli5", description: "Explain it like I'm five")
+channels2 = [
+Channel.create(name: "funny", description: "You may only post if you are funny."),
+Channel.create(name: "worldnews", description: "worldnews is for major news from around the world."),
+Channel.create(name: "aww", description: "Things that make you go AWW! -- like puppies"),
+Channel.create(name: "indieheads", description: "The latest indie music from your favorite artists."),
+Channel.create(name: "shower-thoughts", description: "thoughts you might have while carrying out a routine task like showering."),
+Channel.create(name: "eli5", description: "Explain it like I'm five"),
+Channel.create(name: "til", description: "Today I learned"),
+Channel.create(name: "ama", description: "Ask me anything"),
+Channel.create(name: "advice-animals", description: "Memes with advices"),
+Channel.create(name: "dank-memes", description: "No, Copypasta"),
+Channel.create(name: "askreddit", description: "Explain it like I'm five"),
+Channel.create(name: "technology", description: "a place to share and discuss the latest developments."),
+Channel.create(name: "life-pro-tip", description: "Tips that improves life for youin a specific and significant way."),
+Channel.create(name: "TIFU", description: "Today I fudged uped")
+]
+
+channel6 = Channel.create(name: "Marcus Aurelius,Seneca", description: "Direct Message", private: true)
 
 Message.destroy_all
 
 messages = []
 
-80.times do
-  messages << FactoryGirl.create(:message, user_id: users.sample.id, channel_id: (channels[4..-1].sample.id))
+40.times do
+  messages << FactoryGirl.create(:message, user_id: users.sample.id, body: Faker::TwinPeaks.quote,  channel_id: (channels[4..-1].sample.id))
+end
+
+40.times do
+  messages << FactoryGirl.create(:message, user_id: users.sample.id, body: Faker::HarryPotter.quote, channel_id: (channels[4..-1].sample.id))
 end
 
 15.times do
@@ -107,6 +123,10 @@ end
 
 12.times do
   messages << FactoryGirl.create(:message, user_id: users[13..17].sample.id, body: Faker::StarWars.quote, channel_id: channels[3].id)
+end
+
+30.times do
+  messages << FactoryGirl.create(:message, user_id: users[5..17].sample.id, body: Faker::HarryPotter.quote, channel_id: channels2.sample.id)
 end
 
 Subscription.destroy_all
@@ -126,6 +146,8 @@ Subscription.create(user_id: user2.id,channel_id: channel2.id)
 Subscription.create(user_id: user3.id,channel_id: channel3.id)
 Subscription.create(user_id: user4.id,channel_id: channel4.id)
 Subscription.create(user_id: user5.id,channel_id: channel5.id)
+Subscription.create(user_id: 1,channel_id: channel6.id)
+Subscription.create(user_id: 2,channel_id: channel6.id)
 
 
 (1..7).step do |channel_id|
@@ -142,5 +164,13 @@ end
 user_subscriptions.each do |user_id, channel_arr|
   channel_arr.each do |channel_id|
     Subscription.create(user_id: user_id,channel_id: channel_id)
+  end
+end
+
+emojis = ["😅","😊","😈","😎","😍","😌","😊","😏","🙏","🏽","🚀","🚁"]
+
+Channel.find_by(id:1).messages[-5..-1].each do |message|
+  [0,1,2,3,4].sample.times do
+    message.reactions.create(user_id:1 , emoji: emojis.sample)
   end
 end
