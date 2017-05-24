@@ -75,7 +75,7 @@ class MessageIndex extends React.Component {
     return e => {
       e.preventDefault();
       this.setState({showEmojis: !this.state.showEmojis,
-          content: {position: 'absolute', top: e.clientY-166, right: 13},
+          content: {position: 'absolute', top: e.clientY-166, left: e.clientX-50},
         message_id }, ()=> this.refs.emojilist.focus() );
 
     };

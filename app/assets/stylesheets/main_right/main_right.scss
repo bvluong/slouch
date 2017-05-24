@@ -1,22 +1,24 @@
 .main-chat {
-  width: 87%;
+  width: 84%;
 }
 
 .main-right {
-  width: 23%;
+  width: 26%;
 }
 
 .member-list {
-  height: calc(100% - 150px);
+  height: calc(100% - 200px);
   .member-details {
     overflow-y: scroll;
     height: 90%;
     padding: 0;
     margin: 0;
     li {
+      color: #555459;
       display: flex;
       flex-direction: row;
       align-items: center;
+        background: #F7F7F7;
       span {
         font-size: 16px;
       }
@@ -26,21 +28,82 @@
     padding: 0 10px;
     font-size: 20px;
     font-weight: normal;
+    color: #555459;
     margin-bottom: 10px;
+    padding-top: 10px;
+    border-top: .0625rem solid #E8E8E8;
     .fa-user-o {
       color: green;
       height: 13px;
       width: 13px;
       margin: 5px;
+      margin-right: 16px;
     }
   }
 }
-
 
 .member-icon {
   height: 30px;
   width: 30px;
   margin: 4px 8px;
+  margin-right: 12px;
   border-radius: 2px;
   border: 1px solid grey;
+}
+
+.main-right-header {
+  height: 200px;
+  h3 {
+    text-align: left;
+    font-size: 22px;
+    font-weight: 500;
+    border-bottom: .0625rem solid #E8E8E8;
+    padding: 10px 0;
+    padding-left: 10px;
+    background: #F7F7F7;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .right-channel-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+    padding-bottom: 15px;
+    h4 {
+      margin: 8px 0;
+      color: #555459;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 3px;
+      display: flex;
+      align-items: center;
+      img {
+        height: 26px;
+        width: 26px;
+        margin-right: 5px;
+        background: white;
+      }
+    }
+    h5 {
+      color: #717274;
+      margin: 0px;
+      font-size: 15px;
+      padding-bottom: 4px;
+    }
+    h6 {
+      color: #717274;
+      margin: 0px;
+      font-size: 15px;
+      font-weight: normal;
+      padding-bottom: 10px;
+    }
+    h7 {
+      color: #717274;
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 0.7px;
+    }
+  }
 }
