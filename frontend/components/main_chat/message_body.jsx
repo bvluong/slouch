@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactEmoji from 'react-emoji';
 
-const MessageBody = ({ message }) => (
+const MessageBody = ({ message, removeEmoji }) => (
   <li>
     <ul className="message-info">
       <li> <span>{message.username}</span>  </li>
@@ -12,7 +12,7 @@ const MessageBody = ({ message }) => (
     </ul>
     <p className="message-body"> {ReactEmoji.emojify(message.body)} </p>
     <ul className="emoji-body">
-      { message.reactions ? message.reactions.map(reaction => <li key={reaction.id}>{reaction.emoji}</li>) : []}
+      { message.reactions ? message.reactions.map(reaction => <li className="message-emoji" onClick={removeEmoji(reaction.id)} key={reaction.id}>{reaction.emoji}</li>) : []}
     </ul>
   </li>
 );

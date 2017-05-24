@@ -11,3 +11,8 @@ export const createReaction = (reaction) => dispatch => (
   ReactionAPIUtil.createReaction(reaction)
   .then(message => dispatch(receiveMessage(message)))
 );
+
+export const removeReaction = (id) => dispatch => (
+  ReactionAPIUtil.removeReaction(id)
+  .then(message => dispatch(receiveMessage(message)))
+);

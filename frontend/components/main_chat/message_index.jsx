@@ -16,6 +16,7 @@ class MessageIndex extends React.Component {
     this.addEmoji = this.addEmoji.bind(this);
     this.showEmojis = this.showEmojis.bind(this);
     this.hideEmojis = this.hideEmojis.bind(this);
+    this.handleEmoji = this.handleEmoji.bind(this);
   }
 
   componentDidMount() {
@@ -97,6 +98,13 @@ class MessageIndex extends React.Component {
     );
   }
 
+  handleEmoji(id) {
+    return (e) => {
+      e.preventDefault();
+      this.props.removeReaction(id);
+    };
+  }
+
   render() {
     const { messages } = this.props;
     const mapmessages = messages.map(message => <ul
@@ -104,7 +112,7 @@ class MessageIndex extends React.Component {
       <div className="message-box">
         <div className="message-box-info">
           <MessageAvatar message={message}/>
-          <MessageBody message={message}/>
+          <MessageBody message={message} removeEmoji={this.handleEmoji}/>
         </div>
         <div className="message-emoji-button">
           <button type="button" className="emoji-button"

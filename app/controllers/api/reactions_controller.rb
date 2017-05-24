@@ -10,6 +10,10 @@ class Api::ReactionsController < ApplicationController
   end
 
   def destroy
+    @reaction = Reaction.find(params[:id])
+    @message = @reaction.message
+    @reaction.destroy
+    render "api/messages/show"
   end
 
   private
