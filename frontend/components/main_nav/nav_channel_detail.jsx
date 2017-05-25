@@ -47,8 +47,15 @@ class NavChannelDetail extends React.Component {
     e.preventDefault();
     this.props.fetchChannel(e.target.value);
     this.setState(
-      { classname: "channel-detail active",
-        channel_id: e.target.value });
+      { channel_id: e.target.value });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.currentUser.channels.length !==
+      nextProps.currentUser.channels.length) {
+        const channel_id = nextProps.currentUser.channels.slice(-1)[0].id;
+        this.setState( {channel_id} );
+      }
   }
 
 

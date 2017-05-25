@@ -40,9 +40,7 @@ class SessionForm extends React.Component {
           </div>
 
         <h2>Slouch is a real time web chatting clone of Slack.</h2>
-
-        {mapErrors}
-
+          {mapErrors}
         <h3>{header}</h3>
         <SessionFormInput username={username}
           password={password}
