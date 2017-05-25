@@ -1,4 +1,5 @@
 import React from 'react';
+import NewDirectMessage from './new_direct_message';
 
 class ChannelForm extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class ChannelForm extends React.Component {
       render: false};
     this.updateHandler = this.updateHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
+    this.removeHandler = this.removeHandler.bind(this);
     this.userHandler = this.userHandler.bind(this);
     this.mapUsers = this.mapUsers.bind(this);
   }
@@ -52,11 +54,10 @@ class ChannelForm extends React.Component {
 
   removeHandler(user) {
     return e => {
-      const userid_index = this.state.selected_userid.indexOf(user.id);
-      const user_index = this.state.selected_users.indexOf(user);
-      const selected_userid = this.state.selected_userid;
+      const {selected_userid, selected_users} = this.state;
+      const userid_index = selected_userid.indexOf(user.id);
+      const user_index = selected_users.indexOf(user);
       selected_userid.splice(userid_index,1);
-      const selected_users = this.state.selected_users;
       selected_users.splice(user_index, 1);
       this.setState({
         selected_userid,
@@ -78,10 +79,8 @@ class ChannelForm extends React.Component {
 
         <img className={`user-icon ${
             ["red", "blue", "orange", "green",
-             "yellow", "pink", "teal", "grey"]
-            [user.id % 8]}`}
+            "yellow", "pink", "teal", "grey"][user.id % 8]}`}
            src={user.avatar}/>
-
         <span>{user.username}</span>
         </button>
       </li>);
@@ -124,17 +123,10 @@ class ChannelForm extends React.Component {
 
                   <ul className="new-channel">
                   { this.state.selected_users
-                    .map(user => <li
-                      className="input-icon"
+                    .map(user => <NewDirectMessage
                       key={user.username}
-                      onClick={this.removeHandler(user).bind(this)}>
-                      <img className={`user-icon ${
-                          ["red", "blue", "orange", "green",
-                           "yellow", "pink", "teal", "grey"]
-                          [user.id % 8]}`}
-                         src={user.avatar}/>
-                      <span>{user.username}</span>
-                    </li> )}
+                      removeHandler={this.removeHandler}
+                      user={user} /> )}
                   </ul>
 
                   <input
