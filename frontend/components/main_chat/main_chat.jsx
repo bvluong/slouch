@@ -28,7 +28,7 @@ class MainChat extends React.Component {
     const newmessage = merge(this.state,
     { channel_id: this.props.currentChannel.id });
     this.props.createMessage(newmessage)
-    .then(this.setState({ body: "" }));
+      .then(this.setState({ body: "" }));
   }
 
   showEmojis() {
@@ -67,19 +67,25 @@ class MainChat extends React.Component {
       <div className="main-chat">
         <MessageIndexContainer currentChannel={currentChannel}/>
         <div className="main-chat-submit">
+
             <form onSubmit={this.submitHandler}>
               <input className="message-submit" autoFocus
                 placeholder={`Message #${currentChannel.name}`}
                 onChange={this.updateHandler}
                 value={this.state.body}
-              type="text"></input>
-            <input type="submit" value=""/>
+                type="text"/>
+              <input type="submit" value=""/>
             </form>
 
             <div className="emoji-button-relative">
-            <button type="button" className="emoji-button" onClick={this.showEmojis}>
-                <i className="fa fa-smile-o" id="emoji-icon" aria-hidden="true"></i>
-              </button>
+            <button type="button"
+              className="emoji-button"
+              onClick={this.showEmojis}>
+                <i className="fa fa-smile-o"
+                  id="emoji-icon"
+                  aria-hidden="true"/>
+            </button>
+
               {emojilist}
             </div>
 

@@ -65,8 +65,7 @@ class NavChannel extends React.Component {
             <div className="modal-form-close">
               <button className="close-button"
                 onClick={this.closeModal}>
-                <i className="fa fa-times-circle fa-2x" aria-hidden="true" id="fa-icons"></i>
-
+                <i className="fa fa-times-circle fa-2x" aria-hidden="true" id="fa-icons"/>
               </button>
             </div>
             <FindChannelContainer closeModal={this.closeModal.bind(this)}/>
@@ -74,11 +73,13 @@ class NavChannel extends React.Component {
 
         </div>
         <div className="direct-message-header">
+
           <button className="modal-button" onClick={this.openModal}>
             <h2> Channels <span className="channel-length">
               ({channels.filter(channel=> !channel.private).length})</span></h2>
-            <i className="fa fa-search"  id="fa-icons" aria-hidden="true"></i>
+            <i className="fa fa-search"  id="fa-icons" aria-hidden="true"/>
           </button>
+
         </div>
         <NavChannelDetailContainer/>
       </div>

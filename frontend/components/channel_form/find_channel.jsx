@@ -1,4 +1,5 @@
 import React from 'react';
+import FilterChannels from './filter_channels';
 
 class FindChannel extends React.Component {
   constructor(props) {
@@ -23,22 +24,15 @@ class FindChannel extends React.Component {
     }
   }
 
-
   mapChannels(channels) {
     const user_channel_id = this.props.currentUser.channels.map(channel => channel.id);
     const filter_channels = channels.filter(channel =>
       (!channel.private && !user_channel_id.includes(channel.id) ));
     return filter_channels.map( (channel,idx) =>
-      <li key={channel.id}>
-        <button className="find-channel-button" type="button" onClick={this.submitHandler(channel)}>
-         <span
-           className={`channel-icon ${
-         ["color1", "color2"]
-         [ idx % 2]}`}># {channel.name}</span>
-        </button>
-      </li>);
+      <FilterChannels key={channel.id} channel={channel} idx={idx}
+        submitHandler={this.submitHandler}/>
+    );
   }
-
 
   updateHandler(field) {
     return (e) => {
@@ -77,8 +71,6 @@ class FindChannel extends React.Component {
             </form>
             </div>
           </div>
-
-
 
           <div className="user-names">
             <ul className="user-names-details">

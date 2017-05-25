@@ -97,12 +97,13 @@ class NavChannelDetail extends React.Component {
 
       </div>
         <ul className="direct-messages-channels">
-          {private_channels.map(channel => <NavDirectMessage
-            key={channel.id}
-            channel={channel}
-            updateChannel={this.updateChannel}
-            state={this.state}
-            currentUser={this.props.currentUser}/>)
+          {private_channels.map(channel =>
+            <NavDirectMessage
+              key={channel.id}
+              channel={channel}
+              updateChannel={this.updateChannel}
+              state={this.state}
+              currentUser={this.props.currentUser}/>)
         }
         </ul>
       </div>

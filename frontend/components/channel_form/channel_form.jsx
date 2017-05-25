@@ -1,5 +1,6 @@
 import React from 'react';
 import NewDirectMessage from './new_direct_message';
+import FilterUsers from './filter_users';
 
 class ChannelForm extends React.Component {
   constructor(props) {
@@ -72,18 +73,10 @@ class ChannelForm extends React.Component {
     .filter(user => (!this.state.selected_userid.includes(user.id) &&
       user.id !== this.props.currentUser.id));
     return filter_users.map(user =>
-      <li key={user.id}>
-        <button className="user-button"
-          type="button"
-          onClick={this.userHandler(user)}>
-
-        <img className={`user-icon ${
-            ["red", "blue", "orange", "green",
-            "yellow", "pink", "teal", "grey"][user.id % 8]}`}
-           src={user.avatar}/>
-        <span>{user.username}</span>
-        </button>
-      </li>);
+      <FilterUsers key={user.id}
+        user={user}
+        userHandler={this.userHandler} />
+      );
   }
 
 
@@ -122,9 +115,8 @@ class ChannelForm extends React.Component {
                 <div className='input-bar'>
 
                   <ul className="new-channel">
-                  { this.state.selected_users
-                    .map(user => <NewDirectMessage
-                      key={user.username}
+                  { this.state.selected_users.map(user =>
+                    <NewDirectMessage key={user.username}
                       removeHandler={this.removeHandler}
                       user={user} /> )}
                   </ul>
