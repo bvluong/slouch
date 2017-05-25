@@ -1,8 +1,8 @@
 import React from 'react';
 
-const FilterUsers = ({user, userHandler}) => (
+const FilterUsers = ({user, userHandler, idx}) => (
   <li>
-    <button className="user-button"
+    <button className={`user-button ${["color1", "color2"][ idx % 2]}`}
       type="button"
       onClick={userHandler(user)}>
 
@@ -10,7 +10,9 @@ const FilterUsers = ({user, userHandler}) => (
         ["red", "blue", "orange", "green",
         "yellow", "pink", "teal", "grey"][user.id % 8]}`}
        src={user.avatar}/>
-    <span>{user.username}</span>
+     <ul className="channel-icon">
+         <li>{user.username}</li>
+       </ul>
     </button>
   </li>
 );

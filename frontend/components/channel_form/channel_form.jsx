@@ -72,10 +72,11 @@ class ChannelForm extends React.Component {
     const filter_users = users
     .filter(user => (!this.state.selected_userid.includes(user.id) &&
       user.id !== this.props.currentUser.id));
-    return filter_users.map(user =>
+    return filter_users.map((user,idx) =>
       <FilterUsers key={user.id}
         user={user}
-        userHandler={this.userHandler} />
+        userHandler={this.userHandler}
+        idx={idx} />
       );
   }
 
@@ -115,10 +116,11 @@ class ChannelForm extends React.Component {
                 <div className='input-bar'>
 
                   <ul className="new-channel">
-                  { this.state.selected_users.map(user =>
+                  {this.state.selected_users.map( user =>
                     <NewDirectMessage key={user.username}
                       removeHandler={this.removeHandler}
-                      user={user} /> )}
+                      user={user}
+                      /> )}
                   </ul>
 
                   <input
