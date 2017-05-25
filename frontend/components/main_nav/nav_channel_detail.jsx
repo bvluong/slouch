@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import ChannelFormContainer from '../channel_form/channel_form_container.js';
 import NavDirectMessage from './nav_direct_message';
+import NavChannelName from './nav_channel_name';
 
 
 const customStyles = {
@@ -56,35 +57,15 @@ class NavChannelDetail extends React.Component {
     const public_channels = userChannels.filter( channel => !channel.private );
     const private_channels = userChannels.filter( channel => channel.private );
 
-    const channel_names = public_channels.map(
-      channel =>
-      <li
-        onClick={this.updateChannel}
-        className={
-          (this.state.channel_id===channel.id) ? this.state.classname : "channel-detail"
-        }
-        key={channel.id} value={channel.id}>
-        # {channel.name}
-      </li>
-  );
-  const direct_messages = private_channels.map(
-    channel =>
-    <li
-      onClick={this.updateChannel}
-      className={
-        (this.state.channel_id===channel.id) ? this.state.classname : "channel-detail"
-      }
-      key={channel.id} value={channel.id}>
-      @ {channel.name.replace(`${this.props.currentUser.username},`,"")
-        .replace(`,${this.props.currentUser.username}`,"")
-        .replace(this.props.currentUser.username,"")}
-    </li>
-);
-
     return (
       <div className="nav-all-channels">
         <ul className="all-channels">
-          {channel_names}
+          {public_channels.map(channel => <NavChannelName
+            key={channel.id}
+            channel={channel}
+            updateChannel={this.updateChannel}
+            state={this.state}
+          />)}
         </ul>
 
         <div>
