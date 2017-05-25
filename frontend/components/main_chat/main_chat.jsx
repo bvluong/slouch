@@ -1,7 +1,6 @@
 import React from 'react';
 import MessageIndexContainer from './message_index_container';
 import { merge } from 'lodash';
-import ReactEmoji from 'react-emoji';
 import { Picker } from 'emoji-mart';
 
 class MainChat extends React.Component {

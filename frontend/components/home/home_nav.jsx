@@ -21,7 +21,6 @@ class HomeNav extends React.Component {
         <button className="home-button" id="red"
           onClick={this.demoHandler.bind(this)}
           type="button">Guest 1</button>
-
         <button className="home-button" id="blue"
           onClick={this.demoHandler2.bind(this)}
             type="button">Guest 2</button>

@@ -89,12 +89,16 @@ class MessageIndex extends React.Component {
 
   hideEmojis(e) {
     e.preventDefault();
-    this.setState({showEmojis: false});
+    const classname = (e.relatedTarget || "");
+    if ( classname.className !== "emoji-mart-search" &&
+    classname.className !== "emoji-wrapper")
+      this.setState({showEmojis: false});
   }
 
   emojiChoices() {
     return (
-      <div tabIndex="0" ref="emojilist" onBlur={this.hideEmojis}>
+      <div tabIndex="0" ref="emojilist" className="emoji-wrapper"
+        onBlur={this.hideEmojis}>
           <Picker set='emojione'
             className="emoji-mart"
              style={this.state.content}
