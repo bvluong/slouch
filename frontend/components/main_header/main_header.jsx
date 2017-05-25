@@ -14,14 +14,15 @@ class MainHeader extends React.Component {
   render () {
     const { currentChannel, currentUser } = this.props;
     const { name, description } = currentChannel;
+    const displayname = name.replace(`${currentUser.username},`,"")
+        .replace(`,${currentUser.username}`,"")
+        .replace(currentUser.username,"");
     return (
     <div className="main-header">
       <div className="left-main-header">
         <div className="channel-name">
           { currentChannel.private ? "@" : "#" }
-          {name.replace(`${currentUser.username},`,"")
-              .replace(`,${currentUser.username}`,"")
-              .replace(currentUser.username,"")}
+          { displayname === "" ? currentUser.username : displayname }
         </div>
         <section className="main-header-detail">
           <img className="user-count-avatar"
@@ -33,7 +34,7 @@ class MainHeader extends React.Component {
             {description}
             <img src="http://res.cloudinary.com/djrgebhxz/image/upload/v1495578902/partyparrot_dtebhb.gif" />
           </span>
-          
+
         </section>
       </div>
 

@@ -21,8 +21,18 @@ class ChannelForm extends React.Component {
     this.props.fetchUsers();
     const searchusers = this.mapUsers(this.props.users);
     this.setState({ searchusers } );
-    this.setState({ selected_userid: [this.props.currentUser.id]
-    } );
+    if (this.props.user) {
+      this.setState({
+        selected_users: [this.props.user],
+        selected_userid: [this.props.currentUser.id, this.props.user.id ]
+      });
+    } else {
+      this.setState({
+        selected_userid: [this.props.currentUser.id ]
+      });
+    }
+
+
   }
 
   componentWillReceiveProps(nextProps) {
