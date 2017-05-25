@@ -2,7 +2,7 @@ import React from 'react';
 import MessageIndexContainer from './message_index_container';
 import { merge } from 'lodash';
 import ReactEmoji from 'react-emoji';
-import emojis from 'emojis-list';
+import { Picker } from 'emoji-mart';
 
 class MainChat extends React.Component {
   constructor(props) {
@@ -36,22 +36,27 @@ class MainChat extends React.Component {
       ()=> this.refs.emojilist.focus());
   }
 
-  addEmoji(emo) {
-    return e => {
-    e.preventDefault();
-    this.setState({body: (this.state.body+emo) });
+  addEmoji(e) {
+    this.setState({body: (this.state.body+e.native) });
     this.setState({showEmojis: false});
-  };
   }
 
   emojiChoices() {
     return (
-    <ul className="emoji-box" tabIndex="0" ref="emojilist"
-      onBlur={this.hideEmojis}> <h4>Choose an emoji</h4>
-    {emojis.slice(1634,2134)
-    .map( (emo,idx) => <li key={idx}
-      onClick={this.addEmoji(emo)}>{emo}</li>)}
-    </ul>
+      <div className="emoji-mart" tabIndex="0" ref="emojilist" onBlur={this.hideEmojis}>
+          <Picker set='emojione'
+             style={{background:'white',
+             width: '220px',
+             height: '200px',
+             bottom: '32px',
+             right: '-13px',
+             border: '1px solid grey',
+             borderRadius: "5px",
+             padding: '0px',
+             margin: '0px',
+             overflow: 'scroll'}}
+             onClick={this.addEmoji}/>
+      </div>
   );
   }
 

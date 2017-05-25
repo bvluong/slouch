@@ -1,0 +1,29 @@
+.emoji-mart-bar {
+  display: none;
+}
+
+.emoji-mart-search {
+  font-size: 12px;
+  padding: 4px;
+  margin: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.emoji-mart-category-label {
+  padding: 8px;
+  margin-bottom: 2px;
+  font-family: Slack-Lato,appleLogo,sans-serif;
+  color: #555459
+
+}
+
+.emoji-mart-emoji {
+  padding: 5px;
+  padding-top: 10px;
+  &:hover {
+    cursor: pointer;
+    background: #d3ecfa;
+    border-radius: 5px;
+  }
+}

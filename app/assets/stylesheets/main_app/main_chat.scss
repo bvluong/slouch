@@ -128,35 +128,8 @@
   position: relative;
 }
 
-.emoji-box {
+.emoji-mart {
   position: absolute;
-  background: white;
-  right: 2px;
-  bottom: 65px;
-  width: 200px;
-  height: 200px;
-  padding: 0px;
-  margin: 0px;
-  display: flex;
-  flex-wrap: wrap;
-  border: 1px solid grey;
-  border-radius: 5px;
-  overflow-y: scroll;
-  h4 {
-    padding-left: 5px;
-    width: 200px;
-    text-decoration: underline;
-  }
-  li {
-    padding: 8px;
-    height: 20px;
-    &:hover {
-      cursor: pointer;
-      background: #d3ecfa;
-      border: 1px solid #d3ecfa;
-      border-radius: 5px;
-    }
-  }
 
 }
 
@@ -166,6 +139,7 @@
   top:0;
   .emoji-button {
     top:0;
+    right: 10px;
     padding: 5px;
     height: 38px;
     border: 1px solid grey;
@@ -173,7 +147,8 @@
   }
 }
 
-.message-index .emoji-box {
+
+.message-index .emoji-mart {
   position: absolute;
   width: 200px;
   height: 200px;
@@ -215,7 +190,7 @@
 }
 
 .main-chat-submit {
-  .emoji-box:focus {
+  .emoji-mart:focus {
     outline: none;
  }
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReactEmoji from 'react-emoji';
-import emojis from 'emojis-list';
 import MessageBody from './message_body';
 import MessageAvatar from './message_avatar';
+import { Picker } from 'emoji-mart';
+import PropTypes from 'prop-types';
 
 
 
@@ -16,6 +16,7 @@ class MessageIndex extends React.Component {
     this.addEmoji = this.addEmoji.bind(this);
     this.showEmojis = this.showEmojis.bind(this);
     this.hideEmojis = this.hideEmojis.bind(this);
+    this.emojiChoices = this.emojiChoices.bind(this);
     this.handleEmoji = this.handleEmoji.bind(this);
   }
 
@@ -63,38 +64,42 @@ class MessageIndex extends React.Component {
     node.scrollIntoView({behavior: "smooth"});
   }
 
-  addEmoji(emo) {
-    return e => {
-    e.preventDefault();
+  addEmoji(e) {
     const { message_id } = this.state;
     this.setState({showEmojis: false});
-    this.props.createReaction({emoji: emo, message_id});
-  };
+    this.props.createReaction({emoji: e.native, message_id});
   }
 
   showEmojis(message_id) {
     return e => {
       e.preventDefault();
       this.setState({showEmojis: !this.state.showEmojis,
-          content: {position: 'absolute', top: e.clientY-166, left: e.clientX-50},
-        message_id }, ()=> this.refs.emojilist.focus() );
+          content: {position: 'absolute', top: e.clientY-166, left: e.clientX-200,
+            background: 'white',
+            width: '220px',
+            height: '200px',
+            bottom: '0px',
+            padding: '0px',
+            margin: '0px',
+            right: '60px'},
+        message_id }, () => this.refs.emojilist.focus());
 
     };
   }
 
   hideEmojis(e) {
-      e.preventDefault();
-      this.setState({showEmojis: false});
+    e.preventDefault();
+    this.setState({showEmojis: false});
   }
 
   emojiChoices() {
     return (
-      <ul className="emoji-box" tabIndex="0" ref="emojilist"
-        onBlur={this.hideEmojis} style={this.state.content}> <h4>Choose an emoji</h4>
-      {emojis.slice(1634,2134)
-      .map( (emo,idx) => <li key={idx}
-        onClick={this.addEmoji(emo)}>{emo}</li>)}
-      </ul>
+      <div tabIndex="0" ref="emojilist" onBlur={this.hideEmojis}>
+          <Picker set='emojione'
+            className="emoji-mart"
+             style={this.state.content}
+             onClick={this.addEmoji}/>
+      </div>
     );
   }
 
