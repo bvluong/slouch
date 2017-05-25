@@ -10,7 +10,8 @@ import PropTypes from 'prop-types';
 class MessageIndex extends React.Component {
   constructor(props){
     super(props);
-    this.state = { id: 0, showEmojis: false, message_id: "", content: {} };
+    this.state = { id: 0, showEmojis: false, message_id: "", content: {}
+   };
     this.scrollToBottom = this.scrollToBottom.bind(this);
     this.updateMessages = this.updateMessages.bind(this);
     this.addEmoji = this.addEmoji.bind(this);
@@ -49,10 +50,10 @@ class MessageIndex extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.currentChannel.id !== nextProps.currentChannel.id) {
-      App.messages.perform("follow",
-      { channel_id: nextProps.currentChannel.id});
-      this.props.fetchMessages(nextProps.currentChannel.id);
-    }
+        App.messages.perform("follow",
+        { channel_id: nextProps.currentChannel.id});
+        this.props.fetchMessages(nextProps.currentChannel.id);
+      }
   }
 
   componentDidUpdate() {

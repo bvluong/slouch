@@ -31,8 +31,6 @@ class ChannelForm extends React.Component {
         selected_userid: [this.props.currentUser.id ]
       });
     }
-
-
   }
 
   componentWillReceiveProps(nextProps) {
@@ -117,7 +115,6 @@ class ChannelForm extends React.Component {
     return (
       <div className="channel-form-page">
         <div className="channel-form">
-
           <div className="channel-submit">
             <div className="channel-form-top">
             <h3>Direct Messages</h3>
