@@ -21,12 +21,10 @@ Live Site: [Slouch-App](www.slouch-app.com)
 
 Slouch utilizes the following:
 
-- Ruby on Rails
-- React.js
-- Redux
-- PostgreSQL
-- jQuery
-- BCrypt
+- Ruby on Rails / ostgreSQL
+- React.js / Redux
+- jQuery / BCrypt
+- emoji-mart / react-emoji
 
 ## Features
 
