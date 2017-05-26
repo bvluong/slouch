@@ -1,7 +1,7 @@
-![S](docs/images/slouch.png)
+![S](docs/images/slouch2.png)
 
-
-Slouch is a messaging web application inspired by Slack built using Ruby on Rails and React. It utilizes a PostgresSQL database, BCrypt for authentication, and Redux architecture to structure the data flow.
+Slouch is a messaging web application inspired by Slack built using Ruby on Rails and React.
+It utilizes a PostgresSQL database, BCrypt for authentication, and Redux architecture to structure the data flow.
 
 Live Site: [Slouch-App](www.slouch-app.com)
 
