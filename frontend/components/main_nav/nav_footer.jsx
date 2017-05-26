@@ -15,6 +15,9 @@ const customStyles = {
     width                 : '60%',
     overflow              : 'hidden',
     overflowY             : 'scroll'
+  },
+  overlay : {
+    backgroundColor: `white`
   }
 };
 
