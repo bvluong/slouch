@@ -21,10 +21,10 @@ Live Site: [Slouch-App](www.slouch-app.com)
 
 Slouch utilizes the following:
 
-- Ruby on Rails / ostgreSQL
+- Ruby on Rails / PostgreSQL
 - React.js / Redux
 - jQuery / BCrypt
-- emoji-mart / react-emoji
+- Emoji-mart / React-emoji
 
 ## Features
 
@@ -112,12 +112,12 @@ end
 
 Users can create new direct messages to another user or multiple users. They can create a new direct message by clicking on the user they want to talk to on the member details sidebar or using the plus symbol on the nav bar.
 
-![Search](/docs/images/search.gif)
+![channels](/docs/images/search.gif)
 
 
 Public channels implement their own search form to prevent the creation of public channels.
 
-![find-channel](/docs/images/find_channel.gif)
+![channels](/docs/images/find_channel.gif)
 
 ```javascript
 class FindChannel extends React.Component {

@@ -13,7 +13,8 @@ const customStyles = {
     transform             : 'translate(-50%, -50%)',
     height                : '90%',
     width                 : '60%',
-    overflow              : 'none'
+    overflow              : 'hidden',
+    overflowY             : 'scroll'
   }
 };
 
