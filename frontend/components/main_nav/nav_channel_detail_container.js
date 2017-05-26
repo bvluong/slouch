@@ -5,7 +5,7 @@ import NavChannelDetail from './nav_channel_detail';
 
 const mapStateToProps = (state) => ({
   currentUser: (state.session.currentUser || {} ),
-  notification: state.notification
+  notification: (state.notification || {} )
 });
 
 const mapDispatchToProps = (dispatch) => ({

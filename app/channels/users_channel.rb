@@ -3,7 +3,4 @@ class UsersChannel < ApplicationCable::Channel
     stream_from "users:#{data["user_id"]}"
   end
 
-  def unsubscribed
-    stop_all_streams
-  end
 end

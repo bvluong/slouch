@@ -8,7 +8,4 @@ class MessagesChannel < ApplicationCable::Channel
     stream_from "channels:#{data["channel_id"]}:messages"
   end
 
-  def unsubscribed
-    stop_all_streams
-  end
 end

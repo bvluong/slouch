@@ -25,10 +25,11 @@ class NavChannelDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = { classname: "channel-detail active", channel_id: 1,
-      user_channels: [],
+      user_channels: [], notification: false,
     modalIsOpen: false };
     this.updateChannel = this.updateChannel.bind(this);
     this.updateUser = this.updateUser.bind(this);
+    this.renderNotification = this.renderNotification.bind(this);
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -58,15 +59,28 @@ class NavChannelDetail extends React.Component {
         nextProps.currentUser.channels.length) {
           const current_channel = nextProps.currentChannel || {};
           const channel_id = nextProps.currentUser.channels.slice(-1)[0].id;
-          this.setState( {channel_id} );
+          this.setState( {channel_id, notification: false} );
     } else {
-      this.setState( {user_channels: nextProps.currentUser.channels.concat(nextProps.notification)} );
+      if (nextProps.currentUser.channels.some(channel => channel.id === nextProps.notification.id)) {
+        this.setState( {user_channels: nextProps.currentUser.channels, notification: false} );
+      } else {
+        if (this.props.notification.id !== nextProps.notification.id) {
+          this.setState( {notification: true }); }
+        this.setState( {user_channels: nextProps.currentUser.channels.concat(nextProps.notification)} );
+      }
     }
     } else {
       if (nextProps.notification.new_channel) {
-        this.setState( { user_channels: nextProps.currentUser.channels.concat(nextProps.notification) })
+        if (nextProps.currentUser.channels.some(channel => channel.id === nextProps.notification.id)) {
+          const channel_id = nextProps.currentUser.channels.slice(-1)[0].id;
+        this.setState( {channel_id, user_channels: nextProps.currentUser.channels, notification: false});
+      }
+      else {
+        this.setState( { notification: true,
+          user_channels: nextProps.currentUser.channels.concat(nextProps.notification)} );
+      }
       } else {
-        this.setState( {user_channels: nextProps.currentUser.channels});
+        this.setState( {user_channels: nextProps.currentUser.channels, notification: false});
       }
     }
   }
@@ -78,10 +92,6 @@ class NavChannelDetail extends React.Component {
   componentDidMount() {
     this.setupSubscription();
     this.setState( {user_channels: this.props.currentUser.channels} );
-  }
-
-  componentWillUnmount() {
-    App.messages.perform("unsubscribed");
   }
 
   setupSubscription() {
@@ -96,6 +106,24 @@ class NavChannelDetail extends React.Component {
       },
       updateUser: this.updateUser
     });
+  }
+
+  renderNotification() {
+    setTimeout( () => this.setState({notification: false}), 6000);
+    return (
+    <div className="notification slidein">
+      <h6>
+        New channel Notification
+      </h6>
+      <h5>
+        {this.props.notification.name
+          .replace(`${this.props.currentUser.username},`,"")
+          .replace(`,${this.props.currentUser.username}`,"")
+          .replace(this.props.currentUser.username,"")
+          .split(",").join(", ")
+        }
+      </h5>
+    </div> );
   }
 
   render () {
@@ -150,6 +178,7 @@ class NavChannelDetail extends React.Component {
               state={this.state}
               currentUser={this.props.currentUser}/>)
         }
+        {this.state.notification ? this.renderNotification() : ""}
         </ul>
       </div>
     );

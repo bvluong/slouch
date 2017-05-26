@@ -26,10 +26,6 @@ class MessageIndex extends React.Component {
     this.setupSubscription();
   }
 
-  componentWillUnmount() {
-    App.messages.perform("unsubscribed");
-  }
-
   updateMessages(data) {
     this.props.receiveMessage(data);
   }
