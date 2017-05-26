@@ -54,18 +54,19 @@ class NavChannelDetail extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.notification.new_channel) {
-      console.log("asdasdsadsada");
       if (this.props.currentUser.channels.length !==
         nextProps.currentUser.channels.length) {
           const current_channel = nextProps.currentChannel || {};
           const channel_id = nextProps.currentUser.channels.slice(-1)[0].id;
           this.setState( {channel_id} );
+    } else {
+      this.setState( {user_channels: nextProps.currentUser.channels.concat(nextProps.notification)} );
     }
     } else {
       if (nextProps.notification.new_channel) {
         this.setState( { user_channels: nextProps.currentUser.channels.concat(nextProps.notification) })
       } else {
-        this.setState( {user_channels: nextProps.currentUser.channels})
+        this.setState( {user_channels: nextProps.currentUser.channels});
       }
     }
   }
