@@ -10,14 +10,14 @@ import PropTypes from 'prop-types';
 class MessageIndex extends React.Component {
   constructor(props){
     super(props);
-    this.state = { id: 0, showEmojis: false, message_id: "", content: {}
+    this.state = { id: 0, showEmojis: false, message_id: "", emoji_css: {}
    };
     this.scrollToBottom = this.scrollToBottom.bind(this);
     this.updateMessages = this.updateMessages.bind(this);
     this.addEmoji = this.addEmoji.bind(this);
     this.showEmojis = this.showEmojis.bind(this);
     this.hideEmojis = this.hideEmojis.bind(this);
-    this.emojiChoices = this.emojiChoices.bind(this);
+    this.emojiList = this.emojiList.bind(this);
     this.handleEmoji = this.handleEmoji.bind(this);
   }
 
@@ -71,7 +71,7 @@ class MessageIndex extends React.Component {
     return e => {
       e.preventDefault();
       this.setState({showEmojis: !this.state.showEmojis,
-          content: {position: 'absolute', top: e.clientY-166, left: e.clientX-200,
+          emoji_css: {position: 'absolute', top: e.clientY-166, left: e.clientX-200,
             background: 'white',
             width: '220px',
             height: '200px',
@@ -92,13 +92,13 @@ class MessageIndex extends React.Component {
       this.setState({showEmojis: false});
   }
 
-  emojiChoices() {
+  emojiList() {
     return (
       <div tabIndex="0" ref="emojilist" className="emoji-wrapper"
         onBlur={this.hideEmojis}>
           <Picker set='emojione'
             className="emoji-mart"
-             style={this.state.content}
+             style={this.state.emoji_css}
              onClick={this.addEmoji}/>
       </div>
     );
@@ -131,7 +131,7 @@ class MessageIndex extends React.Component {
     return (
       <div className="message-index">
         {mapmessages}
-        { this.state.showEmojis ? this.emojiChoices() : ""}
+        { this.state.showEmojis ? this.emojiList() : ""}
         <div ref={(el) => { this.messagesEnd = el; }}>
         </div>
       </div>

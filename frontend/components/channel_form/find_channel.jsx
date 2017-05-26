@@ -4,8 +4,10 @@ import FilterChannels from './filter_channels';
 class FindChannel extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { channel_name: "",
-      searchchannels: []};
+    this.state = {
+      channel_name: "",
+      public_channels: []
+    };
     this.updateHandler = this.updateHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
     this.mapChannels = this.mapChannels.bind(this);
@@ -13,14 +15,14 @@ class FindChannel extends React.Component {
 
   componentDidMount() {
     this.props.fetchChannels();
-    const searchchannels = this.mapChannels(this.props.channels);
-    this.setState({ searchchannels } );
+    const public_channels = this.mapChannels(this.props.channels);
+    this.setState({ public_channels } );
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.channels.length !== nextProps.channels.length ) {
-      const searchchannels = this.mapChannels(nextProps.channels);
-      this.setState({ searchchannels } );
+      const public_channels = this.mapChannels(nextProps.channels);
+      this.setState({ public_channels } );
     }
   }
 
@@ -38,8 +40,8 @@ class FindChannel extends React.Component {
     return (e) => {
       this.setState({ [field]: e.target.value });
       const filter_channels = this.props.channels.filter(channel => channel.name.toLowerCase().includes(e.target.value) );
-      const searchchannels = this.mapChannels(filter_channels);
-      this.setState({ searchchannels } );
+      const public_channels = this.mapChannels(filter_channels);
+      this.setState({ public_channels } );
     };
   }
 
@@ -74,7 +76,7 @@ class FindChannel extends React.Component {
 
           <div className="user-names">
             <ul className="user-names-details">
-              { this.state.searchchannels }
+              { this.state.public_channels }
             </ul>
           </div>
 

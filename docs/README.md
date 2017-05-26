@@ -4,7 +4,7 @@
 
 [Trello link][trello]
 
-[heroku]: https://slouch-app.herokuapp.com/
+[heroku]: www.slouch-app.com
 [trello]: https://trello.com/b/RFTgmfpn/slouch
 
 ## Minimum Viable Product

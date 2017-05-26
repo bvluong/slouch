@@ -14,7 +14,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 body        | text      | not null
-channel_id  | string    | not null
+channel_id  | string    | not null, foreign key
 user_id     | integer   | not null, foreign key
 
 ## channels
@@ -31,3 +31,11 @@ column name | data type | details
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key
 channel_id  | integer   | not null, foreign key
+
+## reaction
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+emoji       | string    | not null
+channel_id  | string    | not null, foreign key
+user_id     | integer   | not null, foreign key

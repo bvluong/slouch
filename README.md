@@ -1,22 +1,20 @@
 # Slouch
 
 
-Slouch is a messaging web application inspired by Slack built using Ruby on Rails and React/Redux.
+Slouch is a messaging web application inspired by Slack built using Ruby on Rails and React. It utilizes a PostgresSQL database, BCrypt for authentication, and Redux architecture to structure the data flow.
 
-Live Site: []
+Live Site: [Slouch-App](www.slouch-app.com)
 
 ## Table of Contents
 1. [Technology](#technology)
 2. [Features](#features)
     - [Authentication](#authentication)
     - [Live Chat](#live-chat)
-    - [Channels](#channels)
-    - [Direct Messaging](#direct-messaging)
-    - [Avatar](#avatar)
-    - [Emoticons](#emoticons)
+    - [Direct Message/Channel Searching](#channels)
+    - [Emojis](#emojis)
 3. [Design](#design)
     - [Wireframe](#wireframe)
-    - [UI/UX](#uiux)
+    - [Schema](#Schema)
 4. [Future Release](#future-release)
 
 ## Technology
@@ -32,233 +30,188 @@ Slouch utilizes the following:
 
 ## Features
 
-The chat application is composed of three main features:
-
 ### Authentication
 
-BCrypt gem is utilized in order to hash a password, and only the digest of the user is saved into the database.  A cookie storing a BCrypt token is used to keep track of the user's current session.  Without a valid matching session token, the user is redirected to the login page.  
+Slouch uses a **BCrypt** gem for authentication, which hashes a password and stores the digest into the database. `Session tokens` are saved and compared to cookies to identify the user's current session. `Routes` were set up to redirect users that were not logged in back to the home page.
+
+```javascript
+const App = () => (
+  <div>
+    <Switch>
+      <Route path ='/form' component={ChannelFormContainer}/>
+      <ProtectedRoute path='/main' component={MainApp}/>
+      <AuthRoute path='/' component={HomeIndexContainer}/>
+    </Switch>
+      <Route exact path ='/' component={HomeWelcome}/>
+      <AuthRoute path='/login' component={SessionFormContainer}/>
+      <AuthRoute path='/signup' component={SessionFormContainer}/>
+  </div>
+);
+```
 
 ### Live Chat
 
-Pusher API is utilized for maintaining a Websocket TCP-based protocol connection which allows bi-directional communication between the server and the client.  
+Slouch uses **Action Cables** for maintaining a Websocket protocol connection. As a user enters a chatroom, they will be automatically `subscribed` to the channel. After a message is created, our Action Cables will `broadcast` the message to every user currently subscribed to the chatroom channel. Once the message is received, **React** will update it's `store` and send new `props` to the chatroom component resulting in a re-render.
 
-![Chat View](/docs/screenshots/chat.png)
+![live-chat](docs/images/typing.gif)
 
 ```javascript
-const channelId = this.props.user.currentChannel.toString();
-this.channel = this.pusher.subscribe(channelId);
-
-this.channel.bind('message', (data.message) => {
-  this.props.receiveMessage(data.message);
-}, this);
-
-this.channel.bind('editMessage', (data) => {
-  this.props.editMessage(data.message);
-}, this);
-
-this.channel.bind('deleteMessage', (data) => {
-  this.props.removeMessage(data.messageId);
-}, this);
+setupSubscription() {
+  App.messages = App.cable.subscriptions.create('MessagesChannel', {
+    channel_id: this.props.currentChannel.id,
+    connected: function () {
+      this.perform("follow",
+      { channel_id: this.channel_id });
+    },
+    received: function(data) {
+      this.updateMessages(data);
+    },
+  }
 ```
 
-When a user accesses the main application page, the client is subscribed to the Pusher channel.  From this channel, the client receives a specified event such as `message`, `editMessage` and `deleteMessage`.  The message event triggers the `receiveMessage` action which updates the application's Redux store through the reducer.  Once the store updates, React re-renders the chat view through the utilization of the virtual DOM.
+Users are also `subscribed` to a user channel containing their user ID to allow private notifications to be sent when a new direct message channel is open.
+
+![Notifications](docs/images/notification.gif)
+
+```javascript
+setupSubscription() {
+  App.messages = App.cable.subscriptions.create('UsersChannel', {
+    user_id: this.props.currentUser.id,
+    connected: function () {
+      this.perform("follow",
+      { user_id: this.user_id });
+    },
+    received: function(data) {
+      this.updateUser(data);
+    }
+  }
+```
+
+Once a message is received on the Rails backend and committed to the PostgresSQL database, our `Message` Model will relay a message to our `MessageRelayJob`. This will broadcast a JSON object to all the clients subscribed to the channel.
+
 
 ```ruby
-class Api::MessagesController < ApplicationController
-  def create
-    Pusher.trigger(@channel.id, 'message', {
-      messages: new_message
-    })
+class Message < ApplicationRecord
+  after_commit { MessageRelayJob.perform_later(self)}
+end
+```
+
+```ruby
+class MessageRelayJob < ApplicationJob
+  def perform(message)
+    ActionCable.server.broadcast("channels:#{message.channel_id}:messages",
+      id: message.id,
+      body: message.body,
+      username: message.user.username,
+      avatar: message.user.image_url,
+      time_stamp: message.updated_at
+      )
   end
 end
 ```
 
-The Rails backend receives the request from the AJAX thunk action generated by the frontend, retrieves the data from the PostgresSQL database, and then constructs a JSON response to be returned through Pusher.
+### Direct Message/Channel Searching
 
-### Channels
+Users can create new direct messages to another user or multiple users. They can create a new direct message by clicking on the user they want to talk to on the member details sidebar or using the plus symbol on the nav bar.
 
-![Channel View](/docs/screenshots/channels.png)
+![Search](/docs/images/search.gif)
 
-Public channels can be created/joined/subscribed by all users of the application.  A user can have many channels and a channel can have many users through a subscription join table.
 
-```javascript
-this.channel = this.pusher.subscribe('channels');
+Public channels implement their own search form to prevent the creation of public channels.
 
-this.channel.bind('update', (data) => {
-  this.props.receiveChannel(data.channel);
-}, this);
-```
-
-When a channel name is changed, the changed name is broadcasted to all the clients for a real-time update of the changes made.
-
-![Channel Browse View](/docs/screenshots/channels-browse.png)
-
-A user can browse through all the channels through the Channels View.  
+![find-channel](/docs/images/find_channel.gif)
 
 ```javascript
-constructor(props) {
-  this.state = {
-    channels: [],
-    searchInput: ''
-  };
-}
-
-handleInput(e) {
-  this.setState({ searchInput: e.target.value });
-}
-
-matches() {
-  return this.state.channels.filter((channel) => channel.name.includes(this.state.searchInput));
-}
-```
-
-The auto-completion for the channels search is implemented by updating the state of the channel list with the user's search input.
-
-### Direct Messaging
-
-![Direct Message View](/docs/screenshots/direct-message.png)
-
-A user can send a direct message to another user or multiple users in the application.
-
-```ruby
-create_table "channels", force: :cascade do |t|
-  t.boolean  "private", default: false
-end
-```
-
-Direct and Team messaging capability is implemented through creation of private channels.
-
-![Direct Message Example](/docs/screenshots/dm-example.png)
-
-```javascript
-this.channel = this.pusher.subscribe('directMessage');
-
-this.channel.bind('notify', (data) => {
-  if(data.private === true
-     && data.authorId !== this.props.user.id
-     && data.channelId !== this.props.channel.id) {
-    this.showDirectMessageAlert(data.author);
+class FindChannel extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      channel_name: "",
+      public_channels: []
+    };
+    this.updateHandler = this.updateHandler.bind(this);
+    this.submitHandler = this.submitHandler.bind(this);
+    this.mapChannels = this.mapChannels.bind(this);
   }
-}, this);
 ```
 
-When a new message is dispatched through Pusher from the Rails backend, an alert popup is displayed to notify the user that a new direct message was received. This alert, created with `react-alert` package, is only triggered when the channel the user is currently browsing is not the channel the user is currently viewing.
+### Emojis
 
-### Avatar
+Slouch uses the `EmojiMart` node module for its emoji library. Users can add add emojis to their input text or add them to the messages as reactions.
 
-![Avatar Upload](/docs/screenshots/avatar-upload.png)
-
-The avatar functionality has been implemented by utilizing `Paperclip` gem and AWS S3.  The API keys have secured using `Figaro` gem.
-
-```javascript
-updateFile(e) {
-  const file = e.currentTarget.files[0];
-  const fileReader = new FileReader();
-
-  fileReader.onloadend = () => {
-    this.setState({ photo_url: fileReader.result });
-  };
-
-  if (file)
-    fileReader.readAsDataURL(file);
-}
-
-submitForm(e) {
-  e.preventDefault();
-
-  let formData = new FormData();
-
-  formData.append('user[id]', this.props.user.id);
-  formData.append('user[email]', this.state.email);
-  formData.append('user[photo_url]', this.state.photo_url);
-
-  this.props.updateUser(formData).then(() =>
-    this.props.closeEditUserFormModal()
-  );
-}
-```
-
-```javascript
-export const updateUser = (formData) => {
-  return $.ajax({
-    method: 'patch',
-    url: `api/users/${formData.get('user[id]')}`,
-    contentType: false,
-    processData: false,
-    data: formData
-  });
-}
-```
-
-The user can upload an avatar during the signup process, or the user can edit his or her profile through the user menu within the main application.  The image data is stored through the FormData interface, then submitted to the Rails API where the Paperclip gem automatically stores the file into AWS S3.
-
-### Emoticons
-
-![Emoticons](/docs/screenshots/emoticons.png)
-
-![EmoticonPicker](/docs/screenshots/emoticon-picker.png)
-
-A Slack clone is not truly a Slack clone unless it has emoticons.  How we can convey so much meaning with 16x16 pixels is quite remarkable.  SlackOff utilizes the EmojiMart node module for the emoticons.
+![Emoticons](/docs/images/emojis.png)
 
 ```javascript
 import { Picker } from 'emoji-mart';
 
-render () {
+emojiList() {
   return (
-    <Picker onClick={ this.addEmoticon }/>
+    <div tabIndex="0" ref="emojilist" className="emoji-wrapper"
+      onBlur={this.hideEmojis}>
+        <Picker set='emojione'
+          className="emoji-mart"
+           style={this.state.emoji_css}
+           onClick={this.addEmoji}/>
+    </div>
   );
 }
+
 ```
 
-The EmojiMart provides the `Picker` component.  When an icon is picked, the `Picker` component returns the name of the chosen icon, and the `addEmoticon` action is triggered which sends an AJAX call to the Rails backend.  
+When an icon is picked from our emojiList, a request is sent through `addEmoji` action which will trigger a AJAX request to `POST` a new reaction.
+After a json response is received back, an `Action` will be dispatch to our `Reducers` which updates the particular slice of state within the store.
 
 ## Design
 
 ### Wireframe
 
-![Wireframe](docs/wireframes/slackoff-wireframe-main-app.jpg)
+![Wireframe](docs/wireframes/MainApp.png)
 
-![Wireframe](docs/wireframes/header-section.jpg)
+Each color of wireframe represents a React container, while each box represents a different React component. This wireframe was created before any code for this project was written. For more wireframes, please see the /doc/wireframes directory.
 
-![Wireframe](docs/wireframes/message-section.jpg)
-
-A detailed wireframe was produced during the earliest stages of the planning. Each color represents a React container, and each box represents a different React component. All of the necessary dimensions and the relative positional values have been measured on the wireframe. The wireframe was crucial to accelerating the implementation of the visual.
-
-### UI/UX
-
-```javascript
-<ReactCSSTransitionGroup
-  transitionName='list'
-  transitionEnterTimeout={500}
-  transitionLeaveTimeout={500}>
-  { this.buildChannelItems() }
-</ReactCSSTransitionGroup>
-```
-
-```css
-.list-enter {
-  opacity: 0.01;
-  transform: translateY(500%);
-}
-
-.list-enter.list-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 150ms ease-in, transform 150ms ease-in;
-}
-
-.list-leave {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.list-leave.list-leave-active {
-  opacity: 0.01;
-  transform: translateY(500%);
-  transition: opacity 150ms ease-in, transform 150ms ease-in;
-}
-```
-
-SlackOff is designed with satisfying UI/UX in mind.  Through React animation API, smooth transitional effects have been implemented to visually notify the user that he or she is interacting with an actionable item.  The usage of SCSS assures a streamlined workflow, and helps achieve the consistent overall visual of the website.
+## Schema Information
+### users
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+username        | string    | not null, indexed, unique
+password_digest | string    | not null
+session_token   | string    | not null, indexed, unique
+image_url       | string    | not null
+### messages
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+body        | text      | not null
+channel_id  | string    | not null, foreign key
+user_id     | integer   | not null, foreign key
+### channels
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null
+name        | string    | not null, indexed, unique
+description | string    | not null
+private     | boolean   | not null, default: false
+### subscription
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+user_id     | integer   | not null, foreign key
+channel_id  | integer   | not null, foreign key
+### reaction
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+emoji       | string    | not null
+channel_id  | string    | not null, foreign key
+user_id     | integer   | not null, foreign key
 
 ## Future Release
+#### Notifications
+Add notifications to the channel navigation bar to bold white when a new message is received from a non-current subscribed channel.
+#### Admin Channel access
+Create an admin class in that will allow admins to create and edit channels.
+#### Messages - delete and edit
+Allow users to delete and edit their own messages.
+#### User profile
+Allow users to set up a profile and edit the image of their avatar.
