@@ -9,7 +9,7 @@ const HomeWelcome = () => (
       </div>
       <h2>Slouch is a messaging web application inspired by Slack.</h2>
       <Link to="/signup">
-        <input id="start-button" className="home-button" type="submit" value="Try out Slouch"/>
+        <input id="start-button" className="home-button" type="submit" value="Explore Slouch"/>
       </Link>
     </div>
   </div>

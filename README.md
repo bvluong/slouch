@@ -30,7 +30,7 @@ Slouch utilizes the following:
 
 ### Authentication
 
-Slouch uses a **BCrypt** gem for authentication, which hashes a password and stores the digest into the database. `Session tokens` are saved and compared to cookies to identify the user's current session. `Routes` were set up to redirect users that were not logged in back to the home page.
+Slouch uses the **BCrypt** gem for authentication, which hashes a password and stores the digest into the database. `Session tokens` are saved and compared to cookies to identify the user's current session. `Routes` were set up to redirect users that were not logged in back to the home page.
 
 ```javascript
 const App = () => (
