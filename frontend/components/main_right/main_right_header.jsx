@@ -4,7 +4,7 @@ const MainRightHeader = ({currentChannel}) => (
   <div className="main-right-header">
     <h3>{ currentChannel.private ? 'Direct Message' : `About #${currentChannel.name}`}</h3>
     <div className="right-channel-detail">
-      <h4><img src="http://res.cloudinary.com/djrgebhxz/image/upload/v1495593054/i-icon_okvism.png"/> Channel Details</h4>
+      <h4><img src="https://res.cloudinary.com/djrgebhxz/image/upload/v1495593054/i-icon_okvism.png"/> Channel Details</h4>
       <div>
         <h5>Purpose</h5>
         <h6>{currentChannel.description}</h6>

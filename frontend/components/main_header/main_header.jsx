@@ -26,13 +26,13 @@ class MainHeader extends React.Component {
         </div>
         <section className="main-header-detail">
           <img className="user-count-avatar"
-            src="http://res.cloudinary.com/djrgebhxz/image/upload/v1495046454/avatar_thnwbt.png"/>
+            src="https://res.cloudinary.com/djrgebhxz/image/upload/v1495046454/avatar_thnwbt.png"/>
           <span className="channel-user-count">{currentChannel.users.length} | </span>
 
           <span>
-            <img src="http://res.cloudinary.com/djrgebhxz/image/upload/v1495582280/nyanparrot_khcpab.gif"/>
+            <img src="https://res.cloudinary.com/djrgebhxz/image/upload/v1495582280/nyanparrot_khcpab.gif"/>
             {description}
-            <img src="http://res.cloudinary.com/djrgebhxz/image/upload/v1495578902/partyparrot_dtebhb.gif" />
+            <img src="https://res.cloudinary.com/djrgebhxz/image/upload/v1495578902/partyparrot_dtebhb.gif" />
           </span>
 
         </section>

@@ -35,7 +35,7 @@ class SessionForm extends React.Component {
 
           <div className="welcome-logo">
             <img className="logo-2"
-              src="http://res.cloudinary.com/djrgebhxz/image/upload/v1495496494/s-logo-5_yz28wf.png"/>
+              src="https://res.cloudinary.com/djrgebhxz/image/upload/v1495496494/s-logo-5_yz28wf.png"/>
             <span>louch</span>
           </div>
 
