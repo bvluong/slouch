@@ -1,7 +1,6 @@
 ![S](docs/images/slouch2.png)
 
-Slouch is a messaging web application inspired by Slack built using Ruby on Rails and React.
-It utilizes a PostgresSQL database, BCrypt for authentication, and Redux architecture to structure the data flow.
+Slouch is a messaging web application inspired by Slack built using Ruby on Rails on the backend. For the frontend, the application leverages React and Redux architecture to create responsive UX and decreased server requests by building a single page web application. It also utilizes a PostgresSQL database, BCrypt for authentication, and integrates Rails Action Jobs to serve as a backend queue enabling asynchronous broadcast of new messages.
 
 Live Site: [Slouch-App](www.slouch-app.com)
 
@@ -25,6 +24,7 @@ Slouch utilizes the following:
 - React.js / Redux
 - jQuery / BCrypt
 - Emoji-mart / React-emoji
+- Ajax / npm 
 
 ## Features
 
@@ -49,7 +49,7 @@ const App = () => (
 
 ### Live Chat
 
-Slouch uses **Action Cables** for maintaining a Websocket protocol connection. As a user enters a chatroom, they will be automatically `subscribed` to the channel. After a message is created, our Action Cables will `broadcast` the message to every user currently subscribed to the chatroom channel. Once the message is received, **React** will update it's `store` and send new `props` to the chatroom component resulting in a re-render.
+Slouch utilizes **Rails 5.0 Action Cables** to maintain a Websocket TCP connection allowing users to communicate in real time and receive notifications. As a user enters a chatroom, they will be automatically `subscribed` to the channel. After a message is created, our Action Cables will `broadcast` the message to every user currently subscribed to the chatroom channel. Once the message is received, **React** will update it's `store` and send new `props` to the chatroom component resulting in a re-render.
 
 ![live-chat](docs/images/typing.gif)
 
