@@ -156,8 +156,27 @@ emojiList() {
 
 ```
 
-When an icon is picked from our emojiList, a request is sent through `addEmoji` action which will trigger a AJAX request to `POST` a new reaction.
-After a json response is received back, an `Action` will be dispatch to our `Reducers` which updates the particular slice of state within the store.
+When an icon is picked from our emojiList, a request is sent through `addEmoji` action which will trigger a AJAX request to `POST` a new reaction. After a json response is received back, an `Action` will be dispatch to our `Reducers` which updates the particular slice of state within the store.
+
+```javascript
+showEmojis(message_id) {
+  return e => {
+    e.preventDefault();
+    this.setState({showEmojis: !this.state.showEmojis,
+        emoji_css: {position: 'absolute', top: e.clientY-166, left: e.clientX-200,
+          background: 'white',
+          width: '220px',
+          height: '200px',
+          bottom: '0px',
+          padding: '0px',
+          margin: '0px',
+          right: '60px'},
+      message_id }, () => this.refs.emojilist.focus());
+
+  };
+}
+```
+The list of emojis are not duplicated, but repositioned using **DOM manipulation** in order to save server request data. The emojiList are displayed by calculating the relative position of where the user has clicked on the screen. **React Event Handlers** such as blur and focus are utilized to hide the emojiList and allow for automatic closing when the user clicks outside of the emojiList.
 
 ## Design
 
