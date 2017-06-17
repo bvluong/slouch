@@ -24,7 +24,7 @@ Slouch utilizes the following:
 - React.js / Redux
 - jQuery / BCrypt
 - Emoji-mart / React-emoji
-- Ajax / npm 
+- Ajax / npm
 
 ## Features
 
@@ -49,7 +49,7 @@ const App = () => (
 
 ### Live Chat
 
-Slouch utilizes **Rails 5.0 Action Cables** to maintain a Websocket TCP connection allowing users to communicate in real time and receive notifications. As a user enters a chatroom, they will be automatically `subscribed` to the channel. After a message is created, our Action Cables will `broadcast` the message to every user currently subscribed to the chatroom channel. Once the message is received, **React** will update it's `store` and send new `props` to the chatroom component resulting in a re-render.
+Slouch utilizes **Rails 5.0 Action Cables** to maintain a Websocket TCP connection allowing users to communicate in real time and receive notifications. As a user enters a chatroom, they will be automatically `subscribed` to the channel. After a message is created, our Action Cables will `broadcast` the message to every user currently subscribed to the chatroom channel. Once the message is received, **React** will update it's `store` through it's diffing algorithm which compares the Virtual DOM with the Real DOM.
 
 ![live-chat](docs/images/typing.gif)
 
