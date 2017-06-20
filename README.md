@@ -2,7 +2,7 @@
 
 Slouch is a messaging web application inspired by Slack built using Ruby on Rails on the backend. For the frontend, the application leverages React and Redux architecture to create responsive UX and decreased server requests by building a single page web application. It also utilizes a PostgresSQL database, BCrypt for authentication, and integrates Rails Action Jobs to serve as a backend queue enabling asynchronous broadcast of new messages.
 
-Live Site: [Slouch-App](www.slouch-app.com)
+Live Site: [Slouch-App](https://www.slouch-app.com)
 
 ## Table of Contents
 1. [Technology](#technology)
