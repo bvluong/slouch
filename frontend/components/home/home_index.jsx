@@ -1,6 +1,7 @@
 import React from 'react';
 import HomeHeader from './home_header';
 import HomeFooter from './home_footer';
+import { Link } from 'react-router-dom';
 
 class HomeIndex extends React.Component {
 
@@ -14,9 +15,31 @@ class HomeIndex extends React.Component {
       </div>
 
         <div className="shadow">
-          <video id="bgvid" muted autoPlay>
-            <source src="https://res.cloudinary.com/djrgebhxz/video/upload/e_saturation:-30,e_contrast:-20,e_brightness:-25/v1495141384/Office_Perks_lnjoct.mp4" type="video/mp4" autoPlay />
-          </video>
+          <div className="splash">
+            <div className="splash_logo">
+              Slouch
+            </div>
+            <div className="splash_svg">
+              <svg width="100%" height="100%">
+                <rect width="100%" height="100%" />
+          	  </svg>
+            </div>
+            <div className="splash_minimize">
+              <svg width="100%" height="100%">
+                <rect width="100%" height="100%" />
+          	  </svg>
+            </div>
+          </div>
+          <div className="text">
+            <p>
+              Slouch
+            </p>
+            <p>Where work</p>
+            <Link to="/signup">
+              <button>Starts</button>
+            </Link>
+          </div>
+
         </div>
     </div>
   );}
