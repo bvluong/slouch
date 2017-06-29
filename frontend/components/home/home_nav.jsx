@@ -18,21 +18,25 @@ class HomeNav extends React.Component {
   render() {
     return(
     <div className="home-nav">
-        <button className="home-button" id="red"
+        <div className="header-button">
+        <button className="home-button" id="submit-button"
           onClick={this.demoHandler.bind(this)}
-          type="button">Demo 1</button>
-        <button className="home-button" id="blue"
+          type="button">Guest</button>
+        <button className="home-button" id="submit-button"
           onClick={this.demoHandler2.bind(this)}
-            type="button">Demo 2</button>
-        <Link to="/login">
-          <button type="button" id="green"
-            className="home-button">Login</button>
-        </Link>
+            type="button">Guest 2</button>
+        </div>
+        <div className="header-button">
+          <Link to="/login">
+            <button type="button" id="submit-button"
+              className="home-button">Login</button>
+          </Link>
 
-        <Link to="/signup">
-          <button type="button" id="orange"
-            className="home-button">Signup</button>
-        </Link>
+          <Link to="/signup">
+            <button type="button" id="submit-button"
+              className="home-button">Signup</button>
+          </Link>
+        </div>
     </div>
   );}
 }

@@ -1,0 +1,40 @@
+.home-background {
+  width: 100%;
+  height: 100%;
+  background: #f5d300;
+}
+
+#submit-button {
+  margin-top: 20px;
+    border: 0;
+    opacity: 0;
+    background: #191919;
+    color: #f5d300;
+    border: 1px solid #191919;
+    letter-spacing: 2px;
+    padding: .5rem 2.5rem;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-transition: color 0.5s, background-color 0.5s;
+    -moz-transition: color 0.5s, background-color 0.5s;
+    -ms-transition: color 0.5s, background-color 0.5s;
+    -o-transition: color 0.5s, background-color 0.5s;
+    transition: color 0.5s, background-color 0.5s;
+    -webkit-animation: on .6s ease-in-out 2s forwards;
+    -moz-animation: on .6s ease-in-out 2s forwards;
+    -o-animation: on .6s ease-in-out 2s forwards;
+    width: 150px;
+  &:hover {
+    background: #f5d300;
+    color: #191919;
+    cursor: pointer;
+  }
+}
+
+.header-button {
+  display: flex;
+  flex-direction: column;
+  margin: 3px;
+}

@@ -4,7 +4,7 @@
   top: 10%;
   left: 20%;
   width: 60%;
-  color: white;
+  color: black;
   margin-top: 8%;
   margin-bottom: 0;
   // left: ;
@@ -30,10 +30,10 @@
 
 
 .home-form h2 {
-  color: rgba(255,255,255,.9);
+  color: black;
   font-size: 150%;
   text-shadow: 0;
-  font-weight: 300;
+  font-weight: 600;
   margin-top: 10px;
 }
 
@@ -42,6 +42,15 @@
   font-size: 150%;
   text-align: center;
   margin-top: 15px;
+  opacity: 0;
+  -webkit-transition: color 0.5s, background-color 0.5s;
+  -moz-transition: color 0.5s, background-color 0.5s;
+  -ms-transition: color 0.5s, background-color 0.5s;
+  -o-transition: color 0.5s, background-color 0.5s;
+  transition: color 0.5s, background-color 0.5s;
+  -webkit-animation: on .6s ease-in-out 1s forwards;
+  -moz-animation: on .6s ease-in-out 1s forwards;
+  -o-animation: on .6s ease-in-out 1s forwards;
 }
 
 .home-welcome {
@@ -56,7 +65,7 @@
 
 
 .home-form .errors {
-  color: white;
+  color: black;
   font-weight: normal;
 }
 
@@ -65,9 +74,18 @@
     letter-spacing: 4px;
     padding-top: 20px;
     text-align: center;
+    opacity: 0;
+    -webkit-transition: color 0.5s, background-color 0.5s;
+    -moz-transition: color 0.5s, background-color 0.5s;
+    -ms-transition: color 0.5s, background-color 0.5s;
+    -o-transition: color 0.5s, background-color 0.5s;
+    transition: color 0.5s, background-color 0.5s;
+    -webkit-animation: on .6s ease-in-out 1.5s forwards;
+    -moz-animation: on .6s ease-in-out 1.5s forwards;
+    -o-animation: on .6s ease-in-out 1.5s forwards;
   }
   .home-form .label .label-text {
-    color: white;
+    color: black;
     cursor: text;
     font-size: 20px;
     line-height: 20px;
@@ -81,8 +99,8 @@
   .label input {
     background-color: transparent;
     border: 0;
-    border-bottom: 2px solid white;
-    color: white;
+    border-bottom: 2px solid black;
+    color: black;
     font-size: 36px;
     letter-spacing: -1px;
     outline: 0;
@@ -96,7 +114,7 @@
     width: 400px;
   }
   .label input:focus + .label-text {
-    color: white;
+    color: black;
     font-size: 15px;
     -moz-transform: translateY(-74px);
     -ms-transform: translateY(-74px);
@@ -113,35 +131,36 @@
 
 .home-button {
   &:hover, &:focus {
-    background-color: white;
+    background-color: black;
     color: #333333;
     outline: 0;
   }
 }
 
  #submit-button, #start-button {
-  background-color: #702b45;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  font-size: 20px;
-  margin-top: 20px;
-  padding: 15px 30px;
-  width: 250px;
-  text-transform: uppercase;
-  transition: all 200ms;
-  &:hover, &:focus {
-    background-color: white;
-    color: #333333;
-    outline: 0;
-  }
+  // background-color: transparent;
+  // border-radius: 5px;
+  // color: black;
+  // border: 1px solid black;
+  // cursor: pointer;
+  // font-size: 20px;
+  // margin-top: 20px;
+  // padding: 15px 30px;
+  // width: 250px;
+  // text-transform: uppercase;
+  // transition: all 200ms;
+  // &:hover, &:focus {
+  //   background-color: black;
+  //   color: #333333;
+  //   outline: 0;
+  // }
 }
 
 #start-button {
-  margin-top: 20%;
-  color: white;
-  width: 300px;
-  font-size: 110%;
-  font-weight: bold;
-  font-weight: normal;
+  // margin-top: 20%;
+  // color: black;
+  // width: 300px;
+  // font-size: 110%;
+  // font-weight: bold;
+  // font-weight: normal;
 }
