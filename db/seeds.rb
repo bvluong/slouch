@@ -31,13 +31,6 @@ users = []
 
 users << User.create(username:"Marcus Aurelius", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495319947/bust_of_marcus_aurelius__13-8-142D07083142A8FB126_qwv2wx.png")
 users << User.create(username:"Seneca", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495320345/seneca_royy52.png")
-users << User.create(username:"Plato", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495319947/bust_of_marcus_aurelius__13-8-142D07083142A8FB126_qwv2wx.png")
-users << User.create(username:"Aristotle", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495319947/bust_of_marcus_aurelius__13-8-142D07083142A8FB126_qwv2wx.png")
-users << User.create(username:"Zeno", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495319947/bust_of_marcus_aurelius__13-8-142D07083142A8FB126_qwv2wx.png")
-users << User.create(username:"Epictetus", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495319947/bust_of_marcus_aurelius__13-8-142D07083142A8FB126_qwv2wx.png")
-users << User.create(username:"Cleanthes", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495319947/bust_of_marcus_aurelius__13-8-142D07083142A8FB126_qwv2wx.png")
-
-demo_users = ["Seneca","Cleanthes","Epictetus","Zeno","Aristotle","Plato"]
 
 5.times do
   users << FactoryGirl.create(:user, username: Faker::HarryPotter.unique.character)
@@ -59,11 +52,19 @@ end
   users << FactoryGirl.create(:user, username: Faker::Ancient.unique.primordial, image_url: Faker::LoremPixel.image )
 end
 
-user1 = FactoryGirl.create(:user, username: "Dobyrynin")
-user2 = FactoryGirl.create(:user, username: "Debsfong")
-user3 = FactoryGirl.create(:user, username: "monte47")
-user4 = FactoryGirl.create(:user, username: "Ericwindmill")
-user5 = FactoryGirl.create(:user, username: "Aaron.wayne")
+guest1 = User.create(username:"Debsfong", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495319947/bust_of_marcus_aurelius__13-8-142D07083142A8FB126_qwv2wx.png")
+guest2 = User.create(username:"Dobyrynin", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495319947/bust_of_marcus_aurelius__13-8-142D07083142A8FB126_qwv2wx.png")
+guest3 = User.create(username:"Monte47", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495319947/bust_of_marcus_aurelius__13-8-142D07083142A8FB126_qwv2wx.png")
+guest4 = User.create(username:"Ericwindmill", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495319947/bust_of_marcus_aurelius__13-8-142D07083142A8FB126_qwv2wx.png")
+guest5 = User.create(username:"Aaron.Wayne", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495319947/bust_of_marcus_aurelius__13-8-142D07083142A8FB126_qwv2wx.png")
+demo_names = ["Seneca","Cleanthes","Epictetus","Zeno","Aristotle","Plato"]
+
+
+user1 = FactoryGirl.create(:user, username: "Plato")
+user2 = FactoryGirl.create(:user, username: "Zeno")
+user3 = FactoryGirl.create(:user, username: "Aristotle")
+user4 = FactoryGirl.create(:user, username: "Epictetus")
+user5 = FactoryGirl.create(:user, username: "Cleanthes")
 
 
 
@@ -79,11 +80,11 @@ Channel.create(name: "mindfulness", description: "Moment-by-moment awareness. Li
 Channel.create(name: "reactjs", description: "A community for learning and developing web applications using React")
 ]
 
-channel1 = Channel.create(name: "Dobyrynin,Marcus Aurelius", description: "Direct Message", private: true)
-channel2 = Channel.create(name: "Debsfong,Marcus Aurelius", description: "Direct Message", private: true)
-channel3 = Channel.create(name: "Marcus Aurelius,monte47", description: "Direct Message", private: true)
-channel4 = Channel.create(name: "Ericwindmill,Marcus Aurelius", description: "Direct Message", private: true)
-channel5 = Channel.create(name: "Aaron.wayne,Marcus Aurelius", description: "Direct Message", private: true)
+channel1 = Channel.create(name: "Plato,Marcus Aurelius", description: "Direct Message", private: true)
+channel2 = Channel.create(name: "Zeno,Marcus Aurelius", description: "Direct Message", private: true)
+channel3 = Channel.create(name: "Marcus Aurelius,Aristotle", description: "Direct Message", private: true)
+channel4 = Channel.create(name: "Epictetus,Marcus Aurelius", description: "Direct Message", private: true)
+channel5 = Channel.create(name: "Cleanthes,Marcus Aurelius", description: "Direct Message", private: true)
 
 channels2 = [
 Channel.create(name: "funny", description: "You may only post if you are funny."),
@@ -101,6 +102,7 @@ Channel.create(name: "technology", description: "a place to share and discuss th
 Channel.create(name: "life-pro-tip", description: "Tips that improves life for youin a specific and significant way."),
 Channel.create(name: "TIFU", description: "Today I fudged uped")
 ]
+
 
 channel6 = Channel.create(name: "Marcus Aurelius,Seneca", description: "Direct Message", private: true)
 
@@ -160,6 +162,11 @@ Subscription.create(user_id: 2,channel_id: channel6.id)
 (1..7).step do |channel_id|
   user_subscriptions[1] = (user_subscriptions[1] << channel_id)
   user_subscriptions[2] = (user_subscriptions[2] << channel_id)
+  user_subscriptions[36] = (user_subscriptions[36] << channel_id)
+  user_subscriptions[35] = (user_subscriptions[35] << channel_id)
+  user_subscriptions[34] = (user_subscriptions[34] << channel_id)
+  user_subscriptions[33] = (user_subscriptions[33] << channel_id)
+  user_subscriptions[37] = (user_subscriptions[37] << channel_id)
 end
 
 messages.each do |message|
