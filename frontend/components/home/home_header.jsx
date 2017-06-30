@@ -10,8 +10,9 @@ class HomeHeader extends React.Component {
       <div className='left-header'>
         <Link to="/">
           <img className="logo"
-            src="https://res.cloudinary.com/djrgebhxz/image/upload/v1495496494/s-logo-5_yz28wf.png"/></Link>
-        <Link to="/"> <span>louch</span> </Link>
+            src="http://res.cloudinary.com/djrgebhxz/image/upload/v1498781719/s-logo-5_ehy2jc.png"/>
+          <span>louch</span>
+        </Link>
       </div>
       <div className='right-header'>
         <HomeNavContainer/>

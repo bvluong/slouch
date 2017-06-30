@@ -10,10 +10,6 @@ class HomeIndex extends React.Component {
     return(
     <div className="home-whole">
 
-      <div className="home-index" >
-        <HomeHeader/>
-      </div>
-
         <div className="shadow">
           <div className="splash">
             <div className="splash_logo">
