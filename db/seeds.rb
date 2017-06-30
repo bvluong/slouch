@@ -52,11 +52,11 @@ end
   users << FactoryGirl.create(:user, username: Faker::Ancient.unique.primordial, image_url: Faker::LoremPixel.image )
 end
 
-guest1 = User.create(username:"Debsfong", password: "password", image_url: "hhttps://res.cloudinary.com/djrgebhxz/image/upload/v1495320345/seneca_royy52.png")
-guest2 = User.create(username:"Dobyrynin", password: "password", image_url: "hhttps://res.cloudinary.com/djrgebhxz/image/upload/v1495320345/seneca_royy52.png")
-guest3 = User.create(username:"Monte47", password: "password", image_url: "hhttps://res.cloudinary.com/djrgebhxz/image/upload/v1495320345/seneca_royy52.png")
-guest4 = User.create(username:"Ericwindmill", password: "password", image_url: "hhttps://res.cloudinary.com/djrgebhxz/image/upload/v1495320345/seneca_royy52.png")
-guest5 = User.create(username:"Aaron.Wayne", password: "password", image_url: "hhttps://res.cloudinary.com/djrgebhxz/image/upload/v1495320345/seneca_royy52.png")
+guest1 = User.create(username:"Debsfong", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495320345/seneca_royy52.png")
+guest2 = User.create(username:"Dobyrynin", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495320345/seneca_royy52.png")
+guest3 = User.create(username:"Monte47", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495320345/seneca_royy52.png")
+guest4 = User.create(username:"Ericwindmill", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495320345/seneca_royy52.png")
+guest5 = User.create(username:"Aaron.Wayne", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495320345/seneca_royy52.png")
 [guest1,guest2,guest3,guest4,guest5].each {|user| users << user }
 
 
