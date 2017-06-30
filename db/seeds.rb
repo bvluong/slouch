@@ -31,6 +31,13 @@ users = []
 
 users << User.create(username:"Marcus Aurelius", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495319947/bust_of_marcus_aurelius__13-8-142D07083142A8FB126_qwv2wx.png")
 users << User.create(username:"Seneca", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495320345/seneca_royy52.png")
+users << User.create(username:"Plato", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495319947/bust_of_marcus_aurelius__13-8-142D07083142A8FB126_qwv2wx.png")
+users << User.create(username:"Aristotle", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495319947/bust_of_marcus_aurelius__13-8-142D07083142A8FB126_qwv2wx.png")
+users << User.create(username:"Zeno", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495319947/bust_of_marcus_aurelius__13-8-142D07083142A8FB126_qwv2wx.png")
+users << User.create(username:"Epictetus", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495319947/bust_of_marcus_aurelius__13-8-142D07083142A8FB126_qwv2wx.png")
+users << User.create(username:"Cleanthes", password: "password", image_url: "https://res.cloudinary.com/djrgebhxz/image/upload/v1495319947/bust_of_marcus_aurelius__13-8-142D07083142A8FB126_qwv2wx.png")
+
+demo_users = ["Seneca","Cleanthes","Epictetus","Zeno","Aristotle","Plato"]
 
 5.times do
   users << FactoryGirl.create(:user, username: Faker::HarryPotter.unique.character)
@@ -44,7 +51,7 @@ end
   users << FactoryGirl.create(:user, username: Faker::StarWars.unique.character)
 end
 
-10.times do
+5.times do
   users << FactoryGirl.create(:user, username: Faker::Ancient.unique.primordial)
 end
 

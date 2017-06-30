@@ -14,18 +14,13 @@ class HomeNav extends React.Component {
     this.props.login({username: "Seneca", password:"password"})
     .then(this.props.history.replace("/main"));
   }
+  // <button className="home-button" id="submit-button"
+  //   onClick={this.demoHandler.bind(this)}
+  //   type="button">Guest</button>
 
   render() {
     return(
     <div className="home-nav">
-        <div className="header-button">
-        <button className="home-button" id="submit-button"
-          onClick={this.demoHandler.bind(this)}
-          type="button">Guest</button>
-        <button className="home-button" id="submit-button"
-          onClick={this.demoHandler2.bind(this)}
-            type="button">Guest 2</button>
-        </div>
         <div className="header-button">
           <Link to="/login">
             <button type="button" id="submit-button"
@@ -36,6 +31,9 @@ class HomeNav extends React.Component {
             <button type="button" id="submit-button"
               className="home-button">Signup</button>
           </Link>
+          <button className="home-button" id="submit-button"
+            onClick={this.demoHandler2.bind(this)}
+            type="button">Guest 2</button>
         </div>
     </div>
   );}
