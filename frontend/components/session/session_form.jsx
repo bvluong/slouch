@@ -31,13 +31,6 @@ class SessionForm extends React.Component {
     const { username, password } = this.state;
     const mapErrors = errors.map( (err,idx) => <h2 className="errors" key={idx}>{err}</h2>);
     const header = (formType==="login") ? "Login" : "Sign up";
-    // <div className="welcome-logo">
-    //   <img className="logo-2"
-    //     src="https://res.cloudinary.com/djrgebhxz/image/upload/v1495496494/s-logo-5_yz28wf.png"/>
-    //   <span>louch</span>
-    // </div>
-    //
-    // <h2>Slouch is a real time web chatting clone of Slack.</h2>
     return (
       <div className="home-background">
         <HomeHeader/>
