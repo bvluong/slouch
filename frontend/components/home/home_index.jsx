@@ -28,11 +28,12 @@ class HomeIndex extends React.Component {
           </div>
           <div className="text">
             <p>
-              Slouch
+              A Real Time
             </p>
-            <p>Where work</p>
+            <p>Messaging</p>
+            <p>Web App</p>
             <Link to="/signup">
-              <button>Starts</button>
+              <button>Explore</button>
             </Link>
           </div>
 
