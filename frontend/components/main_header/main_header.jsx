@@ -30,9 +30,7 @@ class MainHeader extends React.Component {
           <span className="channel-user-count">{currentChannel.users.length} | </span>
 
           <span>
-            <img src="https://res.cloudinary.com/djrgebhxz/image/upload/v1495582280/nyanparrot_khcpab.gif"/>
             {description}
-            <img src="https://res.cloudinary.com/djrgebhxz/image/upload/v1495578902/partyparrot_dtebhb.gif" />
           </span>
 
         </section>
