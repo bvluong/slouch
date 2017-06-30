@@ -1,6 +1,7 @@
 import React from 'react';
 import SessionFormInput from './session_form_input';
 import HomeHeader from '../home/home_header';
+import { Link, Route, withRouter } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class SessionForm extends React.Component {
     this.state = { username: "", password: ""};
     this.updateHandler = this.updateHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
+    this.demoHandler = this.demoHandler.bind(this);
   }
 
   updateHandler(field) {
@@ -18,6 +20,12 @@ class SessionForm extends React.Component {
 
   componentDidMount() {
     this.props.clearErrors();
+  }
+
+  demoHandler(e) {
+    e.preventDefault();
+    this.props.login({username: "Marcus Aurelius", password:"password"})
+    .then(this.props.history.replace("/main"));
   }
 
   submitHandler(e) {
@@ -41,11 +49,12 @@ class SessionForm extends React.Component {
             password={password}
             header={header}
             updateHandler={this.updateHandler}
-            submitHandler={this.submitHandler}/>
+            submitHandler={this.submitHandler}
+            demoHandler={this.demoHandler}/>
         </div>
       </div>
     );
   }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);

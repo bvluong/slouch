@@ -13,7 +13,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     login : signup;
   return {
   processForm: user => dispatch(processForm(user)),
-  clearErrors: () => dispatch(clearErrors())
+  clearErrors: () => dispatch(clearErrors()),
+  login: user => dispatch(login(user))
   };
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
-const SessionFormInput = ({username, password, header, updateHandler, submitHandler}) => (
-  <form onSubmit={submitHandler} >
+const SessionFormInput = ({username, password, header, updateHandler, submitHandler, demoHandler}) => (
+  <form onSubmit={ submitHandler} >
     <label className="label">
       <input type="text" required
         className="form-input"
@@ -20,6 +20,9 @@ const SessionFormInput = ({username, password, header, updateHandler, submitHand
     <div className="label-text">Password</div>
     </label>
     <input id="submit-button" className="home-button" type="submit" value={header}/>
+    <button id="submit-button"
+      onClick={demoHandler.bind(this)}
+      type="button">Guest</button>
   </form>
 );
 
