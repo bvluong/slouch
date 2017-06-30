@@ -3,21 +3,6 @@ import { Link, Route, withRouter } from 'react-router-dom';
 
 class HomeNav extends React.Component {
 
-  demoHandler(e) {
-    e.preventDefault();
-    this.props.login({username: "Marcus Aurelius", password:"password"})
-    .then(this.props.history.replace("/main"));
-  }
-
-  demoHandler2(e) {
-    e.preventDefault();
-    this.props.login({username: "Seneca", password:"password"})
-    .then(this.props.history.replace("/main"));
-  }
-  // <button className="home-button" id="submit-button"
-  //   onClick={this.demoHandler.bind(this)}
-  //   type="button">Guest</button>
-
   render() {
     return(
     <div className="home-nav">
@@ -31,9 +16,6 @@ class HomeNav extends React.Component {
             <button type="button" id="submit-button"
               className="home-button">Signup</button>
           </Link>
-          <button className="home-button" id="submit-button"
-            onClick={this.demoHandler2.bind(this)}
-            type="button">Guest 2</button>
         </div>
     </div>
   );}

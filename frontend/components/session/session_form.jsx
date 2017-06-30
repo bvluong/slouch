@@ -24,7 +24,9 @@ class SessionForm extends React.Component {
 
   demoHandler(e) {
     e.preventDefault();
-    this.props.login({username: "Marcus Aurelius", password:"password"})
+    const demo_names = ["Marcus Aurelius","Seneca","Cleanthes","Epictetus","Zeno","Aristotle","Plato"];
+    let demo_name = demo_names[Math.floor(Math.random()*7)];
+    this.props.login({username: demo_name, password:"password"})
     .then(this.props.history.replace("/main"));
   }
 
