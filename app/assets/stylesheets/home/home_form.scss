@@ -1,7 +1,7 @@
 .home-background {
   width: 100%;
   height: 100%;
-  background: #f5d300;
+  background: #4c9689;
 }
 
 #submit-button {
@@ -9,7 +9,7 @@
     border: 0;
     opacity: 0;
     background: #191919;
-    color: #f5d300;
+    color: #4c9689;
     border: 1px solid #191919;
     letter-spacing: 2px;
     padding: .5rem 2.5rem;
@@ -27,7 +27,7 @@
     -o-animation: on .6s ease-in-out 2s forwards;
     width: 150px;
   &:hover {
-    background: #f5d300;
+    background: #4c9689;
     color: #191919;
     cursor: pointer;
   }
