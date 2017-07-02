@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 class HomeIndex extends React.Component {
 
   render() {
-    // https://res.cloudinary.com/djrgebhxz/video/upload/e_saturation:-50,e_contrast:-35,e_brightness:-20/v1495045935/laptop_wqw4yx.mp4
     return(
     <div className="home-whole">
 
