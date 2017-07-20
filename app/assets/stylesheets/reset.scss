@@ -41,3 +41,7 @@ a:hover {
 ul, li{
   list-style: none;
 }
+
+button:focus {
+  outline: none;
+}
