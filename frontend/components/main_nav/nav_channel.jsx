@@ -24,7 +24,7 @@ class NavChannel extends React.Component {
     super(props);
 
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
     };
 
     this.openModal = this.openModal.bind(this);
@@ -33,20 +33,17 @@ class NavChannel extends React.Component {
     Modal.setAppElement(appElement);
   }
 
-  openModal() {
-   this.setState({modalIsOpen: true});
- }
-
-
- closeModal() {
-   this.setState({modalIsOpen: false});
- }
-
   componentDidMount() {
     this.props.fetchChannels();
   }
 
+  openModal() {
+    this.setState({ modalIsOpen: true });
+  }
 
+  closeModal() {
+    this.setState({ modalIsOpen: false });
+  }
 
   render() {
     const { channels, userChannels } = this.props;
@@ -61,7 +58,8 @@ class NavChannel extends React.Component {
             onRequestClose={this.closeModal}
             style={customStyles}
             contentLabel="Example Modal"
-            >
+          >
+
             <div className="modal-form-close">
               <button className="close-button"
                 onClick={this.closeModal}>
